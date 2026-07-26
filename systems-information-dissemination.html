@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Barros — The Systems of Information Dissemination</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --paper:#FFFFFF;
+  --ink:#141414;
+  --ink-soft:rgba(20,20,20,0.62);
+  --ink-faint:rgba(20,20,20,0.36);
+  --line:#E7E4DC;
+  --accent:#5B3B7A;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:15.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--ink); color:var(--paper);}
+a{color:inherit; text-decoration:none;}
+a:focus-visible, button:focus-visible{outline:1px solid var(--ink); outline-offset:3px;}
+em, i.serif{font-family:'Instrument Serif',serif; font-style:italic; font-weight:400;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 48px;}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px; margin:0 auto; padding:20px 48px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-mark{font-family:'Archivo',sans-serif; font-size:18px; font-weight:500; letter-spacing:-0.01em;}
+.nav-mark i.serif{font-size:19px;}
+.nav-links{display:flex; gap:34px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:500;}
+.nav-links a{color:var(--ink-soft); transition:color .15s; border-bottom:1px solid transparent;}
+.nav-links a:hover{color:var(--ink); border-color:var(--ink);}
+.nav-links .current{color:var(--ink); border-bottom:1px solid var(--ink);}
+
+.crumb{
+  max-width:1180px; margin:0 auto; padding:26px 48px 0;
+  font-size:12px; color:var(--ink-faint);
+}
+.crumb a{border-bottom:1px solid var(--ink-faint);}
+.crumb a:hover{color:var(--ink); border-color:var(--ink);}
+
+/* ---------- HERO ---------- */
+.hero{padding:64px 48px 0; max-width:1180px; margin:0 auto;}
+.eyebrow{
+  font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:18px; font-weight:500;
+}
+h1.title{
+  font-family:'Archivo',sans-serif; font-weight:400; font-size:clamp(56px,9vw,128px);
+  line-height:0.92; letter-spacing:-0.02em; margin:0;
+}
+.subtitle{
+  font-size:17px; color:var(--ink-soft); max-width:520px; margin:26px 0 44px; font-weight:400; line-height:1.6;
+}
+
+/* hero illustration — monochrome line art, bouquet + speaker */
+.hero-art{
+  border:1px solid var(--line);
+  background:#FAFAF8;
+  aspect-ratio:16/7.6;
+  position:relative;
+}
+.hero-art svg{width:100%; height:100%; display:block;}
+
+/* ---------- META + INTRO ---------- */
+.meta-row{
+  display:grid; grid-template-columns:230px 1fr; gap:64px;
+  padding:64px 48px 0; max-width:1180px; margin:64px auto 0;
+  border-top:1px solid var(--line);
+}
+.meta-block{padding-top:36px;}
+.meta-block dt{
+  font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:22px;
+}
+.meta-block dt:first-child{margin-top:0;}
+.meta-block dd{margin:5px 0 0; font-size:14px; font-weight:500;}
+.deliverables{margin-top:5px; font-size:14px; font-weight:500;}
+.intro{padding-top:36px;}
+.intro p{font-size:20px; line-height:1.55; color:var(--ink); max-width:600px; margin:0; font-weight:400;}
+.intro p i.serif{color:var(--ink);}
+
+/* ---------- SECTIONS ---------- */
+section.chapter{ padding:96px 48px 0; max-width:1180px; margin:0 auto; }
+.chapter-head{display:flex; align-items:baseline; gap:20px; margin-bottom:30px;}
+.chapter-num{font-size:12px; color:var(--ink-faint); font-variant-numeric:tabular-nums;}
+h2.chapter-title{
+  font-family:'Archivo',sans-serif; font-weight:400; font-size:34px; margin:0; letter-spacing:-0.01em;
+}
+.chapter-body{display:grid; grid-template-columns:1.1fr 0.9fr; gap:72px; align-items:start;}
+.chapter-body p{margin:0 0 18px; color:var(--ink); font-size:15.5px;}
+.chapter-body p.lead{font-size:18px; line-height:1.5; font-weight:400;}
+
+.takeaways{ border-top:1px solid var(--ink); padding-top:22px; }
+.takeaways p.label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; }
+.takeaways ul{margin:0; padding:0; list-style:none;}
+.takeaways li{ position:relative; padding-left:18px; margin-bottom:14px; font-size:14.5px; line-height:1.5; color:var(--ink-soft);}
+.takeaways li:last-child{margin-bottom:0;}
+.takeaways li::before{ content:'—'; position:absolute; left:0; top:0; color:var(--ink-faint); }
+
+/* ---------- FULL WIDTH ARTIFACT BLOCKS ---------- */
+.artifact{ margin-top:48px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.artifact-caption{
+  padding:16px 0 40px; font-size:13px; color:var(--ink-faint); display:flex; gap:12px; align-items:flex-start; max-width:760px;
+}
+.artifact-caption .tag{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); flex-shrink:0; padding-top:1px; font-weight:500;}
+
+/* order flow diagram */
+.flow{padding:44px 0; overflow-x:auto;}
+.flow-row{display:flex; align-items:center; gap:0; min-width:660px;}
+.flow-node{ font-size:12px; padding:11px 15px; text-align:center; white-space:nowrap; font-weight:500; border:1px solid var(--ink); }
+.flow-node.step{background:var(--paper); color:var(--ink);}
+.flow-node.decision{background:var(--ink); color:var(--paper);}
+.flow-node.end{background:var(--paper); color:var(--ink); border-style:dashed;}
+.flow-arrow{width:26px; height:1px; background:var(--ink-faint); flex-shrink:0; position:relative;}
+.flow-arrow::after{ content:''; position:absolute; right:0; top:-3px; border-left:6px solid var(--ink-faint); border-top:3px solid transparent; border-bottom:3px solid transparent; }
+
+/* voice transcript signature component */
+.transcript{padding:44px 0; display:flex; flex-direction:column; gap:16px; max-width:600px;}
+.bubble{display:flex; gap:14px; align-items:flex-start;}
+.bubble .who{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; width:56px; flex-shrink:0; padding-top:11px; color:var(--ink-faint);}
+.bubble .say{ padding:11px 16px; font-size:15px; line-height:1.5; max-width:440px; border:1px solid var(--line);}
+.bubble.alexa .say{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+.wave{display:inline-flex; gap:2px; align-items:center; margin-left:8px; vertical-align:middle;}
+.wave i{display:inline-block; width:2px; background:var(--paper); border-radius:1px;}
+.wave i:nth-child(1){height:6px;} .wave i:nth-child(2){height:11px;}
+.wave i:nth-child(3){height:8px;} .wave i:nth-child(4){height:13px;} .wave i:nth-child(5){height:5px;}
+
+/* affinity map recreation */
+.affinity{padding:44px 0; display:flex; gap:0; flex-wrap:wrap;}
+.aff-col{flex:1; min-width:150px; border-left:1px solid var(--line); padding:0 24px;}
+.aff-col:first-child{border-left:none; padding-left:0;}
+.aff-col h4{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; font-weight:500;}
+.note{ font-size:13px; line-height:1.4; padding:0 0 14px; margin-bottom:14px; border-bottom:1px solid var(--line); color:var(--ink-soft);}
+.note:last-child{border-bottom:none; margin-bottom:0;}
+
+/* ---------- OUTCOME ---------- */
+.outcome{ margin-top:96px; padding:72px 48px; max-width:1180px; margin-left:auto; margin-right:auto; background:var(--ink); color:var(--paper); }
+.outcome-inner{max-width:1084px; margin:0 auto;}
+.outcome .chapter-num{color:rgba(255,255,255,0.45);}
+.outcome h2.chapter-title{color:var(--paper);}
+.outcome-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:40px;}
+.outcome-stat{border-top:1px solid rgba(255,255,255,0.25); padding-top:18px;}
+.outcome-stat .num{font-family:'Archivo',sans-serif; font-size:42px; font-weight:400; color:var(--paper);}
+.outcome-stat .lbl{font-size:13.5px; color:rgba(255,255,255,0.6); margin-top:8px; line-height:1.5;}
+.outcome-note{ margin-top:40px; font-size:13px; color:rgba(255,255,255,0.5); border-left:1px solid rgba(255,255,255,0.3); padding-left:16px; max-width:640px; line-height:1.6; font-style:italic;}
+.outcome p.body-text{font-size:18px; color:rgba(255,255,255,0.92); max-width:680px; margin-top:24px; line-height:1.55;}
+.outcome a.link{border-bottom:1px solid rgba(255,255,255,0.4);}
+.outcome a.link:hover{border-color:#fff;}
+
+/* ---------- FOOTER CTA ---------- */
+footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-left:auto; margin-right:auto; border-top:1px solid var(--line); }
+.cta-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:32px;}
+.cta-next .lbl{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px;}
+.cta-next .proj{ font-family:'Instrument Serif',serif; font-style:italic; font-size:36px; font-weight:400; display:inline-flex; align-items:center; gap:12px; color:var(--ink);}
+.cta-next .proj:hover{color:var(--ink-soft);}
+.cta-contact{ font-size:13px; display:flex; flex-direction:column; gap:7px; text-align:right;}
+.cta-contact a{border-bottom:1px solid var(--ink-faint);}
+.cta-contact a:hover{border-color:var(--ink);}
+.foot-bottom{ margin-top:72px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-faint);}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:880px){
+  .wrap,.nav-inner,.crumb,.hero,.meta-row,section.chapter,.outcome,footer.cta{padding-left:22px; padding-right:22px;}
+  .meta-row{grid-template-columns:1fr; gap:28px;}
+  .meta-block{padding-top:0;}
+  .chapter-body{grid-template-columns:1fr; gap:28px;}
+  .outcome-grid{grid-template-columns:1fr; gap:24px;}
+  .nav-links{display:none;}
+  h1.title{font-size:56px;}
+  .cta-contact{text-align:left;}
+  .flow{overflow-x:scroll;}
+  .aff-col{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px;}
+  .aff-col:first-child{border-top:none; padding-top:0;}
+}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+</style>
+<style>
+/* causal layered analysis stack — signature element */
+.cla{padding:44px 0;}
+.cla-layer{display:grid; grid-template-columns:150px 1fr; gap:28px; align-items:start; padding:20px 0; border-top:1px solid var(--line);}
+.cla-layer:last-child{border-bottom:1px solid var(--line);}
+.cla-layer .cn{font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); padding-top:3px;}
+.cla-layer .ct{font-family:'Archivo',sans-serif; font-size:17px; margin-bottom:6px;}
+.cla-layer .cd{font-size:14px; color:var(--ink-soft); line-height:1.55; max-width:620px;}
+.cla-depth{display:flex; align-items:center; gap:10px; margin-top:8px; font-size:10.5px; color:var(--ink-faint);}
+.cla-depth .rule{flex:1; height:1px; background:var(--line); max-width:200px;}
+
+/* methods grid */
+.methods{display:grid; grid-template-columns:repeat(2,1fr); gap:0;}
+.method{border-top:1px solid var(--ink); padding:20px 26px 24px 0;}
+.method:nth-child(even){padding-left:26px; border-left:1px solid var(--line);}
+.method h4{font-family:'Archivo',sans-serif; font-weight:400; font-size:17px; margin:0 0 7px;}
+.method p{font-size:14px; color:var(--ink-soft); margin:0; line-height:1.55;}
+
+/* recommendation cards */
+.recs{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:44px 0;}
+.rec{border:1px solid var(--ink); padding:22px;}
+.rec .rn{font-family:'Archivo',sans-serif; font-size:26px; line-height:1; margin-bottom:12px;}
+.rec h4{font-family:'Archivo',sans-serif; font-weight:400; font-size:16px; margin:0 0 8px; line-height:1.25;}
+.rec p{font-size:13.5px; color:var(--ink-soft); margin:0; line-height:1.5;}
+
+@media (max-width:760px){
+  .methods, .recs{grid-template-columns:1fr;}
+  .method:nth-child(even){padding-left:0; border-left:none;}
+  .cla-layer{grid-template-columns:1fr; gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><a href="index.html" style="text-decoration:none;">Andrea Barros <i class="serif">designs</i></a></div>
+    <div class="nav-links">
+      <a href="work.html">Work</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="about.html">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="crumb"><a href="work.html">Work</a> / The Systems of Information Dissemination</div>
+
+<header class="hero">
+  <div class="eyebrow">Research — Strategic Foresight &amp; Systems Thinking</div>
+  <h1 class="title">The Systems of<br><i class="serif">Information Dissemination</i></h1>
+  <p class="subtitle">A systems study of the complex causes of disinformation and misinformation — mapped, modelled, and turned into intervention points.</p>
+
+  <div class="hero-art">
+    <svg viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#141414">
+      <g transform="translate(600,280)">
+        <circle cx="-70" cy="-40" r="120" stroke-width="1.2" opacity="0.65"/>
+        <circle cx="70" cy="-40" r="120" stroke-width="1.2" opacity="0.65"/>
+        <circle cx="-70" cy="60" r="120" stroke-width="1.2" opacity="0.65"/>
+        <circle cx="70" cy="60" r="120" stroke-width="1.2" opacity="0.65"/>
+        <circle r="52" fill="#141414" stroke="none"/>
+        <text y="-6" font-family="Inter" font-size="11" font-weight="600" fill="#FFFFFF" stroke="none" text-anchor="middle">POWER</text>
+        <text y="8" font-family="Inter" font-size="11" font-weight="600" fill="#FFFFFF" stroke="none" text-anchor="middle">MONEY</text>
+        <text y="22" font-family="Inter" font-size="11" font-weight="600" fill="#FFFFFF" stroke="none" text-anchor="middle">CONTROL</text>
+      </g>
+      <g stroke-width="1" opacity="0.3" stroke-dasharray="5 5">
+        <circle cx="600" cy="280" r="250"/>
+        <circle cx="600" cy="280" r="272"/>
+      </g>
+      <text x="600" y="34" font-family="Inter" font-size="11" letter-spacing="3" fill="#141414" stroke="none" text-anchor="middle" opacity="0.5">MISINFORMATION</text>
+      <text x="600" y="548" font-family="Inter" font-size="11" letter-spacing="3" fill="#141414" stroke="none" text-anchor="middle" opacity="0.5">MISINFORMATION</text>
+    </svg>
+  </div>
+</header>
+
+<div class="meta-row">
+  <div class="meta-block">
+    <dl>
+      <dt>Role</dt><dd>Researcher, Designer</dd>
+      <dt>Team</dt><dd>Aisha Simpson, Hannah Karunakar, Sylvia MacSpadyen, Umar Shaikh</dd>
+      <dt>Client</dt><dd>OCAD University — Strategic Foresight and Innovation</dd>
+      <dt>Type</dt><dd>Research</dd>
+      <dt>Deliverables</dt>
+      <dd class="deliverables">Report, user interview facilitation and synthesis, Gigamap, presentation</dd>
+    </dl>
+  </div>
+  <div class="intro">
+    <p>Our topic of interest stems from our own lived experiences surrounding the pandemic. We researched the complex subject of vaccine mandates and partisanship in North America as part of the <i class="serif">Understanding Systems</i> class, synthesizing our findings into a report and Gigamap.</p>
+  </div>
+</div>
+
+<!-- 01 CHALLENGE -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2 class="chapter-title">The question</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">How did misinformation become so widespread — and who benefits from keeping it that way?</p>
+      <p>Lockdowns, protests and "fake news" let us witness the destabilization of democracy in one of the most polarizing times in history. Rather than treating misinformation as a content problem, we set out to analyze it as a <i>system</i> — one with actors, incentives, and feedback loops that reward its spread.</p>
+      <p>Two findings organized everything that followed: those in power seek to maintain it, and those in power have no incentive to change.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Why systems, not content</p>
+      <ul>
+        <li>Misinformation persists because the system rewards it — fact-checking alone treats the symptom.</li>
+        <li>Four actor groups shape what circulates: traditional media, social media, experts, and government.</li>
+        <li>Public confidence in experts declined measurably across 2021, deepening the problem.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="artifact">
+    <div class="cla">
+      <div class="cla-layer">
+        <div class="cn">Layer 01 — Litany</div>
+        <div>
+          <div class="ct">What we see on the surface</div>
+          <div class="cd">Vitriol. Mistrust of medical experts. Global-scale pandemics. Polarization. The visible, reported events that dominate the news cycle.</div>
+        </div>
+      </div>
+      <div class="cla-layer">
+        <div class="cn">Layer 02 — Systemic</div>
+        <div>
+          <div class="ct">The structures underneath</div>
+          <div class="cd">Historical systematic oppression. Unclear and confusing communication. Inconsistent messaging between institutions that were meant to align.</div>
+        </div>
+      </div>
+      <div class="cla-layer">
+        <div class="cn">Layer 03 — Worldview</div>
+        <div>
+          <div class="ct">The beliefs that hold it in place</div>
+          <div class="cd">News is biased. Mistakes were made in relation to medicine, and medicine can be harmful. Distrust in government and in science.</div>
+        </div>
+      </div>
+      <div class="cla-layer">
+        <div class="cn">Layer 04 — Myth</div>
+        <div>
+          <div class="ct">The story we tell ourselves</div>
+          <div class="cd">All people are equally cared for by public health. More informed equals more power. Autonomy challenged. Lived experience, history and culture are valued expert opinions.</div>
+        </div>
+      </div>
+      <div class="cla-depth"><span>Surface</span><span class="rule"></span><span>Deep structure</span></div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 01</span>
+      <span>Recreation of the Causal Layered Analysis from the Gigamap — moving from the headlines down through structure and worldview to the underlying myth, since interventions aimed at the litany layer rarely hold.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 METHODS -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Methods</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">We combined five research methods, deliberately mixing distanced observation with lived experience.</p>
+      <p>Because our topic came directly out of our own pandemic experiences, autoethnography wasn't a side note — it was a way of naming our position in the system we were studying rather than pretending to sit outside it.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">My role</p>
+      <ul>
+        <li>User interview facilitation and synthesis across the semi-structured interviews.</li>
+        <li>Co-design of the Gigamap and its narrative structure.</li>
+        <li>Report writing and the final presentation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;">
+    <div class="methods">
+      <div class="method">
+        <h4>Secondary research</h4>
+        <p>Existing literature on media systems, polarization, and public trust — the baseline the rest of the work was tested against.</p>
+      </div>
+      <div class="method">
+        <h4>Netnography</h4>
+        <p>Observing how misinformation actually moves through online communities, in their own settings and language.</p>
+      </div>
+      <div class="method">
+        <h4>Semi-structured interviews</h4>
+        <p>Conversations that let participants define what mattered, rather than confirming a hypothesis we'd already written.</p>
+      </div>
+      <div class="method">
+        <h4>Autoethnography</h4>
+        <p>Our own lived experience of the pandemic, treated as data and examined with the same rigour as everything else.</p>
+      </div>
+      <div class="method">
+        <h4>Co-creative workshop</h4>
+        <p>Shaped under Afrofuturist themes — using speculative framing to surface futures the group couldn't otherwise articulate.</p>
+      </div>
+      <div class="method">
+        <h4>Synthesis</h4>
+        <p>All of it pulled into a single Gigamap and report, structured as actors → interaction → path forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FINDINGS -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2 class="chapter-title">Findings</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">At the centre of the map sat power, money and control — and four actor groups circling it.</p>
+      <p>Traditional media, social media, experts and government each hold different incentives, but the overlaps are where misinformation accelerates: the business of academia, how parties stay powerful, media escalation, and the attention economy. Information stops being a public good and becomes a vehicle.</p>
+      <p>We traced two case studies through the map to test it — a New York Times disinformation incident, and a COVID misinformation post going viral — following each from information creation to how it ultimately affects users.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Where the loops close</p>
+      <ul>
+        <li>The business of academia — funding pressure shaping what expertise gets published.</li>
+        <li>How parties stay powerful — policy-making with an agenda, and partisanship as strategy.</li>
+        <li>Media escalation — editorial influence competing for clicks and audience.</li>
+        <li>The attention economy — data sold to advertisers, users bracketed and re-targeted.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="artifact">
+    <div style="padding:44px 0; display:flex; justify-content:center;">
+      <svg viewBox="0 0 620 480" width="100%" style="max-width:520px;" fill="none" stroke="#141414">
+        <g opacity="0.75" stroke-width="1.2">
+          <circle cx="240" cy="180" r="115"/>
+          <circle cx="380" cy="180" r="115"/>
+          <circle cx="240" cy="300" r="115"/>
+          <circle cx="380" cy="300" r="115"/>
+        </g>
+        <circle cx="310" cy="240" r="54" fill="#141414" stroke="none"/>
+        <text x="310" y="232" font-family="Inter" font-size="10" font-weight="600" fill="#FFF" stroke="none" text-anchor="middle">POWER</text>
+        <text x="310" y="245" font-family="Inter" font-size="10" font-weight="600" fill="#FFF" stroke="none" text-anchor="middle">MONEY</text>
+        <text x="310" y="258" font-family="Inter" font-size="10" font-weight="600" fill="#FFF" stroke="none" text-anchor="middle">CONTROL</text>
+
+        <text x="175" y="120" font-family="Inter" font-size="11" font-weight="600" fill="#141414" stroke="none" text-anchor="middle">EXPERTS</text>
+        <text x="450" y="120" font-family="Inter" font-size="11" font-weight="600" fill="#141414" stroke="none" text-anchor="middle">GOVERNMENT</text>
+        <text x="160" y="378" font-family="Inter" font-size="11" font-weight="600" fill="#141414" stroke="none" text-anchor="middle">CORPORATE</text>
+        <text x="160" y="392" font-family="Inter" font-size="11" font-weight="600" fill="#141414" stroke="none" text-anchor="middle">MEDIA</text>
+        <text x="460" y="378" font-family="Inter" font-size="11" font-weight="600" fill="#141414" stroke="none" text-anchor="middle">SOCIAL</text>
+        <text x="460" y="392" font-family="Inter" font-size="11" font-weight="600" fill="#141414" stroke="none" text-anchor="middle">MEDIA</text>
+
+        <text x="310" y="80" font-family="Inter" font-size="9" fill="#141414" stroke="none" text-anchor="middle" opacity="0.6">THE BUSINESS OF ACADEMIA · HOW PARTIES STAY POWERFUL</text>
+        <text x="310" y="430" font-family="Inter" font-size="9" fill="#141414" stroke="none" text-anchor="middle" opacity="0.6">MEDIA ESCALATION · ATTENTION ECONOMY</text>
+
+        <g stroke-width="1" opacity="0.35" stroke-dasharray="4 4">
+          <circle cx="310" cy="240" r="215"/>
+        </g>
+        <text x="310" y="20" font-family="Inter" font-size="9" letter-spacing="2" fill="#141414" stroke="none" text-anchor="middle" opacity="0.55">INFORMATION AS A VEHICLE</text>
+        <text x="310" y="470" font-family="Inter" font-size="9" letter-spacing="2" fill="#141414" stroke="none" text-anchor="middle" opacity="0.55">INFORMATION AS A VEHICLE</text>
+      </svg>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 02</span>
+      <span>Simplified reconstruction of the Gigamap's central systems diagram — four actor groups overlapping around a shared core of power, money and control, with the named dynamics that emerge at each intersection.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 04 THE PATH FORWARD -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">The path forward</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">A complex system has no single lever — so we mapped intervention points instead of solutions.</p>
+      <p>Using Meadows' leverage points and a Three Horizons model, we identified where interventions could realistically change system behaviour, and split them across two scales: what societies can change, and what individuals can. The recommendations require the system to transform — but each starts with an individual intervention that unlocks it.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Framing tools used</p>
+      <ul>
+        <li>Three Horizons — mapping the current state, the transition, and the preferred future.</li>
+        <li>The Intervention Wheel — leverage points ordered by depth of systemic impact.</li>
+        <li>Societal and individual scales, deliberately paired rather than ranked.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="artifact">
+    <div class="recs">
+      <div class="rec">
+        <div class="rn">1</div>
+        <h4>Separate money from information and decision making</h4>
+        <p>Remove financial incentive from the actors shaping public information — including how elections and government officials are funded.</p>
+      </div>
+      <div class="rec">
+        <div class="rn">2</div>
+        <h4>Empower diverse and local voices to emphasize a pluriverse</h4>
+        <p>Move toward a pluriverse rather than a single dominant paradigm: diverse boardrooms, broadcasters, reporters, and amplified local journalism.</p>
+      </div>
+      <div class="rec">
+        <div class="rn">3</div>
+        <h4>Inject transparency into technology and social media companies</h4>
+        <p>Track the information generation and attention-economy causal loops. Once it's developed, surface what is amplifying the headlines whose users so easily identify bad actors and echo chambers.</p>
+      </div>
+      <div class="rec">
+        <div class="rn">4</div>
+        <h4>Reduce polarization through citizen assemblies and subordinate goals</h4>
+        <p>Encourage grassroots dialogue groups, citizens' assemblies, and perspective-taking to reduce conflict by driving superordinate goals — fostering empathy among racial, ethnic, religious and ideological divides.</p>
+      </div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 03</span>
+      <span>Recreation of the four recommendations from the report's final section — each mapped to both a societal and an individual intervention point rather than a single actor.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 05 OUTCOME -->
+<section class="chapter outcome">
+  <div class="outcome-inner">
+    <div class="chapter-head">
+      <span class="chapter-num">05</span>
+      <h2 class="chapter-title">Outcome</h2>
+    </div>
+    <p class="body-text">We presented our findings at <i class="serif" style="color:#fff;">Systems Thinking Ontario</i>, and published the research as a full report alongside the Gigamap.</p>
+
+    <div class="outcome-grid">
+      <div class="outcome-stat">
+        <div class="num">5</div>
+        <div class="lbl">research methods combined: secondary research, netnography, interviews, autoethnography, and a co-creative workshop</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">4</div>
+        <div class="lbl">intervention recommendations, each paired across societal and individual scales</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">1</div>
+        <div class="lbl">Gigamap synthesizing the full system — actors, interactions, and the path forward</div>
+      </div>
+    </div>
+
+    <div class="outcome-note">Links to add before publishing — the full report PDF, the Systems Thinking Ontario presentation recording, and the high-resolution Gigamap.</div>
+
+    <p class="body-text" style="margin-top:28px; font-size:15px; color:rgba(255,255,255,0.65); line-height:1.6;">Research completed as part of the MDes in Strategic Foresight and Innovation at OCAD University, with Aisha Simpson, Hannah Karunakar, Sylvia MacSpadyen and Umar Shaikh.</p>
+  </div>
+</section>
+
+<footer class="cta">
+  <div class="cta-row">
+    <div class="cta-next">
+      <div class="lbl">See the work</div>
+      <a href="work.html" class="proj">Selected case studies →</a>
+    </div>
+    <div class="cta-contact">
+      <a href="#">View resume</a>
+      <a href="#">hello@andreabarros.design</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>Andrea Barros — Design Leadership</span>
+    <span>Denver, CO</span>
+  </div>
+</footer>
+
+</body>
+</html>
