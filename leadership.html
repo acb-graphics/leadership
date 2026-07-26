@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Barros — Leadership</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --paper:#FFFFFF;
+  --ink:#141414;
+  --ink-soft:rgba(20,20,20,0.62);
+  --ink-faint:rgba(20,20,20,0.36);
+  --line:#E7E4DC;
+  --accent:#5B3B7A;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:15.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--ink); color:var(--paper);}
+a{color:inherit; text-decoration:none;}
+a:focus-visible, button:focus-visible{outline:1px solid var(--ink); outline-offset:3px;}
+em, i.serif{font-family:'Instrument Serif',serif; font-style:italic; font-weight:400;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 48px;}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px; margin:0 auto; padding:20px 48px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-mark{font-family:'Archivo',sans-serif; font-size:18px; font-weight:500; letter-spacing:-0.01em;}
+.nav-mark i.serif{font-size:19px;}
+.nav-links{display:flex; gap:34px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:500;}
+.nav-links a{color:var(--ink-soft); transition:color .15s; border-bottom:1px solid transparent;}
+.nav-links a:hover{color:var(--ink); border-color:var(--ink);}
+.nav-links .current{color:var(--ink); border-bottom:1px solid var(--ink);}
+
+.crumb{
+  max-width:1180px; margin:0 auto; padding:26px 48px 0;
+  font-size:12px; color:var(--ink-faint);
+}
+.crumb a{border-bottom:1px solid var(--ink-faint);}
+.crumb a:hover{color:var(--ink); border-color:var(--ink);}
+
+/* ---------- HERO ---------- */
+.hero{padding:64px 48px 0; max-width:1180px; margin:0 auto;}
+.eyebrow{
+  font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:18px; font-weight:500;
+}
+h1.title{
+  font-family:'Archivo',sans-serif; font-weight:400; font-size:clamp(56px,9vw,128px);
+  line-height:0.92; letter-spacing:-0.02em; margin:0;
+}
+.subtitle{
+  font-size:17px; color:var(--ink-soft); max-width:520px; margin:26px 0 44px; font-weight:400; line-height:1.6;
+}
+
+/* hero illustration — monochrome line art, bouquet + speaker */
+.hero-art{
+  border:1px solid var(--line);
+  background:#FAFAF8;
+  aspect-ratio:16/7.6;
+  position:relative;
+}
+.hero-art svg{width:100%; height:100%; display:block;}
+
+/* ---------- META + INTRO ---------- */
+.meta-row{
+  display:grid; grid-template-columns:230px 1fr; gap:64px;
+  padding:64px 48px 0; max-width:1180px; margin:64px auto 0;
+  border-top:1px solid var(--line);
+}
+.meta-block{padding-top:36px;}
+.meta-block dt{
+  font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:22px;
+}
+.meta-block dt:first-child{margin-top:0;}
+.meta-block dd{margin:5px 0 0; font-size:14px; font-weight:500;}
+.deliverables{margin-top:5px; font-size:14px; font-weight:500;}
+.intro{padding-top:36px;}
+.intro p{font-size:20px; line-height:1.55; color:var(--ink); max-width:600px; margin:0; font-weight:400;}
+.intro p i.serif{color:var(--ink);}
+
+/* ---------- SECTIONS ---------- */
+section.chapter{ padding:96px 48px 0; max-width:1180px; margin:0 auto; }
+.chapter-head{display:flex; align-items:baseline; gap:20px; margin-bottom:30px;}
+.chapter-num{font-size:12px; color:var(--ink-faint); font-variant-numeric:tabular-nums;}
+h2.chapter-title{
+  font-family:'Archivo',sans-serif; font-weight:400; font-size:34px; margin:0; letter-spacing:-0.01em;
+}
+.chapter-body{display:grid; grid-template-columns:1.1fr 0.9fr; gap:72px; align-items:start;}
+.chapter-body p{margin:0 0 18px; color:var(--ink); font-size:15.5px;}
+.chapter-body p.lead{font-size:18px; line-height:1.5; font-weight:400;}
+
+.takeaways{ border-top:1px solid var(--ink); padding-top:22px; }
+.takeaways p.label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; }
+.takeaways ul{margin:0; padding:0; list-style:none;}
+.takeaways li{ position:relative; padding-left:18px; margin-bottom:14px; font-size:14.5px; line-height:1.5; color:var(--ink-soft);}
+.takeaways li:last-child{margin-bottom:0;}
+.takeaways li::before{ content:'—'; position:absolute; left:0; top:0; color:var(--ink-faint); }
+
+/* ---------- FULL WIDTH ARTIFACT BLOCKS ---------- */
+.artifact{ margin-top:48px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.artifact-caption{
+  padding:16px 0 40px; font-size:13px; color:var(--ink-faint); display:flex; gap:12px; align-items:flex-start; max-width:760px;
+}
+.artifact-caption .tag{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); flex-shrink:0; padding-top:1px; font-weight:500;}
+
+/* order flow diagram */
+.flow{padding:44px 0; overflow-x:auto;}
+.flow-row{display:flex; align-items:center; gap:0; min-width:660px;}
+.flow-node{ font-size:12px; padding:11px 15px; text-align:center; white-space:nowrap; font-weight:500; border:1px solid var(--ink); }
+.flow-node.step{background:var(--paper); color:var(--ink);}
+.flow-node.decision{background:var(--ink); color:var(--paper);}
+.flow-node.end{background:var(--paper); color:var(--ink); border-style:dashed;}
+.flow-arrow{width:26px; height:1px; background:var(--ink-faint); flex-shrink:0; position:relative;}
+.flow-arrow::after{ content:''; position:absolute; right:0; top:-3px; border-left:6px solid var(--ink-faint); border-top:3px solid transparent; border-bottom:3px solid transparent; }
+
+/* voice transcript signature component */
+.transcript{padding:44px 0; display:flex; flex-direction:column; gap:16px; max-width:600px;}
+.bubble{display:flex; gap:14px; align-items:flex-start;}
+.bubble .who{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; width:56px; flex-shrink:0; padding-top:11px; color:var(--ink-faint);}
+.bubble .say{ padding:11px 16px; font-size:15px; line-height:1.5; max-width:440px; border:1px solid var(--line);}
+.bubble.alexa .say{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+.wave{display:inline-flex; gap:2px; align-items:center; margin-left:8px; vertical-align:middle;}
+.wave i{display:inline-block; width:2px; background:var(--paper); border-radius:1px;}
+.wave i:nth-child(1){height:6px;} .wave i:nth-child(2){height:11px;}
+.wave i:nth-child(3){height:8px;} .wave i:nth-child(4){height:13px;} .wave i:nth-child(5){height:5px;}
+
+/* affinity map recreation */
+.affinity{padding:44px 0; display:flex; gap:0; flex-wrap:wrap;}
+.aff-col{flex:1; min-width:150px; border-left:1px solid var(--line); padding:0 24px;}
+.aff-col:first-child{border-left:none; padding-left:0;}
+.aff-col h4{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; font-weight:500;}
+.note{ font-size:13px; line-height:1.4; padding:0 0 14px; margin-bottom:14px; border-bottom:1px solid var(--line); color:var(--ink-soft);}
+.note:last-child{border-bottom:none; margin-bottom:0;}
+
+/* ---------- OUTCOME ---------- */
+.outcome{ margin-top:96px; padding:72px 48px; max-width:1180px; margin-left:auto; margin-right:auto; background:var(--ink); color:var(--paper); }
+.outcome-inner{max-width:1084px; margin:0 auto;}
+.outcome .chapter-num{color:rgba(255,255,255,0.45);}
+.outcome h2.chapter-title{color:var(--paper);}
+.outcome-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:40px;}
+.outcome-stat{border-top:1px solid rgba(255,255,255,0.25); padding-top:18px;}
+.outcome-stat .num{font-family:'Archivo',sans-serif; font-size:42px; font-weight:400; color:var(--paper);}
+.outcome-stat .lbl{font-size:13.5px; color:rgba(255,255,255,0.6); margin-top:8px; line-height:1.5;}
+.outcome-note{ margin-top:40px; font-size:13px; color:rgba(255,255,255,0.5); border-left:1px solid rgba(255,255,255,0.3); padding-left:16px; max-width:640px; line-height:1.6; font-style:italic;}
+.outcome p.body-text{font-size:18px; color:rgba(255,255,255,0.92); max-width:680px; margin-top:24px; line-height:1.55;}
+.outcome a.link{border-bottom:1px solid rgba(255,255,255,0.4);}
+.outcome a.link:hover{border-color:#fff;}
+
+/* ---------- FOOTER CTA ---------- */
+footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-left:auto; margin-right:auto; border-top:1px solid var(--line); }
+.cta-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:32px;}
+.cta-next .lbl{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px;}
+.cta-next .proj{ font-family:'Instrument Serif',serif; font-style:italic; font-size:36px; font-weight:400; display:inline-flex; align-items:center; gap:12px; color:var(--ink);}
+.cta-next .proj:hover{color:var(--ink-soft);}
+.cta-contact{ font-size:13px; display:flex; flex-direction:column; gap:7px; text-align:right;}
+.cta-contact a{border-bottom:1px solid var(--ink-faint);}
+.cta-contact a:hover{border-color:var(--ink);}
+.foot-bottom{ margin-top:72px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-faint);}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:880px){
+  .wrap,.nav-inner,.crumb,.hero,.meta-row,section.chapter,.outcome,footer.cta{padding-left:22px; padding-right:22px;}
+  .meta-row{grid-template-columns:1fr; gap:28px;}
+  .meta-block{padding-top:0;}
+  .chapter-body{grid-template-columns:1fr; gap:28px;}
+  .outcome-grid{grid-template-columns:1fr; gap:24px;}
+  .nav-links{display:none;}
+  h1.title{font-size:56px;}
+  .cta-contact{text-align:left;}
+  .flow{overflow-x:scroll;}
+  .aff-col{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px;}
+  .aff-col:first-child{border-top:none; padding-top:0;}
+}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+</style>
+<style>
+.lead-principle{border-top:1px solid var(--ink); padding:24px 0 30px; display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+.lead-principle:last-of-type{border-bottom:1px solid var(--ink);}
+.lead-principle h3{font-family:'Archivo',sans-serif; font-weight:400; font-size:23px; margin:0 0 12px; letter-spacing:-0.01em; line-height:1.2;}
+.lead-principle .belief{font-size:15.5px; color:var(--ink); line-height:1.6; margin:0;}
+.lead-principle .practice{font-size:14.5px; color:var(--ink-soft); line-height:1.6;}
+.lead-principle .practice .lbl{font-size:11px; letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:9px;}
+
+.maturity{display:flex; gap:0; margin-top:8px; overflow-x:auto;}
+.mat-step{flex:1; min-width:150px; border:1px solid var(--line); border-right:none; padding:18px 16px;}
+.mat-step:last-child{border-right:1px solid var(--line);}
+.mat-step.here{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+.mat-step .lv{font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; opacity:0.6; margin-bottom:8px;}
+.mat-step .nm{font-family:'Archivo',sans-serif; font-size:15px; margin-bottom:8px;}
+.mat-step .ds{font-size:12px; line-height:1.5; opacity:0.75;}
+
+.ops-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0;}
+.ops{border-top:1px solid var(--ink); padding:20px 24px 26px 0;}
+.ops:not(:first-child){padding-left:24px; border-left:1px solid var(--line);}
+.ops h4{font-family:'Archivo',sans-serif; font-weight:400; font-size:17px; margin:0 0 8px;}
+.ops p{font-size:14px; color:var(--ink-soft); margin:0; line-height:1.55;}
+
+.pod-diagram{padding:44px 0;}
+
+@media (max-width:820px){
+  .lead-principle{grid-template-columns:1fr; gap:18px;}
+  .ops-grid{grid-template-columns:1fr;}
+  .ops:not(:first-child){padding-left:0; border-left:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><a href="index.html" style="text-decoration:none;">Andrea Barros <i class="serif">designs</i></a></div>
+    <div class="nav-links">
+      <a href="work.html">Work</a>
+      <a href="leadership.html" class="current">Leadership</a>
+      <a href="about.html">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Leadership</div>
+  <h1 class="title">Building the<br><i class="serif">team that builds</i></h1>
+  <p class="subtitle">Nine years of managing designers, and the operating system I've built for how teams get structured, staffed and set in a direction.</p>
+</header>
+
+<div class="meta-row">
+  <div class="meta-block">
+    <dl>
+      <dt>Managing since</dt><dd>2017</dd>
+      <dt>Now</dt><dd>Two growth design teams — DISH and Sling</dd>
+      <dt>Previously</dt><dd>VP of Design, Renga · Design Manager, TribalScale</dd>
+      <dt>Practice</dt>
+      <dd class="deliverables">DesignOps, hiring and onboarding, pod structure, design maturity, mentorship</dd>
+    </dl>
+  </div>
+  <div class="intro">
+    <p>I've been building design teams since 2017 — first as a Design Manager at TribalScale, then as VP of Design at Renga, and now managing two growth teams at EchoStar. The through-line: <i class="serif">a team is a system too</i>, and it responds to design.</p>
+  </div>
+</div>
+
+<!-- 01 PHILOSOPHY -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2 class="chapter-title">How I lead</h2>
+  </div>
+
+  <div style="max-width:760px; margin-bottom:44px;">
+    <p style="font-size:19px; line-height:1.5; margin:0;">I care personally and challenge directly. I work for my team rather than the other way around — but working <i>for</i> the team means setting a direction clear enough that they can push back on it, not waiting to be told where to go.</p>
+  </div>
+
+  <div class="lead-principle">
+    <div>
+      <h3>Work for the team</h3>
+      <p class="belief">The manager's job is to clear the road, not to occupy it. I'd rather be the person removing a blocker than the one approving the work.</p>
+    </div>
+    <div class="practice">
+      <span class="lbl">In practice</span>
+      At TribalScale that meant taking the tech-feasibility conversations myself — walking blue-sky wireframes through each Platform Lead — so designers could keep exploring instead of self-censoring against constraints they'd half-guessed.
+    </div>
+  </div>
+
+  <div class="lead-principle">
+    <div>
+      <h3>Pods over hierarchy</h3>
+      <p class="belief">Small cross-functional pods with real decision-making authority. Consistent communication matters more than reporting lines.</p>
+    </div>
+    <div class="practice">
+      <span class="lbl">In practice</span>
+      Pods scoped so a decision can be made inside one, not escalated out of it. The test I use: if a pod has to wait on me to move, the pod is wrong, not the designer.
+    </div>
+  </div>
+
+  <div class="lead-principle">
+    <div>
+      <h3>Everyone at the table is a designer</h3>
+      <p class="belief">Engineers, PMs, copywriters, customer service. The best insight in my career came from a customer service team nobody had asked.</p>
+    </div>
+    <div class="practice">
+      <span class="lbl">In practice</span>
+      At Deciem, floor sales and customer service knew exactly what was broken — they were just never in the room. Getting them into the prioritization exercise changed what the whole company built next.
+    </div>
+  </div>
+
+  <div class="lead-principle">
+    <div>
+      <h3>Advocacy is how design earns its seat</h3>
+      <p class="belief">Design advocacy isn't self-promotion. It's the work of getting design into the conversation early enough to change the question, not just the answer.</p>
+    </div>
+    <div class="practice">
+      <span class="lbl">In practice</span>
+      Scoping and proposal work at Renga, teaching engineering and product partners the vocabulary, and taking research findings to stakeholders unfiltered rather than summarised into agreement.
+    </div>
+  </div>
+
+  <div style="max-width:760px; margin-top:44px;">
+    <p style="font-size:16.5px; color:var(--ink-soft);">Above all: listen, be kind, keep learning, and choose diversity over monoculture.</p>
+  </div>
+</section>
+
+<!-- 02 DESIGNOPS -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">DesignOps</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">My specialty is building design teams — which in practice means designing the operations that let a team scale without losing its judgment.</p>
+      <p>That covers hiring and onboarding, the rituals that keep quality consistent as headcount grows, and the harder structural work of bridging discovery and strategy so design isn't handed a solved problem to decorate.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Where I've done this</p>
+      <ul>
+        <li><b>Renga, as VP of Design</b> — grew and led the design team, improved DesignOps process as the company scaled, and scoped new leads and proposals for new team structures.</li>
+        <li><b>TribalScale, as Design Manager</b> — mentored and grew the design team in line with the organization's vision and growth strategy, across web, mobile, TV, voice and automotive.</li>
+        <li><b>Deciem, as consultant</b> — built the research and prioritization practice that gave five departments a shared view of the customer.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:56px;">
+    <div class="ops-grid">
+      <div class="ops">
+        <h4>Hiring &amp; onboarding</h4>
+        <p>Designing the intake, not just running it — what a new designer needs in week one to make a real decision by week four.</p>
+      </div>
+      <div class="ops">
+        <h4>Rituals &amp; quality bar</h4>
+        <p>Critique, review and handoff structured so quality survives scale, and so feedback is about the work rather than the person giving it.</p>
+      </div>
+      <div class="ops">
+        <h4>Discovery → strategy</h4>
+        <p>Bridging the gap between scoping and strategy-led execution, so design shapes the problem definition instead of inheriting it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 DESIGN MATURITY -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2 class="chapter-title">Moving design maturity</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Most of my career has been spent moving organizations one or two steps along the same ladder.</p>
+      <p>The pattern repeats across sectors: design arrives as a service, proves it can be trusted with a problem rather than a ticket, and eventually gets to set the question. The work of a design leader is largely the work of moving an org up this ladder — and knowing which step it's actually on, not which step it says it's on.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">The diagnostic I use</p>
+      <ul>
+        <li>Who writes the problem statement — design, or someone handing design a solution?</li>
+        <li>When does design enter — at discovery, or after scoping is locked?</li>
+        <li>Does research change roadmaps, or just validate them?</li>
+        <li>Can a designer say no, and does the org survive it?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="artifact" style="border:none;">
+    <div style="padding:44px 0;">
+      <div class="maturity">
+        <div class="mat-step">
+          <div class="lv">Level 01</div>
+          <div class="nm">Design as service</div>
+          <div class="ds">Design receives tickets. Quality is judged on execution against a spec written elsewhere.</div>
+        </div>
+        <div class="mat-step">
+          <div class="lv">Level 02</div>
+          <div class="nm">Design as partner</div>
+          <div class="ds">Design is in the room at scoping. Research exists but rarely changes direction.</div>
+        </div>
+        <div class="mat-step here">
+          <div class="lv">Level 03</div>
+          <div class="nm">Design as strategy</div>
+          <div class="ds">Design frames the problem. Research redirects roadmaps. Systems and standards are owned, not requested.</div>
+        </div>
+        <div class="mat-step">
+          <div class="lv">Level 04</div>
+          <div class="nm">Design as direction</div>
+          <div class="ds">Design sets vision alongside product and engineering, and the org designs for futures rather than quarters.</div>
+        </div>
+      </div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 01</span>
+      <span>The maturity ladder I diagnose against, adapted from the Nielsen Norman Group and InVision design maturity models. Most of my engagements have started at level one or two; the interesting work is the move to three, and the reason I went back for a foresight degree is level four.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 04 GROWING PEOPLE -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Growing people</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Mentorship at scale is the part of this job I'd keep if I had to give up the rest.</p>
+      <p>Alongside managing teams, I've spent a decade teaching — as an industry partner at University of Toronto's iSchool Masters of UXD, a part-time instructor at Red Academy, a teaching assistant at Bridge School, and on the UX Advisory Board at Canada Learning Code shaping curriculum for teens and full-time classes.</p>
+      <p>It isn't a side interest. Teaching is where I learned to explain a decision rather than defend it, and where most of my thinking about how designers actually develop came from.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Community &amp; advocacy</p>
+      <ul>
+        <li>UX Advisory Board — Canada Learning Code, curriculum for teen workshops and full-time classes.</li>
+        <li>Speaker and facilitator — Women and Color, Women Who Code, Ladies Learning Code, CIBC, iMPACT TO.</li>
+        <li>Design Lead — TEDxYouth@Toronto, four consecutive years of brand identity and event design.</li>
+        <li>Published on management and design/dev collaboration — Women and Color, BetaKit.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <a href="teaching.html" style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; text-decoration:none; border-bottom:1px solid var(--ink-faint);">How I build a curriculum →</a>
+  </div>
+</section>
+
+<!-- 05 FORESIGHT -->
+<section class="chapter outcome">
+  <div class="outcome-inner">
+    <div class="chapter-head">
+      <span class="chapter-num">05</span>
+      <h2 class="chapter-title">Why foresight</h2>
+    </div>
+    <p class="body-text">I went back for an MDes in Strategic Foresight and Innovation because I kept hitting the ceiling of what user research can tell you. Research describes the present accurately. It does not tell a team where to go next.</p>
+
+    <div class="outcome-grid">
+      <div class="outcome-stat">
+        <div class="num">CLA</div>
+        <div class="lbl">Causal Layered Analysis — getting past the litany to the worldview holding a problem in place</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">3H</div>
+        <div class="lbl">Three Horizons — naming the current system, the transition, and the preferred future distinctly</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">Leverage</div>
+        <div class="lbl">Meadows' intervention points — where in a system a change actually holds</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top:36px; font-size:16px; color:rgba(255,255,255,0.82);">These are the tools I now use to set direction for a team: not to predict, but to make the assumptions in a roadmap visible enough to argue with. It's the same instinct that made me good at systems work — the belief that if you only fix what's visible, it comes back.</p>
+
+    <div style="margin-top:32px;">
+      <a href="systems-information-dissemination.html" class="link" style="color:#fff; border-bottom:1px solid rgba(255,255,255,0.4); text-decoration:none; font-size:15px;">Read the research →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="cta">
+  <div class="cta-row">
+    <div class="cta-next">
+      <div class="lbl">See it applied</div>
+      <a href="work.html" class="proj">Selected case studies →</a>
+    </div>
+    <div class="cta-contact">
+      <a href="#">View resume</a>
+      <a href="#">hello@andreabarros.design</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>Andrea Barros — Design Leadership</span>
+    <span>Denver, CO</span>
+  </div>
+</footer>
+
+</body>
+</html>
