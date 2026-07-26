@@ -193,6 +193,34 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
   .aff-col:first-child{border-top:none; padding-top:0;}
 }
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+
+/* ---------- MEDIA DEFAULTS ---------- */
+img, svg, video, canvas { max-width:100%; height:auto; display:block; }
+
+/* Contained figure — aligns to the same column as body text */
+.figure{ max-width:1180px; margin:56px auto 0; padding:0 48px; }
+.figure img{ width:100%; }
+.figure figcaption{
+  font-size:13px; color:var(--ink-faint); line-height:1.55; max-width:760px;
+  margin-top:14px; display:flex; gap:12px; align-items:flex-start;
+}
+.figure figcaption .tag{
+  font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-soft); flex-shrink:0; padding-top:1px; font-weight:500;
+}
+
+/* Full-bleed figure — edge to edge. Place as a direct child of <body>. */
+.figure-bleed{ margin:56px 0 0; }
+.figure-bleed img{ width:100%; }
+.figure-bleed figcaption{
+  max-width:1180px; margin:14px auto 0; padding:0 48px;
+  font-size:13px; color:var(--ink-faint); line-height:1.55;
+}
+
+@media (max-width:880px){
+  .figure{ padding-left:22px; padding-right:22px; }
+  .figure-bleed figcaption{ padding-left:22px; padding-right:22px; }
+}
 </style>
 <style>
 .work-list{ max-width:1180px; margin:0 auto; padding:0 48px; }
@@ -211,7 +239,8 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
 .work-item .outcome-line b{font-weight:500;}
 .work-item .meta-line{font-size:12px; color:var(--ink-faint); margin-top:12px; letter-spacing:0.02em;}
 .work-thumb{border:1px solid var(--line); aspect-ratio:16/11; background:#FAFAF8; overflow:hidden;}
-.work-thumb svg{width:100%; height:100%; display:block;}
+.work-thumb svg,
+.work-thumb img{width:100%; height:100%; display:block; object-fit:cover;}
 
 .tier-head{max-width:1180px; margin:0 auto; padding:0 48px;}
 .tier-head .tl{font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint);}
@@ -337,16 +366,9 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
         <div class="meta-line">Lead Product Designer · TribalScale · OTT / Connected TV</div>
       </div>
       <div class="work-thumb">
-        <svg viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#141414">
-          <g opacity="0.4" stroke-width="1">
-            <line x1="0" y1="60" x2="400" y2="10"/>
-            <line x1="0" y1="220" x2="400" y2="265"/>
-          </g>
-          <g transform="translate(200,137)" stroke-width="1.1">
-            <circle r="46"/><circle r="46" transform="rotate(30)"/>
-            <ellipse rx="46" ry="16"/><circle r="10"/>
-          </g>
-        </svg>
+        <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
+             alt="CBS Sports HQ branding on a dark blue background"
+             width="2400" height="1140" loading="lazy">
       </div>
     </div>
   </a>
