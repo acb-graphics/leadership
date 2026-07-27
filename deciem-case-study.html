@@ -80,7 +80,8 @@ h1.title{
   aspect-ratio:16/7.6;
   position:relative;
 }
-.hero-art svg{width:100%; height:100%; display:block;}
+.hero-art svg,
+.hero-art img{width:100%; height:100%; display:block; object-fit:cover;}
 
 /* ---------- META + INTRO ---------- */
 .meta-row{
@@ -262,24 +263,8 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
   <p class="subtitle">Beyond the retail experience — closing the gap between Deciem's internal teams and what customers actually needed.</p>
 
   <div class="hero-art">
-    <svg viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#141414">
-      <g stroke-width="1.3">
-        <rect x="140" y="180" width="70" height="130" rx="6" transform="rotate(-14 175 245)"/>
-        <line x1="170" y1="180" x2="170" y2="150" transform="rotate(-14 175 245)"/>
-        <circle cx="170" cy="140" r="10" transform="rotate(-14 175 245)"/>
-
-        <rect x="340" y="140" width="90" height="160" rx="8" transform="rotate(8 385 220)"/>
-        <line x1="385" y1="140" x2="385" y2="100" transform="rotate(8 385 220)"/>
-        <circle cx="385" cy="90" r="12" transform="rotate(8 385 220)"/>
-
-        <rect x="560" y="190" width="64" height="120" rx="20" transform="rotate(-6 592 250)"/>
-        <rect x="800" y="160" width="80" height="150" rx="6" transform="rotate(12 840 235)"/>
-        <line x1="840" y1="160" x2="840" y2="125" transform="rotate(12 840 235)"/>
-        <circle cx="840" cy="115" r="10" transform="rotate(12 840 235)"/>
-
-        <rect x="990" y="200" width="60" height="110" rx="10" transform="rotate(-10 1020 255)"/>
-      </g>
-    </svg>
+    <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
+         alt="" width="2400" height="1140" loading="lazy">
   </div>
 </header>
 
