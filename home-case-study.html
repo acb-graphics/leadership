@@ -80,7 +80,8 @@ h1.title{
   aspect-ratio:16/7.6;
   position:relative;
 }
-.hero-art svg{width:100%; height:100%; display:block;}
+.hero-art svg,
+.hero-art img{width:100%; height:100%; display:block; object-fit:cover;}
 
 /* ---------- META + INTRO ---------- */
 .meta-row{
@@ -256,23 +257,9 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
   <h1 class="title">Home</h1>
   <p class="subtitle">Turning an early idea into a validated product, brand and roadmap for a startup helping people save for their first house.</p>
 
-  <div class="hero-art" style="background:#7E9A7C; border-color:#7E9A7C;">
-    <svg viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#FFFFFF">
-      <g opacity="0.5" stroke-width="1.2">
-        <circle cx="120" cy="120" r="26"/>
-        <path d="M107 120 h26 M120 107 v26" transform="rotate(45 120 120)"/>
-        <rect x="60" y="180" width="34" height="24" rx="2"/>
-        <path d="M150 210 q10 -20 24 0 q10 -18 22 2"/>
-      </g>
-      <text x="270" y="330" font-family="Instrument Serif" font-style="italic" font-size="120" fill="#FFFFFF" stroke="none">home</text>
-      <g opacity="0.55" stroke-width="1.2">
-        <circle cx="900" cy="150" r="24"/>
-        <path d="M888 150 a12 12 0 1 1 24 0" fill="none"/>
-        <path d="M840 420 q0 -50 40 -50 q40 0 40 50" />
-        <path d="M960 430 q0 -46 36 -46 q36 0 36 46" />
-        <rect x="1020" y="380" width="46" height="34"/>
-      </g>
-    </svg>
+  <div class="hero-art">
+    <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
+         alt="" width="2400" height="1140" loading="lazy">
   </div>
 </header>
 
