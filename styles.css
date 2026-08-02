@@ -148,6 +148,25 @@ h2.chapter-title{
 .note{ font-size:13px; line-height:1.4; padding:0 0 14px; margin-bottom:14px; border-bottom:1px solid var(--line); color:var(--ink-soft);}
 .note:last-child{border-bottom:none; margin-bottom:0;}
 
+/* ---------- ACTIONS NUMBERED LIST (case-study "Actions" section) ---------- */
+.actions-list{ list-style:none; margin:32px 0 0; padding:0; max-width:860px; }
+.actions-list li{ display:grid; grid-template-columns:44px 1fr; gap:24px; padding:26px 0; border-top:1px solid var(--line); }
+.actions-list li:first-child{ border-top:1px solid var(--ink); }
+.a-num{ font-family:'Archivo',sans-serif; font-size:13px; color:var(--ink-faint); font-variant-numeric:tabular-nums; padding-top:3px; }
+.actions-list p{ margin:0; font-size:15.5px; line-height:1.6; color:var(--ink-soft); }
+.actions-list p strong{ color:var(--ink); font-weight:600; }
+
+/* ---------- REFLECTION THREE-UP (case-study "Reflection" section) ---------- */
+.reflection-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:8px; }
+.reflection-col{ border-left:1px solid var(--line); padding:0 28px; }
+.reflection-col:first-child{ border-left:none; padding-left:0; }
+.reflection-col p.label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; font-weight:500; }
+.reflection-col p{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); margin:0; }
+
+/* ---------- STRENGTHS TAG ROW (case-study "Strengths" section) ---------- */
+.strengths-list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+.strengths-list span{ font-size:12px; letter-spacing:0.03em; padding:9px 16px; border:1px solid var(--line); color:var(--ink-soft); font-weight:500; }
+
 /* ---------- OUTCOME ---------- */
 .outcome{ margin-top:96px; padding:72px 48px; max-width:1180px; margin-left:auto; margin-right:auto; background:var(--ink); color:var(--paper); }
 .outcome-inner{max-width:1084px; margin:0 auto;}
@@ -186,6 +205,10 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
   .flow{overflow-x:scroll;}
   .aff-col{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px;}
   .aff-col:first-child{border-top:none; padding-top:0;}
+  .actions-list li{ grid-template-columns:32px 1fr; gap:14px; }
+  .reflection-grid{ grid-template-columns:1fr; gap:24px; }
+  .reflection-col{ border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px; }
+  .reflection-col:first-child{ border-top:none; padding-top:0; }
 }
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
 
