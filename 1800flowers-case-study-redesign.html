@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Barros — 1800Flowers Alexa App</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --paper:#FFFFFF;
+  --ink:#141414;
+  --ink-soft:rgba(20,20,20,0.62);
+  --ink-faint:rgba(20,20,20,0.36);
+  --line:#E7E4DC;
+  --accent:#5B3B7A;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:15.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--ink); color:var(--paper);}
+a{color:inherit; text-decoration:none;}
+a:focus-visible, button:focus-visible{outline:1px solid var(--ink); outline-offset:3px;}
+em, i.serif{font-family:'Instrument Serif',serif; font-style:italic; font-weight:400;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 48px;}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px; margin:0 auto; padding:20px 48px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-mark{font-family:'Archivo',sans-serif; font-size:18px; font-weight:500; letter-spacing:-0.01em;}
+.nav-mark i.serif{font-size:19px;}
+.nav-links{display:flex; gap:34px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:500;}
+.nav-links a{color:var(--ink-soft); transition:color .15s; border-bottom:1px solid transparent;}
+.nav-links a:hover{color:var(--ink); border-color:var(--ink);}
+.nav-links .current{color:var(--ink); border-bottom:1px solid var(--ink);}
+
+.crumb{
+  max-width:1180px; margin:0 auto; padding:26px 48px 0;
+  font-size:12px; color:var(--ink-faint);
+}
+.crumb a{border-bottom:1px solid var(--ink-faint);}
+.crumb a:hover{color:var(--ink); border-color:var(--ink);}
+
+/* ---------- HERO ---------- */
+.hero{padding:64px 48px 0; max-width:1180px; margin:0 auto;}
+.eyebrow{
+  font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:18px; font-weight:500;
+}
+h1.title{
+  font-family:'Archivo',sans-serif; font-weight:400; font-size:clamp(56px,9vw,128px);
+  line-height:0.92; letter-spacing:-0.02em; margin:0;
+}
+.subtitle{
+  font-size:17px; color:var(--ink-soft); max-width:520px; margin:26px 0 44px; font-weight:400; line-height:1.6;
+}
+
+/* hero illustration — monochrome line art, bouquet + speaker */
+.hero-art{
+  border:1px solid var(--line);
+  background:#FAFAF8;
+  aspect-ratio:16/7.6;
+  position:relative;
+}
+.hero-art svg{width:100%; height:100%; display:block;}
+
+/* ---------- META + INTRO ---------- */
+.meta-row{
+  display:grid; grid-template-columns:230px 1fr; gap:64px;
+  padding:64px 48px 0; max-width:1180px; margin:64px auto 0;
+  border-top:1px solid var(--line);
+}
+.meta-block{padding-top:36px;}
+.meta-block dt{
+  font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:22px;
+}
+.meta-block dt:first-child{margin-top:0;}
+.meta-block dd{margin:5px 0 0; font-size:14px; font-weight:500;}
+.deliverables{margin-top:5px; font-size:14px; font-weight:500;}
+.intro{padding-top:36px;}
+.intro p{font-size:20px; line-height:1.55; color:var(--ink); max-width:600px; margin:0; font-weight:400;}
+.intro p i.serif{color:var(--ink);}
+
+/* ---------- SECTIONS ---------- */
+section.chapter{ padding:96px 48px 0; max-width:1180px; margin:0 auto; }
+.chapter-head{display:flex; align-items:baseline; gap:20px; margin-bottom:30px;}
+.chapter-num{font-size:12px; color:var(--ink-faint); font-variant-numeric:tabular-nums;}
+h2.chapter-title{
+  font-family:'Archivo',sans-serif; font-weight:400; font-size:34px; margin:0; letter-spacing:-0.01em;
+}
+.chapter-body{display:grid; grid-template-columns:1.1fr 0.9fr; gap:72px; align-items:start;}
+.chapter-body p{margin:0 0 18px; color:var(--ink); font-size:15.5px;}
+.chapter-body p.lead{font-size:18px; line-height:1.5; font-weight:400;}
+
+.takeaways{ border-top:1px solid var(--ink); padding-top:22px; }
+.takeaways p.label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; }
+.takeaways ul{margin:0; padding:0; list-style:none;}
+.takeaways li{ position:relative; padding-left:18px; margin-bottom:14px; font-size:14.5px; line-height:1.5; color:var(--ink-soft);}
+.takeaways li:last-child{margin-bottom:0;}
+.takeaways li::before{ content:'—'; position:absolute; left:0; top:0; color:var(--ink-faint); }
+
+/* ---------- FULL WIDTH ARTIFACT BLOCKS ---------- */
+.artifact{ margin-top:48px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.artifact-caption{
+  padding:16px 0 40px; font-size:13px; color:var(--ink-faint); display:flex; gap:12px; align-items:flex-start; max-width:760px;
+}
+.artifact-caption .tag{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); flex-shrink:0; padding-top:1px; font-weight:500;}
+
+/* order flow diagram */
+.flow{padding:44px 0; overflow-x:auto;}
+.flow-row{display:flex; align-items:center; gap:0; min-width:660px;}
+.flow-node{ font-size:12px; padding:11px 15px; text-align:center; white-space:nowrap; font-weight:500; border:1px solid var(--ink); }
+.flow-node.step{background:var(--paper); color:var(--ink);}
+.flow-node.decision{background:var(--ink); color:var(--paper);}
+.flow-node.end{background:var(--paper); color:var(--ink); border-style:dashed;}
+.flow-arrow{width:26px; height:1px; background:var(--ink-faint); flex-shrink:0; position:relative;}
+.flow-arrow::after{ content:''; position:absolute; right:0; top:-3px; border-left:6px solid var(--ink-faint); border-top:3px solid transparent; border-bottom:3px solid transparent; }
+
+/* voice transcript signature component */
+.transcript{padding:44px 0; display:flex; flex-direction:column; gap:16px; max-width:600px;}
+.bubble{display:flex; gap:14px; align-items:flex-start;}
+.bubble .who{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; width:56px; flex-shrink:0; padding-top:11px; color:var(--ink-faint);}
+.bubble .say{ padding:11px 16px; font-size:15px; line-height:1.5; max-width:440px; border:1px solid var(--line);}
+.bubble.alexa .say{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+.wave{display:inline-flex; gap:2px; align-items:center; margin-left:8px; vertical-align:middle;}
+.wave i{display:inline-block; width:2px; background:var(--paper); border-radius:1px;}
+.wave i:nth-child(1){height:6px;} .wave i:nth-child(2){height:11px;}
+.wave i:nth-child(3){height:8px;} .wave i:nth-child(4){height:13px;} .wave i:nth-child(5){height:5px;}
+
+/* affinity map recreation */
+.affinity{padding:44px 0; display:flex; gap:0; flex-wrap:wrap;}
+.aff-col{flex:1; min-width:150px; border-left:1px solid var(--line); padding:0 24px;}
+.aff-col:first-child{border-left:none; padding-left:0;}
+.aff-col h4{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; font-weight:500;}
+.note{ font-size:13px; line-height:1.4; padding:0 0 14px; margin-bottom:14px; border-bottom:1px solid var(--line); color:var(--ink-soft);}
+.note:last-child{border-bottom:none; margin-bottom:0;}
+
+/* ---------- OUTCOME ---------- */
+.outcome{ margin-top:96px; padding:72px 48px; max-width:1180px; margin-left:auto; margin-right:auto; background:var(--ink); color:var(--paper); }
+.outcome-inner{max-width:1084px; margin:0 auto;}
+.outcome .chapter-num{color:rgba(255,255,255,0.45);}
+.outcome h2.chapter-title{color:var(--paper);}
+.outcome-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:40px;}
+.outcome-stat{border-top:1px solid rgba(255,255,255,0.25); padding-top:18px;}
+.outcome-stat .num{font-family:'Archivo',sans-serif; font-size:42px; font-weight:400; color:var(--paper);}
+.outcome-stat .lbl{font-size:13.5px; color:rgba(255,255,255,0.6); margin-top:8px; line-height:1.5;}
+.outcome-note{ margin-top:40px; font-size:13px; color:rgba(255,255,255,0.5); border-left:1px solid rgba(255,255,255,0.3); padding-left:16px; max-width:640px; line-height:1.6; font-style:italic;}
+.outcome p.body-text{font-size:18px; color:rgba(255,255,255,0.92); max-width:680px; margin-top:24px; line-height:1.55;}
+.outcome a.link{border-bottom:1px solid rgba(255,255,255,0.4);}
+.outcome a.link:hover{border-color:#fff;}
+
+/* ---------- FOOTER CTA ---------- */
+footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-left:auto; margin-right:auto; border-top:1px solid var(--line); }
+.cta-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:32px;}
+.cta-next .lbl{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px;}
+.cta-next .proj{ font-family:'Instrument Serif',serif; font-style:italic; font-size:36px; font-weight:400; display:inline-flex; align-items:center; gap:12px; color:var(--ink);}
+.cta-next .proj:hover{color:var(--ink-soft);}
+.cta-contact{ font-size:13px; display:flex; flex-direction:column; gap:7px; text-align:right;}
+.cta-contact a{border-bottom:1px solid var(--ink-faint);}
+.cta-contact a:hover{border-color:var(--ink);}
+.foot-bottom{ margin-top:72px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-faint);}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:880px){
+  .wrap,.nav-inner,.crumb,.hero,.meta-row,section.chapter,.outcome,footer.cta{padding-left:22px; padding-right:22px;}
+  .meta-row{grid-template-columns:1fr; gap:28px;}
+  .meta-block{padding-top:0;}
+  .chapter-body{grid-template-columns:1fr; gap:28px;}
+  .outcome-grid{grid-template-columns:1fr; gap:24px;}
+  .nav-links{display:none;}
+  h1.title{font-size:56px;}
+  .cta-contact{text-align:left;}
+  .flow{overflow-x:scroll;}
+  .aff-col{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px;}
+  .aff-col:first-child{border-top:none; padding-top:0;}
+}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+
+/* ---------- MEDIA DEFAULTS ---------- */
+img, svg, video, canvas { max-width:100%; height:auto; display:block; }
+
+/* Contained figure — aligns to the same column as body text */
+.figure{ max-width:1180px; margin:56px auto 0; padding:0 48px; }
+.figure img{ width:100%; }
+.figure figcaption{
+  font-size:13px; color:var(--ink-faint); line-height:1.55; max-width:760px;
+  margin-top:14px; display:flex; gap:12px; align-items:flex-start;
+}
+.figure figcaption .tag{
+  font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-soft); flex-shrink:0; padding-top:1px; font-weight:500;
+}
+
+/* Full-bleed figure — edge to edge. Place as a direct child of <body>. */
+.figure-bleed{ margin:56px 0 0; }
+.figure-bleed img{ width:100%; }
+.figure-bleed figcaption{
+  max-width:1180px; margin:14px auto 0; padding:0 48px;
+  font-size:13px; color:var(--ink-faint); line-height:1.55;
+}
+
+@media (max-width:880px){
+  .figure{ padding-left:22px; padding-right:22px; }
+  .figure-bleed figcaption{ padding-left:22px; padding-right:22px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><a href="index.html" style="text-decoration:none;">Andrea Barros <i class="serif">designs</i></a></div>
+    <div class="nav-links">
+      <a href="work.html" class="current">Work</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<div class="crumb"><a href="work.html">Work</a> / 1800Flowers Alexa App</div>
+
+<header class="hero">
+  <div class="eyebrow">Case Study — Voice / Conversational Design</div>
+  <h1 class="title">1800Flowers<br>Alexa App</h1>
+  <p class="subtitle">Strategy, tech discovery and design for the first voice-ordering skill to integrate with Amazon Pay — built entirely without a screen.</p>
+
+  <div class="hero-art">
+    <svg viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#141414">
+      <!-- speaker -->
+      <g transform="translate(150,340)">
+        <rect x="0" y="0" width="86" height="150" rx="43" stroke-width="1.5"/>
+        <circle cx="43" cy="34" r="7" stroke-width="1.5"/>
+        <circle cx="43" cy="34" r="16" stroke-width="1"/>
+      </g>
+      <!-- abstract bouquet line art -->
+      <g transform="translate(560,110)" stroke-width="1.5">
+        <path d="M0 260 C 10 180, -20 120, 40 60"/>
+        <path d="M40 260 C 45 190, 60 130, 70 70"/>
+        <path d="M80 260 C 90 190, 110 140, 105 80"/>
+        <circle cx="40" cy="55" r="34"/>
+        <circle cx="72" cy="66" r="26"/>
+        <circle cx="102" cy="76" r="30"/>
+        <circle cx="10" cy="80" r="22"/>
+      </g>
+      <!-- waveform bridging speaker to bouquet -->
+      <g transform="translate(260,405)" stroke-width="2.5" stroke-linecap="round" opacity="0.55">
+        <line x1="24" y1="-10" x2="24" y2="10"/>
+        <line x1="48" y1="-22" x2="48" y2="22"/>
+        <line x1="72" y1="-8" x2="72" y2="8"/>
+        <line x1="96" y1="-28" x2="96" y2="28"/>
+        <line x1="120" y1="-14" x2="120" y2="14"/>
+        <line x1="144" y1="-24" x2="144" y2="24"/>
+        <line x1="168" y1="-6" x2="168" y2="6"/>
+        <line x1="192" y1="-18" x2="192" y2="18"/>
+        <line x1="216" y1="-10" x2="216" y2="10"/>
+        <line x1="240" y1="-4" x2="240" y2="4"/>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<div class="meta-row">
+  <div class="meta-block">
+    <dl>
+      <dt>Role</dt><dd>Lead Product Designer</dd>
+      <dt>Team</dt><dd>Accedo</dd>
+      <dt>Client</dt><dd>1-800-Flowers</dd>
+      <dt>Type</dt><dd>Alexa Skill</dd>
+      <dt>Deliverables</dt>
+      <dd class="deliverables">User flows, Utterance sheet, User testing</dd>
+    </dl>
+  </div>
+  <div class="intro">
+    <p>1-800-Flowers offers same-day delivery of quality flowers and gifts from local florists. We were brought on for strategy, tech discovery and design of their <i class="serif">first voice-ordering app</i> — built to help users find and send the perfect arrangement for a specific occasion, entirely by talking.</p>
+  </div>
+</div>
+
+<!-- 01 CHALLENGE -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2 class="chapter-title">Challenge</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">This was one of the first Alexa apps to integrate with Amazon Pay — a net-new, largely undocumented feature at the time.</p>
+      <p>We scheduled multiple calls with the Amazon Pay team to understand the payment flow, since none of it appeared in the public Alexa developer guide. The user flow went through several rounds of iteration with both the client and the Amazon Pay team as we mapped out its limitations.</p>
+      <p>Working with no visuals, we presented flows across a range of scenarios that doubled as engineering documentation.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Why it was hard</p>
+      <ul>
+        <li>Amazon Pay's voice-purchase flow wasn't publicly documented — we reverse-engineered it through direct calls with their team.</li>
+        <li>No screen meant every edge case had to be resolved in language, not layout.</li>
+        <li>Flows had to double as literal engineering specs, not just design references.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 02 STRATEGY -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Strategy</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Designing for voice starts with a happy path: a wake word, a launch word, an invocation name, and an utterance that completes a command.</p>
+      <p>We whiteboarded a base flow for a new user, a returning user, a browsing experience and a purchase flow — then built out the specific commands inside each scenario for the dev team to build against. Because these were our own interpretation of how people would actually speak, we needed early user testing to surface the other words and phrasings real users would reach for.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Core scenarios mapped</p>
+      <ul>
+        <li>New user — first launch, onboarding, and what Alexa should volunteer vs. wait to be asked.</li>
+        <li>Returning user — reorder logic and order-status lookups.</li>
+        <li>Browsing — recommending by occasion or recipient when the user doesn't know what they want yet.</li>
+        <li>Purchase — the Amazon Pay handoff, confirmation, and address/payment fallback.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="artifact">
+    <div class="flow">
+      <div class="flow-row">
+        <div class="flow-node step">Launch skill</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node decision">New or returning?</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node step">Ask occasion / recipient</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node decision">Reco or reorder?</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node step">Confirm arrangement + size</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node end">Amazon Pay handoff</div>
+      </div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 01</span>
+      <span>Simplified reconstruction of the Order Intent flow — the full whiteboard version branched into ~30 nodes covering reorders, gifting flows, and payment fallbacks. Original artifact is legible only at full resolution; this crop isolates the single decision path referenced above.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 03 DISCOVERY -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2 class="chapter-title">Discovery</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Since the skill wasn't built yet, we simulated the device itself.</p>
+      <p>We set up laptops on both sides of a dimmed screen, dialed into a Zoom call so a facilitator could speak as Alexa, and placed an unplugged Alexa device in front of the interviewee to mimic how someone actually interacts with the hardware. We interviewed 8 people in the office to build an utterance sheet of alternate phrasings, which we handed to the 1-800-Flowers team for further additions and testing.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Testing setup</p>
+      <ul>
+        <li>8 in-office participants, one facilitator voicing Alexa live over Zoom.</li>
+        <li>An unplugged physical Alexa device kept the interaction realistic despite no working software.</li>
+        <li>Every deviation in phrasing was logged into a growing utterance sheet.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="artifact">
+    <div class="transcript">
+      <div class="bubble user"><span class="who">User</span><span class="say">Alexa, order flowers for my mom's birthday.</span></div>
+      <div class="bubble alexa"><span class="who">Alexa</span><span class="say">I've got a birthday bouquet with white roses and purple alstroemeria. Want to hear another option?<span class="wave"><i></i><i></i><i></i><i></i><i></i></span></span></div>
+      <div class="bubble user"><span class="who">User</span><span class="say">Actually — what did I order her last time?</span></div>
+      <div class="bubble alexa"><span class="who">Alexa</span><span class="say">Your last order was the Spring Garden bouquet, sent in March. Want to send that again?<span class="wave"><i></i><i></i><i></i><i></i><i></i></span></span></div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 02</span>
+      <span>A reconstructed sample exchange from testing. Because voice has no visual UI to review, the transcript format is the closest analog to a wireframe for this project — it's how the team actually reviewed flows internally.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 04 APPROACH -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Approach</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">With no visuals to design, the approach was to make the documentation itself extremely thorough.</p>
+      <p>The user flow was revised repeatedly as testing surfaced new requirements, and every session's notes were sorted by who the participant was, their emotional state, and their tone of voice, alongside how they launched, placed, reordered, and cancelled — so patterns in language could be traced back to the moment that produced them.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Signal we tracked per session</p>
+      <ul>
+        <li>Who — participant background and familiarity with voice assistants.</li>
+        <li>Tone of voice &amp; emotional state — hesitant vs. confident phrasing.</li>
+        <li>Task-specific language — launching, placing, reordering, cancelling.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="artifact">
+    <div class="affinity">
+      <div class="aff-col">
+        <h4>Launching skill</h4>
+        <div class="note">"Alexa, open 1-800-Flowers"</div>
+        <div class="note">Straightforward, low hesitation</div>
+      </div>
+      <div class="aff-col">
+        <h4>Placing order</h4>
+        <div class="note">More detail needed on occasion</div>
+        <div class="note">Asked for price before size</div>
+      </div>
+      <div class="aff-col">
+        <h4>Re-order</h4>
+        <div class="note">Didn't know history was accessible</div>
+        <div class="note">"Send the same as last time"</div>
+      </div>
+      <div class="aff-col">
+        <h4>Cancelling order</h4>
+        <div class="note">Wanted confirmation code read back</div>
+      </div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 03</span>
+      <span>Recreated crop of the affinity map used to sort utterance-testing notes into themes, reconstructed here as four legible columns rather than the full wall of sticky notes.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 05 OUTCOME -->
+<section class="chapter outcome">
+  <div class="outcome-inner">
+    <div class="chapter-head">
+      <span class="chapter-num">05</span>
+      <h2 class="chapter-title">Outcome</h2>
+    </div>
+    <p class="body-text">The result was <a href="#" class="link">an Alexa skill</a> that recommends a gift for a specific occasion and completes ordering with a handful of spoken commands — one of the first voice experiences to close the loop with Amazon Pay end-to-end.</p>
+
+    <div class="outcome-grid">
+      <div class="outcome-stat">
+        <div class="num">8</div>
+        <div class="lbl">participants in first-round utterance testing, feeding a living phrase library handed off to the client team</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">[ ]</div>
+        <div class="lbl">order-completion rate post-launch — replace with real metric before publishing</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">1st</div>
+        <div class="lbl">of its kind: among the earliest Alexa skills built on the then-undocumented Amazon Pay voice flow</div>
+      </div>
+    </div>
+
+    <div class="outcome-note">Still to source — one hard business metric for this project. A conservative estimate or a directional statement ("reduced support volume on this flow") is stronger than an empty tile.</div>
+
+    <p class="body-text" style="margin-top:28px; font-size:15px; color:rgba(255,255,255,0.65); line-height:1.6;">Looking ahead, I'd design this for <i class="serif" style="color:#fff;">Alexa Show</i> next — giving users visual context for what an arrangement actually looks like, since testing showed people without floristry knowledge struggled to picture species and colors from description alone.</p>
+  </div>
+</section>
+
+<footer class="cta">
+  <div class="cta-row">
+    <div class="cta-next">
+      <div class="lbl">Next project</div>
+      <a href="directv-wear-os-case-study.html" class="proj">DirecTV — Wear OS Companion App →</a>
+    </div>
+    <div class="cta-contact">
+      <a href="resume.html">View resume</a>
+      <a href="mailto:acb.graphics@gmail.com">acb.graphics@gmail.com</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>Andrea Barros — Design Leadership</span>
+    <span>Denver, CO</span>
+  </div>
+</footer>
+
+</body>
+</html>
