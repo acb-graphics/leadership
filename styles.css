@@ -158,6 +158,7 @@ h2.chapter-title{
 
 /* ---------- REFLECTION THREE-UP (case-study "Reflection" section) ---------- */
 .reflection-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:8px; }
+.reflection-grid.cols-4{ grid-template-columns:repeat(4,1fr); }
 .reflection-col{ border-left:1px solid var(--line); padding:0 28px; }
 .reflection-col:first-child{ border-left:none; padding-left:0; }
 .reflection-col p.label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; font-weight:500; }
@@ -206,7 +207,7 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
   .aff-col{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px;}
   .aff-col:first-child{border-top:none; padding-top:0;}
   .actions-list li{ grid-template-columns:32px 1fr; gap:14px; }
-  .reflection-grid{ grid-template-columns:1fr; gap:24px; }
+  .reflection-grid, .reflection-grid.cols-4{ grid-template-columns:1fr; gap:24px; }
   .reflection-col{ border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px; }
   .reflection-col:first-child{ border-top:none; padding-top:0; }
 }
