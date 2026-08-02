@@ -15,6 +15,9 @@
 .tree-branch::before{content:''; position:absolute; left:0; top:-14px; width:1px; height:14px; background:var(--ink-faint);}
 .tree-children{display:flex; gap:14px; flex-wrap:wrap;}
 .tree-child{font-size:11px; padding:8px 11px; border:1px solid var(--line); color:var(--ink-soft); white-space:nowrap;}
+
+/* editorial placeholder flags — remove once real figures are confirmed */
+.editor-note{ font-size:12.5px; font-style:italic; color:var(--ink-faint); border-left:1px solid var(--line); padding-left:14px; margin:14px 0 0; line-height:1.6; max-width:520px; }
 </style>
 </head>
 <body>
@@ -34,9 +37,9 @@
 <div class="crumb"><a href="work.html">Work</a> / NBC</div>
 
 <header class="hero">
-  <div class="eyebrow">Case Study — Branding / 10-Foot Experience</div>
+  <div class="eyebrow">Case Study — Unified 10-Foot Experience</div>
   <h1 class="title">NBC</h1>
-  <p class="subtitle">A unified TV experience bringing every NBC channel under one roof — the concept that would later become Peacock TV.</p>
+  <p class="subtitle">One discoverability layer across every NBC brand, designed to scale to channels that didn't exist yet.</p>
 
   <div class="hero-art">
     <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
@@ -47,40 +50,93 @@
 <div class="meta-row">
   <div class="meta-block">
     <dl>
-      <dt>Role</dt><dd>Lead Product Designer</dd>
-      <dt>Team</dt><dd>TribalScale</dd>
       <dt>Client</dt><dd>NBC Universal</dd>
-      <dt>Type</dt><dd>Branding, Experience Design and Prototyping</dd>
-      <dt>Scope</dt><dd>Design lead partnering directly with NBC's in-house design team at 30 Rockefeller Plaza</dd>
-      <dt>Deliverables</dt>
-      <dd class="deliverables">UX Flows, Wireframes, High-fidelity designs, Prototype</dd>
+      <dt>Agency</dt><dd>TribalScale</dd>
+      <dt>Role</dt><dd>Lead Product Designer</dd>
+      <dt>Duration</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
+      <dt>Year</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
     </dl>
   </div>
   <div class="intro">
-    <p>The NBC Network was going through a transformation to build an identity — which later became <i class="serif">Peacock TV</i> — that captures all NBC brands under one umbrella, creating a one-stop shop for discoverability across all NBC content.</p>
+    <p>NBC's channels each served a different audience with a different identity — News, MSNBC, Today, and more — and each behaved as its own product.</p>
   </div>
 </div>
 
-<!-- 01 CHALLENGE -->
+<!-- 01 SITUATION -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
-    <h2 class="chapter-title">Challenge</h2>
+    <h2 class="chapter-title">Situation</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">The NBC Network contains different channels that cater content to various personas.</p>
-      <p>The client wanted a TV experience encompassing existing and future channels that could scale, letting users surf all content without downloading channel-specific apps. Working closely with the client's design team, we designed an experience aligned with NBC's vision to keep brands distinct while offering one seamless discoverability layer.</p>
+      <p class="lead">The network wanted a single TV experience where a viewer could surf all of it without downloading anything channel-specific, while every brand kept its own character intact.</p>
+      <p>NBC had the brand transformation underway internally; what it didn't have was a structure that could hold all of it in one place.</p>
     </div>
     <div class="takeaways">
       <p class="label">Why it was hard</p>
       <ul>
-        <li>Multiple channels serve different personas and needed distinct identities inside one shared app.</li>
-        <li>The structure had to scale for channels and content that didn't exist yet.</li>
-        <li>No channel-specific downloads — everything had to live in a single discoverability layer.</li>
+        <li><strong>Distinct identities, shared shell.</strong> Multiple channels serving different personas had to stay recognizably themselves inside one app, which pulled brand differentiation and navigational consistency in opposite directions.</li>
+        <li><strong>It had to scale to content that didn't exist.</strong> The architecture couldn't be fitted to the current channel lineup; it had to accommodate future brands and formats nobody could specify yet.</li>
+        <li><strong>Two design organizations, one artifact.</strong> The work ran jointly with NBC's in-house design team, so decisions had to survive both agency execution and internal brand governance.</li>
       </ul>
     </div>
   </div>
+</section>
+
+<!-- 02 OBJECTIVE -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Objective</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Define and prototype a unified 10-foot experience that unified NBC's brands under one discoverability layer — and get it into stakeholders' hands as something they could actually navigate with a remote.</p>
+      <p><strong style="font-weight:500;">My role:</strong> Led. Design lead on the engagement, partnering directly with NBC's in-house design team on site at 30 Rockefeller Plaza. I ran the on-site working sessions, owned the wireframes and functionality sign-off, and led the translation of NBC's new brand identity into the 10-foot experience.</p>
+      <p><strong style="font-weight:500;">Timeframe:</strong> <span style="color:var(--ink-faint); font-style:italic;">To be confirmed.</span></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">What success looked like</p>
+      <ul>
+        <li>An information architecture holding every existing brand and extensible to future ones.</li>
+        <li>Brand identity translated faithfully into a 10-foot context, broadcast-safe and legible across the room.</li>
+        <li>Asset and API specifications locked early enough that NBC's backend and the development team stayed in sync.</li>
+        <li>A working prototype with a real remote, testable by stakeholders rather than presented to them.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ACTIONS -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2 class="chapter-title">Actions</h2>
+  </div>
+
+  <ol class="actions-list">
+    <li>
+      <span class="a-num">01</span>
+      <p><strong>Ran on-site working sessions with NBC's in-house design team at 30 Rock.</strong> Whiteboarded the architecture in the room with the client's own designers rather than presenting to them remotely, which is what made joint decisions stick on a project with two design organizations.</p>
+    </li>
+    <li>
+      <span class="a-num">02</span>
+      <p><strong>Locked asset sizing and shelf architecture before any high-fidelity work began.</strong> Drove aspect ratios and shelf types — Today's Highlights, Continue Watching, Channels — to a decision early, so NBC's backend team could load assets and the development team could build the API against a fixed spec instead of a moving one.</p>
+    </li>
+    <li>
+      <span class="a-num">03</span>
+      <p><strong>Designed a six-area architecture built to absorb brands that didn't exist yet.</strong> Structured Watch, Shows, Search, Settings, and the two playback contexts, with Watch branching into per-brand channel and grid views and explicit tab-order rules for each brand's content shelf — so adding a channel was a configuration, not a redesign.</p>
+    </li>
+    <li>
+      <span class="a-num">04</span>
+      <p><strong>Translated NBC's new brand identity into a broadcast-safe 10-foot system.</strong> Adjusted color for broadcast safety and eye strain, and reworked contrast and sizing for legibility at viewing distance — brand fidelity constrained by the physics of a television, not a monitor.</p>
+    </li>
+    <li>
+      <span class="a-num">05</span>
+      <p><strong>Built a navigable prototype with a physical remote mapped to real key assignments.</strong> Delivered something stakeholders could pick up and use across brands, shows, and playback, rather than a click-through — the difference between reviewing a concept and testing one.</p>
+    </li>
+  </ol>
 
   <div class="artifact">
     <div class="tree">
@@ -114,61 +170,6 @@
       <span>Simplified reconstruction of the app sitemap — six top-level areas, with the Watch section branching into per-brand channel and grid views. The full diagram specified exact tab-order rules for each brand's content shelf.</span>
     </div>
   </div>
-</section>
-
-<!-- 02 STRATEGY -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">02</span>
-    <h2 class="chapter-title">Strategy</h2>
-  </div>
-  <div class="chapter-body">
-    <div>
-      <p class="lead">I met with the design team at 30 Rockefeller Plaza in New York to whiteboard concepts.</p>
-      <p>At this stage, we needed to decide on the sizing of image assets so the NBC design team could add them to their backend for our development team to load via the API. Once assets were determined, I started wireframing the experience for functionality sign-off from stakeholders.</p>
-    </div>
-    <div class="takeaways">
-      <p class="label">Where decisions were made</p>
-      <ul>
-        <li>On-site whiteboarding with NBC's design team, in person, at 30 Rock.</li>
-        <li>Image asset sizing was locked early so NBC's backend and the dev team's API stayed in sync.</li>
-        <li>Wireframes were built specifically for stakeholder sign-off on functionality, not just visual review.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="artifact">
-    <div style="padding:44px 0;">
-      <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
-           alt="" width="2400" height="1140" loading="lazy" style="max-width:720px; display:block;">
-    </div>
-    <div class="artifact-caption">
-      <span class="tag">Fig. 02</span>
-      <span>Recreated crop of the on-site whiteboard session — aspect ratios and shelf types (Today's Highlights, Continue Watching, Channels) were locked here before any high-fidelity design began.</span>
-    </div>
-  </div>
-</section>
-
-<!-- 03 APPROACH -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">03</span>
-    <h2 class="chapter-title">Approach</h2>
-  </div>
-  <div class="chapter-body">
-    <div>
-      <p class="lead">With an understanding of the product's UX, we worked closely with the NBC design team to translate their new brand identity into the 10-foot experience.</p>
-      <p>We adjusted colors to be broadcast-safe and avoid eye strain, along with contrast and sizing adjustments for visual accessibility. The result was a working prototype with a remote to mimic key assignments. The NBC team then took this concept to internal stakeholders — which sent it back to the drawing board for a new concept that is now Peacock TV.</p>
-    </div>
-    <div class="takeaways">
-      <p class="label">Ship considerations</p>
-      <ul>
-        <li>Broadcast-safe color adjustments to avoid eye strain on TV displays.</li>
-        <li>Contrast and sizing adjustments for 10-foot visual accessibility.</li>
-        <li>A working prototype with a physical remote mapped to real key assignments.</li>
-      </ul>
-    </div>
-  </div>
 
   <div class="artifact">
     <div class="flow">
@@ -183,37 +184,93 @@
       </div>
     </div>
     <div class="artifact-caption">
-      <span class="tag">Fig. 03</span>
+      <span class="tag">Fig. 02</span>
       <span>Reconstruction of the high-fidelity screen sequence — from brand splash through the video shelves to the full channel guide.</span>
     </div>
   </div>
 </section>
 
-<!-- 04 OUTCOME -->
-<section class="chapter outcome">
-  <div class="outcome-inner">
-    <div class="chapter-head">
-      <span class="chapter-num">04</span>
-      <h2 class="chapter-title">Outcome</h2>
+<!-- 04 IMPACT -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Impact</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Delivered a working 10-foot prototype that NBC took into internal stakeholder review — a navigable, remote-driven experience across brands, shows, and playback.</p>
+      <p>The concept went back to the drawing board after internal review, and the direction that emerged became Peacock TV.</p>
     </div>
-    <p class="body-text">The result was a working 10-foot prototype — NBC Katsu Roku Hi-Fi — letting stakeholders test real navigation with a physical remote across brands, shows, and playback.</p>
+    <div class="takeaways">
+      <p class="label">What it delivered</p>
+      <ul>
+        <li>Unified six top-level areas and every existing NBC brand into a single discoverability layer, structured to extend to future channels without rearchitecting.</li>
+        <li>Established the asset and shelf specifications NBC's backend team built against, aligning two engineering-facing organizations on one spec.</li>
+      </ul>
+    </div>
+  </div>
 
+  <div style="margin-top:32px;">
+    <p class="editor-note">Editor's note — add what stakeholder review actually concluded and which parts were kept. This is the missing piece that would let the Peacock connection be claimed honestly and specifically.</p>
+    <p class="editor-note" style="margin-top:14px;">Editor's note — add any NBC leadership quote, or a follow-on engagement TribalScale won off this work.</p>
+  </div>
+</section>
+
+<div class="outcome">
+  <div class="outcome-inner">
     <div class="outcome-grid">
       <div class="outcome-stat">
         <div class="num">6</div>
-        <div class="lbl">top-level navigation areas unified under one app: Watch, Shows, Search, Settings, Watch Playback, Episode Playback</div>
+        <div class="lbl">top-level areas unified under one discoverability layer — Watch, Shows, Search, Settings, and two playback contexts</div>
       </div>
       <div class="outcome-stat">
-        <div class="num">30 Rock</div>
-        <div class="lbl">on-site workshops with NBC's in-house design team set the asset and shelf architecture</div>
+        <div class="num">2</div>
+        <div class="lbl">engineering organizations — NBC's backend team and the development team — aligned on one asset and API spec</div>
       </div>
       <div class="outcome-stat">
         <div class="num">Peacock TV</div>
-        <div class="lbl">what the concept evolved into after internal stakeholder review</div>
+        <div class="lbl">the platform NBC pursued next, after this concept was sent back for stakeholder review</div>
       </div>
     </div>
+    <p class="body-text">The concept went back to the drawing board after internal review, and the direction that emerged became <i class="serif" style="color:#fff;">Peacock TV</i>.</p>
+  </div>
+</div>
 
-    <p class="body-text" style="margin-top:28px; font-size:15px; color:rgba(255,255,255,0.65); line-height:1.6;">Internal stakeholder feedback sent the concept back to the drawing board — work that would eventually become <i class="serif" style="color:#fff;">Peacock TV</i>.</p>
+<!-- 05 REFLECTION -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Reflection</h2>
+  </div>
+  <div class="reflection-grid">
+    <div class="reflection-col">
+      <p class="label">What worked</p>
+      <p>Working in the room at 30 Rock instead of across an agency boundary. On a project where the client's own design team owned the brand identity, co-authoring the architecture with them was the only way decisions survived internal review — a deck delivered from outside would have been received rather than defended. Locking asset sizing before high-fidelity design was the other decision that paid off: it's unglamorous, but it kept NBC's backend and our development team building against the same spec for the duration.</p>
+    </div>
+    <div class="reflection-col">
+      <p class="label">What I'd refine</p>
+      <p>The concept went back to the drawing board after internal stakeholder review, and I'd want to have surfaced those stakeholders earlier. We designed with the design team and validated with the design team; the people who ultimately made the call saw it late, as a finished prototype. On a brand transformation of that scale, I'd now insist on exposing the architecture to the deciding audience while it was still cheap to change — a rough concept in front of the right room beats a polished one in front of the wrong one.</p>
+    </div>
+    <div class="reflection-col">
+      <p class="label">What I learned</p>
+      <p>Not every strong project ships, and the useful question is what the work made possible rather than whether the artifact survived. This prototype gave NBC something concrete to react to, and the reaction is what moved the thinking forward. I'd rather have built the thing that clarified the decision than the thing that avoided one — but I took from it a permanent bias toward getting concepts in front of decision-makers early, in whatever fidelity they'll engage with.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 STRENGTHS -->
+<section class="chapter" style="padding-bottom:96px;">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Strengths</h2>
+  </div>
+  <div class="strengths-list">
+    <span>Information architecture at scale</span>
+    <span>Client design-team partnership</span>
+    <span>Brand translation across media</span>
+    <span>Prototyping for decision-making</span>
+    <span>Cross-org technical alignment</span>
+    <span>Working through ambiguity</span>
   </div>
 </section>
 
