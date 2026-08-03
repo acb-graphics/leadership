@@ -80,7 +80,8 @@ h1.title{
   aspect-ratio:16/7.6;
   position:relative;
 }
-.hero-art svg{width:100%; height:100%; display:block;}
+.hero-art svg,
+.hero-art img{width:100%; height:100%; display:block; object-fit:cover;}
 
 /* ---------- META + INTRO ---------- */
 .meta-row{
@@ -284,19 +285,9 @@ img, svg, video, canvas { max-width:100%; height:auto; display:block; }
   <h1 class="title">Screambox</h1>
   <p class="subtitle">A cinematic, horror-first streaming app built for a console that didn't exist yet — designed in lockstep with PS4's own launch.</p>
 
-  <div class="hero-art" style="background:#0A0A0A; border-color:#0A0A0A;">
-    <svg viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" fill="none">
-      <g opacity="0.14" stroke="#EDEDEA" stroke-width="1">
-        <line x1="180" y1="60" x2="220" y2="200"/>
-        <line x1="260" y1="50" x2="240" y2="200"/>
-        <line x1="960" y1="60" x2="920" y2="210"/>
-        <line x1="1020" y1="70" x2="1000" y2="220"/>
-        <circle cx="300" cy="120" r="10"/>
-        <circle cx="900" cy="130" r="10"/>
-      </g>
-      <text x="130" y="330" font-family="Archivo" font-weight="500" font-size="150" fill="none" stroke="#B23B2E" stroke-width="1.2" letter-spacing="-4">DARK</text>
-      <circle cx="600" cy="230" r="90" fill="none" stroke="#B23B2E" stroke-width="1" opacity="0.5"/>
-    </svg>
+  <div class="hero-art">
+    <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
+         alt="" width="2400" height="1140" loading="lazy">
   </div>
 </header>
 
