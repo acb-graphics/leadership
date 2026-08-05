@@ -25,10 +25,10 @@
 .cv-what .org{font-size:13px; color:var(--ink-faint); margin-bottom:8px;}
 .cv-what .note{font-size:14px; color:var(--ink-soft); line-height:1.55; max-width:600px;}
 
-.stat-band{display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:8px;}
-.stat-band .s{border-top:1px solid var(--ink); padding-top:16px;}
-.stat-band .s .n{font-family:'Archivo',sans-serif; font-size:40px; font-weight:400; line-height:1;}
-.stat-band .s .l{font-size:13.5px; color:var(--ink-soft); margin-top:8px; line-height:1.5;}
+.numbers{display:grid; grid-template-columns:repeat(4,1fr); gap:36px;}
+.numbers .n{border-top:1px solid var(--ink); padding-top:16px;}
+.numbers .n .v{font-family:'Archivo',sans-serif; font-size:40px; font-weight:400; line-height:1;}
+.numbers .n .k{font-size:13px; color:var(--ink-soft); margin-top:8px; line-height:1.5;}
 
 .tag-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;}
 .tag-list span{font-size:12.5px; color:var(--ink-soft); border:1px solid var(--line); padding:5px 11px;}
@@ -42,7 +42,7 @@
   .principles{grid-template-columns:1fr;}
   .principle:nth-child(even){padding-left:0; border-left:none;}
   .cv-row{grid-template-columns:1fr; gap:6px;}
-  .stat-band{grid-template-columns:1fr; gap:24px;}
+  .numbers{grid-template-columns:repeat(2,1fr); gap:24px;}
 }
 </style>
 </head>
@@ -137,24 +137,21 @@
       </ul>
     </div>
   </div>
+</section>
 
-  <!-- STAT BAND -->
-  <div style="margin-top:56px;">
-    <div class="stat-band">
-      <div class="s">
-        <div class="n">16</div>
-        <div class="l">years in design practice, beginning in Hong Kong in experiential and retail branding</div>
-      </div>
-      <div class="s">
-        <div class="n">30</div>
-        <div class="l">product launches shipped across 14 platforms</div>
-      </div>
-      <div class="s">
-        <div class="n">1&nbsp;→&nbsp;9</div>
-        <div class="l">grew <a href="https://renga.co" target="_blank" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Renga's</a> design practice from one designer to six designers + three strategists as VP of Design</div>
-      </div>
-    </div>
+<!-- BY THE NUMBERS -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">—</span>
+    <h2 class="chapter-title">By the numbers</h2>
   </div>
+  <div class="numbers">
+    <div class="n"><div class="v">16</div><div class="k">years in practice, across four countries and two continents</div></div>
+    <div class="n"><div class="v">30</div><div class="k">product launches shipped</div></div>
+    <div class="n"><div class="v">14</div><div class="k">platforms — web, mobile, TV, voice, wearable, console, automotive</div></div>
+    <div class="n"><div class="v">1&nbsp;→&nbsp;9</div><div class="k">grew Renga's design practice from one designer to six designers and three strategists, as VP of Design</div></div>
+  </div>
+  <p style="font-size:12.5px; color:var(--ink-faint); margin-top:24px; max-width:620px;">Team figures are drawn from your resume. Verify the launch and platform counts against your own records before publishing.</p>
 </section>
 
 <!-- 03 EXPERIENCE -->
