@@ -11,12 +11,12 @@
 .statement p{font-size:21px; line-height:1.5; margin:0 0 22px;}
 .statement p.small{font-size:16.5px; color:var(--ink-soft); line-height:1.6;}
 
-.principles{display:grid; grid-template-columns:repeat(2,1fr); gap:0; margin-top:8px;}
-.principle{border-top:1px solid var(--ink); padding:22px 28px 26px 0;}
-.principle:nth-child(even){padding-left:28px; border-left:1px solid var(--line);}
-.principle .pn{font-size:11px; color:var(--ink-faint); letter-spacing:0.08em; margin-bottom:10px;}
-.principle h4{font-family:'Archivo',sans-serif; font-weight:400; font-size:19px; margin:0 0 8px; letter-spacing:-0.01em;}
-.principle p{font-size:14.5px; color:var(--ink-soft); margin:0; line-height:1.55;}
+.principles{margin-top:8px;}
+.principle{display:grid; grid-template-columns:150px 1fr; gap:32px; padding:20px 0; border-top:1px solid var(--line);}
+.principle:last-child{border-bottom:1px solid var(--line);}
+.principle .pn{font-size:12.5px; color:var(--ink-faint); letter-spacing:0.08em; padding-top:2px;}
+.principle-body h4{font-size:16px; font-weight:500; margin:0 0 8px; letter-spacing:0;}
+.principle-body p{font-size:14px; color:var(--ink-soft); margin:0; line-height:1.55; max-width:600px;}
 
 .cv-row{display:grid; grid-template-columns:150px 1fr; gap:32px; padding:20px 0; border-top:1px solid var(--line);}
 .cv-row:last-child{border-bottom:1px solid var(--line);}
@@ -49,8 +49,7 @@
 
 @media (max-width:760px){
   .statement{padding-left:22px; padding-right:22px;}
-  .principles{grid-template-columns:1fr;}
-  .principle:nth-child(even){padding-left:0; border-left:none;}
+  .principle{grid-template-columns:1fr; gap:6px;}
   .cv-row{grid-template-columns:1fr; gap:6px;}
   .numbers{grid-template-columns:repeat(2,1fr); gap:24px;}
   .arc-track{grid-template-columns:1fr;}
@@ -145,18 +144,24 @@
   <div class="principles" style="margin-top:44px;">
     <div class="principle">
       <div class="pn">01</div>
-      <h4>Advocacy builds partnership</h4>
-      <p>Advocacy builds partnership. I prefer working with small cross functional pods with clear decision making authority, and I trust the subject matter experts I hire to lead where they have expertise. To me, design advocacy isn’t self-promotion — it’s how trust is built and strong internal partnerships take shape.</p>
+      <div class="principle-body">
+        <h4>Advocacy builds partnership</h4>
+        <p>Advocacy builds partnership. I prefer working with small cross functional pods with clear decision making authority, and I trust the subject matter experts I hire to lead where they have expertise. To me, design advocacy isn’t self-promotion — it’s how trust is built and strong internal partnerships take shape.</p>
+      </div>
     </div>
     <div class="principle">
       <div class="pn">02</div>
-      <h4>Everyone at the table is a designer</h4>
-      <p>Engineers, PMs, copywriters, and customer service teams all contribute to the work in meaningful ways. Some of the strongest insights in my career have come from people whose title wasn’t “designer”, and I’ve learned that the best outcomes come from humility, curiosity, and shared ownership.</p>
+      <div class="principle-body">
+        <h4>Everyone at the table is a designer</h4>
+        <p>Engineers, PMs, copywriters, and customer service teams all contribute to the work in meaningful ways. Some of the strongest insights in my career have come from people whose title wasn’t “designer”, and I’ve learned that the best outcomes come from humility, curiosity, and shared ownership.</p>
+      </div>
     </div>
     <div class="principle">
       <div class="pn">03</div>
-      <h4>Trust the experts</h4>
-      <p>I don’t believe in waiting for the perfect direction. My approach is to get clear on intent and goals, then step back and let the people closest to the work do what they do best: motivate, solve, and move things forward.</p>
+      <div class="principle-body">
+        <h4>Trust the experts</h4>
+        <p>I don’t believe in waiting for the perfect direction. My approach is to get clear on intent and goals, then step back and let the people closest to the work do what they do best: motivate, solve, and move things forward.</p>
+      </div>
     </div>
   </div>
 </section>
