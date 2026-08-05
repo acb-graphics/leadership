@@ -197,6 +197,7 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
 
 /* ---------- MEDIA DEFAULTS ---------- */
 img, svg, video, canvas { max-width:100%; height:auto; display:block; }
+picture { display:contents; }
 
 /* Contained figure — aligns to the same column as body text */
 .figure{ max-width:1180px; margin:56px auto 0; padding:0 48px; }
@@ -285,8 +286,12 @@ img, svg, video, canvas { max-width:100%; height:auto; display:block; }
   <p class="subtitle">A cinematic, horror-first streaming app built for a console that didn't exist yet — designed in lockstep with PS4's own launch.</p>
 
   <div class="hero-art">
-    <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
-         alt="" width="2400" height="1140" loading="lazy">
+    <picture>
+      <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.avif">
+      <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.webp">
+      <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
+           alt="" width="2400" height="1140" loading="lazy">
+    </picture>
   </div>
 </header>
 
