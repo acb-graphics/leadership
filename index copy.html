@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Barros — Design Leadership</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* thesis statement */
+.thesis{padding:80px 48px 0; max-width:1180px; margin:0 auto;}
+.thesis h1{
+  font-family:'Archivo',sans-serif; font-weight:400; font-size:clamp(32px,4.4vw,58px);
+  line-height:1.12; letter-spacing:-0.02em; margin:0; max-width:16em;
+}
+.thesis h1 i.serif{font-size:1.04em;}
+.thesis .sub{font-size:18px; color:var(--ink-soft); max-width:620px; margin-top:28px; line-height:1.6;}
+
+/* featured work */
+.feat{display:grid; grid-template-columns:1fr 300px; gap:48px; align-items:center; padding:44px 0; border-top:1px solid var(--line);}
+.feat:last-of-type{border-bottom:1px solid var(--line);}
+.feat .tier{font-size:11px; letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:10px;}
+.feat .name{font-family:'Archivo',sans-serif; font-weight:400; font-size:clamp(28px,3.4vw,40px); letter-spacing:-0.015em; line-height:1.1; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;}
+.feat .name .arrow{font-family:'Inter',sans-serif; font-size:22px; opacity:0; transition:opacity .15s, transform .15s; transform:translateX(-6px);}
+.feat:hover .name .arrow{opacity:0.5; transform:translateX(0);}
+.feat .why{font-size:15.5px; color:var(--ink); max-width:560px; margin-top:14px; line-height:1.55;}
+.feat .proof{font-size:13px; color:var(--ink-faint); margin-top:14px; line-height:1.5;}
+.feat .proof b{color:var(--ink); font-weight:500;}
+.feat-thumb{border:1px solid var(--line); aspect-ratio:16/11; background:#FAFAF8; overflow:hidden;}
+.feat-thumb svg,
+.feat-thumb img{width:100%; height:100%; display:block; object-fit:cover;}
+
+/* numbers band */
+.numbers{display:grid; grid-template-columns:repeat(4,1fr); gap:36px;}
+.numbers .n{border-top:1px solid var(--ink); padding-top:16px;}
+.numbers .n .v{font-family:'Archivo',sans-serif; font-size:40px; font-weight:400; line-height:1;}
+.numbers .n .k{font-size:13px; color:var(--ink-soft); margin-top:8px; line-height:1.5;}
+
+@media (max-width:880px){
+  .thesis{padding-left:22px; padding-right:22px;}
+  .feat{grid-template-columns:1fr; gap:24px;}
+  .feat-thumb{order:-1;}
+  .numbers{grid-template-columns:repeat(2,1fr); gap:24px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><a href="index.html" style="text-decoration:none;">Andrea Barros <i class="serif">designs</i></a></div>
+    <div class="nav-links">
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<section class="thesis">
+  <h1>Everyone at the table deserves to feel valued and heard. I believe the best work comes from diverse perspectives, strong advocacy, and elevating the people around me to drive <i class="serif">meaningful change.</i></h1>
+</section>
+
+<!-- ============================================================
+     IMAGE AFTER HERO
+     Swap the src below for your file. Two options:
+
+     .figure        → aligns to the text column (1180px max, 48px
+                      gutters, 22px on mobile). Use this by default.
+
+     .figure-bleed  → edge to edge across the viewport. To use it,
+                      move this whole <figure> so it sits as a direct
+                      child of <body> (between sections, not inside
+                      one), and change the class.
+
+     The `width` and `height` attributes should match your image's
+     real pixel dimensions — they stop the page from jumping while
+     the image loads. They do not fix the display size; CSS does that.
+
+<figure class="figure">
+  <picture>
+    <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/ethical-design-thinking.avif">
+    <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/ethical-design-thinking.webp">
+    <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/ethical-design-thinking.jpg"
+         alt="Andrea Barros speaking about ethical design thinking"
+         width="2400" height="1350"
+         loading="lazy">
+  </picture>
+  <figcaption>
+    <span class="tag">Fig.</span>
+    <span>Optional caption. Delete this figcaption block if you don't want one.</span>
+  </figcaption>
+</figure>
+============================================================ -->
+
+<!-- CASE STUDIES -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">—</span>
+    <h2 class="chapter-title">Work that shows the arc</h2>
+  </div>
+
+  <a href="home-case-study.html" style="text-decoration:none; color:inherit;">
+    <div class="feat">
+      <div>
+        <div class="tier">Strategy &amp; business outcome</div>
+        <div class="name">Home<span class="arrow">→</span></div>
+        <p class="why">An 8-week 0-to-1 engagement that took a client from a vague idea to a validated product direction, brand and roadmap.</p>
+        <p class="proof"><b>Outcome:</b> the client used the roadmap to hire a permanent design and engineering team. · 410 research responses · Renga</p>
+      </div>
+      <div class="feat-thumb">
+        <picture>
+          <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.avif">
+          <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.webp">
+          <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.jpeg"
+               alt="" width="2400" height="1140" loading="lazy">
+        </picture>
+      </div>
+    </div>
+  </a>
+
+  <a href="deciem-case-study.html" style="text-decoration:none; color:inherit;">
+    <div class="feat">
+      <div>
+        <div class="tier">Organizational design</div>
+        <div class="name">Deciem<span class="arrow">→</span></div>
+        <p class="why">Five departments each working from a different picture of the customer. The design problem turned out to be an alignment problem.</p>
+        <p class="proof"><b>Outcome:</b> a shared prioritization framework and research practice that gave marketing, branding, design and customer service one north star. · Senior UX Consultant</p>
+      </div>
+      <div class="feat-thumb">
+        <picture>
+          <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif">
+          <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp">
+          <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg"
+               alt="" width="2400" height="1140" loading="lazy">
+        </picture>
+      </div>
+    </div>
+  </a>
+
+  <a href="nbc-case-study.html" style="text-decoration:none; color:inherit;">
+    <div class="feat">
+      <div>
+        <div class="tier">Vision &amp; platform strategy</div>
+        <div class="name">NBC<span class="arrow">→</span></div>
+        <p class="why">A unified TV experience designed to hold every NBC brand under one roof — and to scale for channels that didn't exist yet.</p>
+        <p class="proof"><b>Outcome:</b> the concept evolved into what is now Peacock TV. · TribalScale · NBC Universal</p>
+      </div>
+      <div class="feat-thumb">
+        <picture>
+          <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/nbc-hero.avif">
+          <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/nbc-hero.webp">
+          <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/nbc-hero.jpg"
+               alt="" width="2400" height="1140" loading="lazy">
+        </picture>
+      </div>
+    </div>
+  </a>
+
+  <a href="cbs-sports-hq-case-study.html" style="text-decoration:none; color:inherit;">
+    <div class="feat">
+      <div>
+        <div class="tier">Behavioural outcome</div>
+        <div class="name">CBS Sports HQ<span class="arrow">→</span></div>
+        <p class="why">A 24/7 live channel with a drop-off problem: too much content, too much cognitive load. Picture-in-picture kept the broadcast live while browsing.</p>
+        <p class="proof"><b>Outcome:</b> shipped across Apple TV, Roku and Fire TV, then refined from real early-adopter behaviour. · TribalScale</p>
+      </div>
+      <div class="feat-thumb">
+        <picture>
+          <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.avif">
+          <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.webp">
+          <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
+               alt="" width="2400" height="1140" loading="lazy">
+        </picture>
+      </div>
+    </div>
+  </a>
+
+  <div style="margin-top:40px;">
+    <a href="work.html" style="font-family:'Instrument Serif',serif; font-style:italic; font-size:26px; text-decoration:none; border-bottom:1px solid var(--ink-faint);">View all case studies →</a>
+  </div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">—</span>
+    <h2 class="chapter-title">By the numbers</h2>
+  </div>
+  <div class="numbers">
+    <div class="n"><div class="v">16</div><div class="k">years in practice, across four countries and two continents</div></div>
+    <div class="n"><div class="v">30</div><div class="k">product launches shipped</div></div>
+    <div class="n"><div class="v">14</div><div class="k">platforms — web, mobile, TV, voice, wearable, console, automotive</div></div>
+    <div class="n"><div class="v">1&nbsp;→&nbsp;9</div><div class="k">grew Renga's design practice from one designer to six designers and three strategists, as VP of Design</div></div>
+  </div>
+  <p style="font-size:12.5px; color:var(--ink-faint); margin-top:24px; max-width:620px;">Team figures are drawn from your resume. Verify the launch and platform counts against your own records before publishing.</p>
+</section>
+
+<!-- BEYOND THE PRODUCT WORK -->
+<section class="chapter" style="padding-bottom:0;">
+  <div class="chapter-body">
+    <div>
+      <div class="chapter-head">
+        <span class="chapter-num">—</span>
+        <h2 class="chapter-title">Beyond the product work</h2>
+      </div>
+      <p style="font-size:16px; max-width:560px;">Two practices feed everything above: a decade of teaching and curriculum building, and graduate research in strategic foresight that gave me the systems vocabulary I now use to set direction.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Also</p>
+      <ul>
+        <li><a href="about.html" style="border-bottom:1px solid var(--ink-faint);">How I build and run teams</a> — DesignOps, pods, hiring, design maturity.</li>
+        <li><a href="teaching.html" style="border-bottom:1px solid var(--ink-faint);">Teaching &amp; speaking</a> — U of T iSchool, Red Academy, Bridge School, Canada Learning Code.</li>
+        <li><a href="systems-information-dissemination.html" style="border-bottom:1px solid var(--ink-faint);">Systems of Information Dissemination</a> — OCAD MDes research, presented at Systems Thinking Ontario.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="cta">
+  <div class="cta-row">
+    <div class="cta-next">
+      <div class="lbl">Start here</div>
+      <a href="work.html" class="proj">View case studies →</a>
+    </div>
+    <div class="cta-contact">
+      <a href="resume.html">View resume</a>
+      <a href="mailto:acb.graphics@gmail.com">acb.graphics@gmail.com</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>Vibe coded with Claude, human curated by Andrea Barros</span>
+  </div>
+</footer>
+
+</body>
+</html>
