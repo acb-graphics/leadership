@@ -184,7 +184,7 @@ h2.chapter-title{
 footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-left:auto; margin-right:auto; border-top:1px solid var(--line); }
 .cta-row{display:flex; justify-content:flex-start; align-items:flex-end; flex-wrap:wrap; gap:32px;}
 .cta-next .lbl{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px;}
-.cta-next .proj{ font-family:'Instrument Serif',serif; font-style:italic; font-size:36px; font-weight:400; display:inline-flex; align-items:center; gap:12px; color:var(--ink);}
+.cta-next .proj{ font-family:'Instrument Serif',serif; font-style:italic; font-size:36px; font-weight:400; display:inline-flex; align-items:flex-start; gap:12px; color:var(--ink);}
 .cta-next .proj:hover{color:var(--ink-soft);}
 .cta-contact{ font-size:13px; display:flex; flex-direction:column; gap:7px; text-align:right;}
 .cta-contact a{border-bottom:1px solid var(--ink-faint);}
