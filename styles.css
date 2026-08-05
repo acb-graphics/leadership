@@ -213,6 +213,10 @@ footer.cta{ margin-top:96px; padding:88px 48px 64px; max-width:1180px; margin-le
 
 /* ---------- MEDIA DEFAULTS ---------- */
 img, svg, video, canvas { max-width:100%; height:auto; display:block; }
+/* <picture> only picks the source format — it should not become a layout box,
+   or the img's height:100% inside .feat-thumb / .work-thumb / .hero-art would
+   resolve against the wrapper instead of the sized container. */
+picture { display:contents; }
 
 /* Contained figure — aligns to the same column as body text */
 .figure{ max-width:1180px; margin:56px auto 0; padding:0 48px; }
