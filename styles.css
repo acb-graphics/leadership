@@ -164,7 +164,7 @@ h2.chapter-title{
 
 /* ---------- STRENGTHS TAG ROW (case-study "Strengths" section) ---------- */
 .strengths-list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
-.strengths-list span{ font-size:12px; letter-spacing:0.03em; padding:9px 16px; border:1px solid var(--line); color:var(--ink-soft); font-weight:500; }
+.strengths-list > span{ font-size:12px; letter-spacing:0.03em; padding:9px 16px; border:1px solid var(--line); color:var(--ink-soft); font-weight:500; }
 
 /* ---------- OUTCOME ---------- */
 .outcome{ margin-top:96px; padding:72px 48px; max-width:1180px; margin-left:auto; margin-right:auto; background:var(--ink); color:var(--paper); }

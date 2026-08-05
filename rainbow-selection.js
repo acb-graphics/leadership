@@ -16,20 +16,34 @@
   document.head.appendChild(css);
 
   var i = 0;
+  function hue(el) {
+    el.setAttribute('data-rb', '');
+    el.style.setProperty('--h', String((i++ * 23) % 360));
+  }
+
   function wrap(node) {
     var text = node.nodeValue;
     if (!/\S/.test(text)) return;
+    var parent = node.parentNode;
+
+    /* A leaf element holding a single word already is the container the hue
+       needs — tint it directly rather than nesting another span inside it. */
+    if (parent !== document.body && parent.childNodes.length === 1 &&
+        !/\s/.test(text.trim())) {
+      hue(parent);
+      return;
+    }
+
     var frag = document.createDocumentFragment();
     text.split(/(\s+)/).forEach(function (part) {
       if (!part) return;
       if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
       var s = document.createElement('span');
-      s.setAttribute('data-rb', '');
-      s.style.setProperty('--h', String((i++ * 23) % 360));
       s.textContent = part;
+      hue(s);
       frag.appendChild(s);
     });
-    node.parentNode.replaceChild(frag, node);
+    parent.replaceChild(frag, node);
   }
 
   function walk(el) {
