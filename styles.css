@@ -99,6 +99,7 @@ section.chapter{ padding:96px 48px 0; max-width:1180px; margin:0 auto; }
 h2.chapter-title{
   font-family:'Archivo',sans-serif; font-weight:400; font-size:34px; margin:0; letter-spacing:-0.01em;
 }
+h3{font-family:'Archivo',sans-serif; font-weight:400; font-size:20px; margin:0 0 10px; letter-spacing:-0.01em; line-height:1.2;}
 .chapter-body{display:grid; grid-template-columns:1.1fr 0.9fr; gap:72px; align-items:start;}
 .chapter-body p{margin:0 0 18px; color:var(--ink); font-size:15.5px;}
 .chapter-body p.lead{font-size:18px; line-height:1.5; font-weight:400;}

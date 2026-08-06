@@ -1,0 +1,49 @@
+/* Rainbow link hover — drop-in for the leadership site.
+   Add after styles.css:
+     <link rel="stylesheet" href="rainbow-links.css">
+
+   Inline links get rainbow type + an animated rainbow rule.
+   Block/card links (the whole <a> wrapping a .work-item / .breadth-item)
+   should carry data-plain, so only the title runs the spectrum. */
+
+:root{
+  --rb-dur:2.4s;
+  --rb-w:1.5px;
+  --rb-grad:linear-gradient(90deg,
+    oklch(0.67 0.23 0), oklch(0.67 0.23 60), oklch(0.67 0.23 120), oklch(0.67 0.23 180),
+    oklch(0.67 0.23 240), oklch(0.67 0.23 300), oklch(0.67 0.23 360), oklch(0.67 0.23 60),
+    oklch(0.67 0.23 120), oklch(0.67 0.23 180), oklch(0.67 0.23 240), oklch(0.67 0.23 300),
+    oklch(0.67 0.23 360));
+}
+
+@keyframes rb-slide{ from{background-position:0 0;} to{background-position:-200% 0;} }
+@keyframes rb-rise{ from{opacity:0; transform:scaleX(0.2);} to{opacity:1; transform:scaleX(1);} }
+
+a:not([data-plain]){ position:relative; }
+a:not([data-plain])::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px;
+  height:var(--rb-w);
+  background-image:var(--rb-grad); background-size:200% 100%;
+  opacity:0; transform-origin:left center;
+}
+a:not([data-plain]):hover,
+a[data-plain]:hover .name,
+a[data-plain]:hover .bn{
+  background-image:var(--rb-grad);
+  background-size:200% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  border-color:transparent !important;
+  animation:rb-slide var(--rb-dur) linear infinite;
+}
+a:not([data-plain]):hover::after{
+  animation:rb-rise .18s ease-out forwards, rb-slide var(--rb-dur) linear infinite;
+}
+
+@media (prefers-reduced-motion:reduce){
+  a:not([data-plain]):hover,
+  a[data-plain]:hover .name,
+  a[data-plain]:hover .bn,
+  a:not([data-plain]):hover::after{ animation:none; }
+  a:not([data-plain]):hover::after{ opacity:1; }
+}
