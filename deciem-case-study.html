@@ -54,6 +54,31 @@
 /* editorial placeholder flags — remove once real figures are confirmed */
 .editor-note{ font-size:12.5px; font-style:italic; color:var(--ink-faint); border-left:1px solid var(--line); padding-left:14px; margin:14px 0 0; line-height:1.6; max-width:520px; }
 </style>
+<style>
+/* ---------------------------------------------------------------
+   Blank slots awaiting a confirmed figure.
+   Search any page for "tbd" to find every unfilled value.
+   Delete this rule once every slot is filled.
+   --------------------------------------------------------------- */
+.tbd{
+  display:inline-block; min-width:6.5rem; height:1em;
+  border-bottom:1px dashed var(--ink-faint);
+  vertical-align:-0.12em;
+}
+.tbd::after{
+  content:"to add"; padding-left:6px;
+  font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-faint); font-style:normal; font-weight:400;
+}
+.outcome .tbd{ border-bottom-color:rgba(255,255,255,0.35); }
+.outcome .tbd::after{ color:rgba(255,255,255,0.45); }
+/* A stated limitation, shown deliberately to the reader. */
+.caveat{
+  border-left:2px solid var(--ink); padding-left:16px;
+  margin:26px 0 0; max-width:560px;
+  font-size:14.5px; line-height:1.65; color:var(--ink-soft);
+}
+</style>
 </head>
 <body>
 
@@ -73,14 +98,14 @@
 <header class="hero">
   <div class="eyebrow">Case Study — Cross-Functional Research &amp; Experience Strategy</div>
   <h1 class="title">Deciem</h1>
-  <p class="subtitle">Aligning five disconnected departments around one shared picture of the customer.</p>
+  <p class="subtitle">Five teams held five versions of the customer. The ones furthest from customers had the most influence over the experience.</p>
 
   <div class="hero-art">
     <picture>
       <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif">
       <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp">
       <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg"
-           alt="" width="2400" height="1140" loading="lazy">
+           alt="Deciem — The Abnormal Beauty Company brand imagery" width="2400" height="1140" loading="lazy">
     </picture>
   </div>
 </header>
@@ -89,26 +114,61 @@
   <div class="meta-block">
     <dl>
       <dt>Client</dt><dd>Deciem | The Abnormal Beauty Company (The Ordinary, NIOD, Hylamide)</dd>
-      <dt>Role</dt><dd>Senior Experience Consultant &amp; Researcher</dd>
+      <dt>Role</dt><dd><span class="tbd"></span></dd>
       <dt>Started</dt><dd>2019</dd>
-      <dt>Duration</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">Length to be confirmed</span></dd>
+      <dt>Duration</dt><dd><span class="tbd"></span></dd>
     </dl>
+    <!-- FILL: role title. The site currently uses "Senior Experience Consultant & Researcher"
+         here and a different title on other pages and the résumé. Pick one and use it
+         identically everywhere. -->
   </div>
   <div class="intro">
     <p>Deciem was fluent in its own product strategy — ingredients, pricing philosophy, growth plan across a portfolio of brands. What it didn't have was any clear read on what customers thought, brand by brand or about the umbrella as a whole.</p>
   </div>
 </div>
 
-<!-- 01 SITUATION -->
+<!-- ============================================================
+     01 — PROJECT OVERVIEW
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
-    <h2 class="chapter-title">Situation</h2>
+    <h2 class="chapter-title">Project overview</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Sole researcher and experience strategist, working across five departments without formal authority over any of them.</p>
+      <p>Influence was the operating mode throughout. I owned the research design, ran every session, built the prioritisation framework, and presented findings into rooms where roadmaps were set — but I couldn't direct any of the teams whose work the findings implicated, which shaped every methodological choice on the project.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Team, tools &amp; scope</p>
+      <ul>
+        <li><strong>Team.</strong> <span class="tbd"></span>
+          <!-- FILL: who you worked alongside internally at Deciem, and whether anyone
+               supported the research. --></li>
+        <li><strong>Tools.</strong> Google Analytics for drop-off diagnosis; <span class="tbd"></span>
+          <!-- FILL: design and research tooling — Spark AR Studio, Figma/Sketch,
+               card-sorting or session-recording tools. --></li>
+        <li><strong>Methods.</strong> 1:1 departmental interviews, card sorting, analytics-led usability scripting, paired qualitative sessions (Q&amp;A + usability), AR concept prototyping.</li>
+        <li><strong>Scope.</strong> 5 departments · 3 brands under one umbrella · 2 Spark AR concepts · participants aged 24–64, Toronto-based.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — PROBLEM STATEMENT
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Problem statement</h2>
   </div>
   <div class="chapter-body">
     <div>
       <p class="lead">Customer service heard the frustration daily. Marketing, design, and branding never did.</p>
-      <p>Each team was solving a real problem, but a different one, and none of them were connected to the product roadmap.</p>
+      <p><strong style="font-weight:500;">Business context.</strong> Deciem was growing fast across a portfolio of brands with distinct identities, and had two live strategic questions — product education and sustainability — that it wanted answered beyond physical retail. Each team was solving a real problem, but a different one, and none of them were connected to the product roadmap.</p>
+      <p><strong style="font-weight:500;">Why it mattered.</strong> This was an organisational problem wearing a design problem's clothes. Any redesign would have been overwritten within a quarter unless the five teams first agreed on what was actually wrong — so the work had to produce alignment, not just recommendations.</p>
     </div>
     <div class="takeaways">
       <p class="label">Why it had stalled</p>
@@ -119,62 +179,46 @@
       </ul>
     </div>
   </div>
-</section>
 
-<!-- 02 OBJECTIVE -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">02</span>
-    <h2 class="chapter-title">Objective</h2>
-  </div>
-  <div class="chapter-body">
+  <div class="chapter-body" style="margin-top:36px;">
     <div>
-      <p class="lead">Give Deciem a single, evidence-backed view of customer need — and make it credible enough that five departments would actually prioritize against it together.</p>
-      <p><strong style="font-weight:500;">My role:</strong> Led. I was the sole researcher and experience strategist on the engagement, working across departments without formal authority over any of them — influence was the operating mode throughout.</p>
-      <p><strong style="font-weight:500;">Timeframe:</strong> Engaged from 2019.</p>
-      <p class="editor-note">Editor's note — add total engagement length once confirmed.</p>
-    </div>
-    <div class="takeaways">
-      <p class="label">What success looked like</p>
-      <ul>
-        <li>A shared, cross-departmental understanding of positioning and customer need, replacing five competing versions.</li>
-        <li>A prioritization roadmap separating urgent quick wins from larger scope-of-work items.</li>
-        <li>Primary research on the digital experience, targeted at where customers were actually dropping off.</li>
-        <li>A credible answer to product education and sustainability — the brand's two live strategic questions — beyond physical retail.</li>
-      </ul>
+      <p class="label">User pain points</p>
+      <p>The customer-facing pain points were already known inside the business — customer service had been logging them for years. The problem wasn't discovery, it was routing: the people who held the evidence had the least influence over the roadmap. Analytics confirmed where the digital experience was losing people, and the regimen pages were a specific failure point for anyone unfamiliar with active ingredients, who couldn't tell why a combination had been recommended or what each product actually did.</p>
     </div>
   </div>
 </section>
 
-<!-- 03 ACTIONS -->
+<!-- ============================================================
+     03 — RESEARCH AND DISCOVERY
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">03</span>
-    <h2 class="chapter-title">Actions</h2>
+    <h2 class="chapter-title">Research and discovery</h2>
   </div>
-
-  <ol class="actions-list">
-    <li>
-      <span class="a-num">01</span>
-      <p><strong>Interviewed all five departments individually to surface the real disagreement.</strong> Ran 1:1 sessions with customer service, floor sales, marketing, design, and branding — which exposed that the teams shaping the brand had no exposure to what customer service was hearing every day.</p>
-    </li>
-    <li>
-      <span class="a-num">02</span>
-      <p><strong>Built a prioritization framework and ran card sorting to force cross-team consensus.</strong> Turned each customer pain point into a card and had teams sort them live against brand-perception impact, converting five separate agendas into one ranked list nobody could dismiss as an outside opinion.</p>
-    </li>
-    <li>
-      <span class="a-num">03</span>
-      <p><strong>Used analytics to decide what to test, rather than guessing.</strong> Pulled Google Analytics drop-off data to identify the highest-friction screens and wrote them directly into the usability-testing script — so qualitative sessions were aimed at proven problem areas.</p>
-    </li>
-    <li>
-      <span class="a-num">04</span>
-      <p><strong>Designed and ran a paired research protocol with customers aged 24–64.</strong> Structured each Toronto session as 30 minutes of Q&amp;A on shopping behavior and sustainability plus 30 minutes of usability testing, gathering strategic and tactical evidence in one sitting.</p>
-    </li>
-    <li>
-      <span class="a-num">05</span>
-      <p><strong>Prototyped two Spark AR concepts to solve product education where customers already were.</strong> Chose Spark AR because Deciem's customers live on Instagram and Facebook, then built Virtual Foundation Matching with the customer happiness team and lab assistants calibrating against real skin tones, and a Terracycle filter with the sustainability team that identifies a bottle and routes it to the correct recycling stream.</p>
-    </li>
-  </ol>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Two research tracks running at once: one internal, to surface where the five departments actually disagreed, and one external, aimed at the screens analytics had already flagged as failing.</p>
+      <p><strong style="font-weight:500;">Internal.</strong> 1:1 sessions with customer service, floor sales, marketing, design, and branding, run separately so each team's account wasn't moderated by the presence of the others.</p>
+      <p><strong style="font-weight:500;">External.</strong> Each Toronto session was structured as 30 minutes of Q&amp;A on shopping behaviour and sustainability plus 30 minutes of usability testing — gathering strategic and tactical evidence in one sitting. Participants ranged from 24 to 64.</p>
+      <p><strong style="font-weight:500;">Participants:</strong> <span class="tbd"></span> internal interviews · <span class="tbd"></span> customer sessions
+        <!-- FILL: both counts. If the customer sessions were scoped and scripted but not
+             ultimately run with participants, say that plainly here instead — a designed
+             protocol is still a credible artifact, but it shouldn't be described as
+             completed testing. --></p>
+      <p><strong style="font-weight:500;">Data and evidence.</strong> Google Analytics drop-off data identified the highest-friction screens, and those screens were written directly into the usability script — so every qualitative session was spent on a surface already known to be failing rather than on a guess.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Key findings</p>
+      <ul>
+        <li><strong>The influence gap was the finding.</strong> The internal interviews exposed that the teams shaping the brand had no exposure to what customer service was hearing every day — which reframed the engagement from a digital-experience project to an alignment one.</li>
+        <li><strong>Regimen pages failed the non-expert.</strong> Customers unfamiliar with active ingredients couldn't answer why a combination was recommended, what the ingredients did, or how the routine addressed their concern.</li>
+        <li><strong>Further findings:</strong> <span class="tbd"></span>
+          <!-- FILL: findings from the sustainability and shopping-behaviour half of the
+               sessions. These informed the Terracycle concept but aren't currently stated. --></li>
+      </ul>
+    </div>
+  </div>
 
   <div class="artifact">
     <div class="cardsort">
@@ -187,7 +231,55 @@
     </div>
     <div class="artifact-caption">
       <span class="tag">Fig. 01</span>
-      <span>Reconstruction of a card-sorting session run with cross-functional teams — each note represented a customer pain point, sorted live into a shared prioritization framework.</span>
+      <span>Reconstruction of a card-sorting session run with cross-functional teams — each note represented a customer pain point, sorted live into a shared prioritisation framework.</span>
+    </div>
+  </div>
+
+  <div class="caveat">
+    All participants were Toronto-based, for a portfolio sold internationally. The regional read is solid; the global one isn't, and the findings should be treated as directional outside that market.
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — DESIGN PROCESS
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Design process</h2>
+  </div>
+
+  <ol class="actions-list">
+    <li>
+      <span class="a-num">01</span>
+      <p><strong>Interviewed all five departments individually to surface the real disagreement.</strong> Running the sessions separately was deliberate: in a joint session the teams with the most authority would have set the terms, and the account I needed was the one from the teams with the least.</p>
+    </li>
+    <li>
+      <span class="a-num">02</span>
+      <p><strong>Built a prioritisation framework and ran card sorting to force cross-team consensus.</strong> Turned each customer pain point into a card and had teams sort them live against brand-perception impact — converting five separate agendas into one ranked list nobody could dismiss as an outside opinion, because they had built it themselves.</p>
+    </li>
+    <li>
+      <span class="a-num">03</span>
+      <p><strong>Used analytics to decide what to test, rather than guessing.</strong> Pulled drop-off data to identify the highest-friction screens and wrote them into the usability script, so limited qualitative time was spent only on proven problem areas.</p>
+    </li>
+    <li>
+      <span class="a-num">04</span>
+      <p><strong>Tested three regimen-page variants against the questions a non-expert actually has.</strong> Each variant phrased the recommendation differently — one leading with skin type and concern, one explaining what each ingredient targets, one leading with the routine itself — to find which framing let someone unfamiliar with actives understand why they'd been given that combination.</p>
+    </li>
+    <li>
+      <span class="a-num">05</span>
+      <p><strong>Prototyped two Spark AR concepts to solve product education where customers already were.</strong> Chose Spark AR because Deciem's customers live on Instagram and Facebook, then built Virtual Foundation Matching with the customer happiness team and lab assistants calibrating against real skin tones, and a Terracycle filter with the sustainability team that identifies a bottle and routes it to the correct recycling stream.</p>
+    </li>
+  </ol>
+
+  <div class="chapter-body" style="margin-top:44px;">
+    <div>
+      <p class="label">Decisions and rationale</p>
+      <p>The decision that shaped the outcome most was presenting unfiltered interview footage rather than a summarised findings deck. A summary invites interpretation, and interpretation is what lets a room argue with research it doesn't like. Footage removed that move entirely — the teams that had never spoken to a customer watched one, and the discussion started from what was said rather than from whether I'd read it correctly.</p>
+    </div>
+    <div>
+      <p class="label">What got in the way</p>
+      <p>No formal authority over any of the five departments, and no existing research practice to plug into. Both were resolved structurally rather than politically: card sorting made the teams the authors of the priority list, and analytics made the testing agenda a matter of record rather than opinion.</p>
     </div>
   </div>
 
@@ -241,6 +333,36 @@
       <span>Reconstruction of three regimen-page variants used in usability testing, alongside the questions the page needed to answer for someone unfamiliar with active ingredients.</span>
     </div>
   </div>
+</section>
+
+<!-- ============================================================
+     05 — SOLUTION
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Solution</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">A two-tier prioritisation roadmap that split immediate fixes from larger scope-of-work items, plus two Spark AR concepts aimed at the brand's two live strategic questions.</p>
+      <p><strong style="font-weight:500;">Key features.</strong> Virtual Foundation Matching addressed product education by letting someone see a shade on their own face — built with the customer happiness team and lab assistants calibrating against real skin tones, so the matching logic came from people who handled the products daily rather than from a colour library. The Terracycle filter addressed sustainability by identifying a bottle through the camera and routing it to the correct recycling stream, turning an abstract commitment into a single action a customer could take at the bin.</p>
+      <p><strong style="font-weight:500;">Why Spark AR.</strong> The platform choice was the strategy. Deciem's customers already lived on Instagram and Facebook, so meeting them there removed the acquisition step that a standalone app or a new site section would have required.</p>
+      <p><strong style="font-weight:500;">Design system elements.</strong> <span class="tbd"></span>
+        <!-- FILL: whether the regimen-page work produced reusable components or patterns
+             the internal team kept, and how the AR concepts handled brand consistency
+             across three distinct brand identities. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">What was delivered</p>
+      <ul>
+        <li>A shared, cross-departmental understanding of positioning and customer need, replacing five competing versions.</li>
+        <li>A prioritisation roadmap separating urgent quick wins from larger scope-of-work items.</li>
+        <li>Primary research on the digital experience, targeted at where customers were actually dropping off.</li>
+        <li>Two AR concepts answering product education and sustainability beyond physical retail.</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="artifact" style="border:none;">
     <div style="padding:44px 32px;">
@@ -282,81 +404,75 @@
   </div>
 </section>
 
-<!-- 04 IMPACT -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">04</span>
-    <h2 class="chapter-title">Impact</h2>
-  </div>
-  <div class="chapter-body">
-    <div>
-      <p class="lead">A two-tier prioritization roadmap splitting immediate bug fixes from larger scope-of-work items, giving leadership a clear sequencing decision instead of an undifferentiated backlog.</p>
-      <p>Two Spark AR concepts developed — Virtual Foundation Matching and the Terracycle recycling filter — extending brand engagement and sustainability positioning beyond physical retail.</p>
-      <p class="editor-note">Editor's note — confirm whether either concept shipped publicly, and add reach, engagement, or usage figures if available.</p>
-    </div>
-    <div class="takeaways">
-      <p class="label">What it delivered</p>
-      <ul>
-        <li>Five departments aligned on one prioritized view of customer need — service, sales, marketing, design, and branding moved from separate agendas to a shared roadmap.</li>
-        <li>Research that reached the people furthest from customers — presenting unfiltered interview footage gave teams that never spoke to customers a direct line to them.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div style="margin-top:32px;">
-    <p class="editor-note">Editor's note — add the number of quick wins shipped, and any resulting change in drop-off, conversion, or support-ticket volume. This is the single biggest evidence gap in the case study.</p>
-    <p class="editor-note" style="margin-top:14px;">Editor's note — add participant counts: how many internal interviews, how many customers.</p>
-    <p class="editor-note" style="margin-top:14px;">Editor's note — add any recognition, leadership quote, or note on whether the engagement continued.</p>
-  </div>
-</section>
-
 <div class="outcome">
   <div class="outcome-inner">
     <div class="outcome-grid">
       <div class="outcome-stat">
         <div class="num">5</div>
-        <div class="lbl">departments aligned on one prioritized view of customer need: service, sales, marketing, design, branding</div>
+        <div class="lbl">departments moved from separate agendas to one prioritised view of customer need</div>
       </div>
       <div class="outcome-stat">
-        <div class="num">2</div>
-        <div class="lbl">Spark AR concepts developed: Virtual Foundation Matching and a Terracycle recycling filter</div>
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">quick wins shipped from the prioritised roadmap
+          <!-- FILL: the count. --></div>
       </div>
       <div class="outcome-stat">
-        <div class="num">24–64</div>
-        <div class="lbl">age range of research participants, based in Toronto</div>
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">resulting change in drop-off, conversion, or support-ticket volume
+          <!-- FILL: this is the single biggest evidence gap in the case study. --></div>
       </div>
     </div>
     <p class="body-text" style="font-size:15px; color:rgba(255,255,255,0.65); line-height:1.6;">Research that reached the people furthest from customers — presenting <i class="serif" style="color:#fff;">unfiltered interview footage</i> to marketing, design, and branding gave teams that never spoke to customers a direct line to them.</p>
   </div>
 </div>
 
-<!-- 05 REFLECTION -->
+<!-- ============================================================
+     06 — IMPACT AND RESULTS
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">05</span>
-    <h2 class="chapter-title">Reflection</h2>
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Impact and results</h2>
   </div>
-  <div class="reflection-grid">
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Five departments aligned on one prioritised view of customer need, and a two-tier roadmap that gave leadership a sequencing decision instead of an undifferentiated backlog.</p>
+      <p><strong style="font-weight:500;">Business outcome.</strong> The durable change was structural: customer service's evidence acquired a route into the rooms where roadmaps get set, in a form that couldn't be filtered on the way. Two Spark AR concepts extended the brand's education and sustainability positioning beyond physical retail.</p>
+      <p><strong style="font-weight:500;">Did the concepts ship?</strong> <span class="tbd"></span>
+        <!-- FILL: whether either Spark AR concept launched publicly, and any reach or
+             usage figures. If neither shipped, say so — a concept that informed strategy
+             is still a legitimate outcome, and claiming nothing is safer than implying
+             a launch. --></p>
+      <p><strong style="font-weight:500;">User feedback.</strong> <span class="tbd"></span>
+        <!-- FILL: a quote from Deciem leadership or a team lead, with attribution. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Measurement gap</p>
+      <ul>
+        <li>The alignment outcome is real but qualitative. What's missing is the follow-through: how many quick wins shipped, and whether drop-off, conversion, or support-ticket volume moved as a result. Those figures exist in Deciem's own systems and are the ones this case study most needs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reflection-grid" style="margin-top:56px;">
     <div class="reflection-col">
       <p class="label">What worked</p>
-      <p>Making the research undeniable rather than persuasive. The card-sorting sessions meant teams built the priority list themselves, so nobody had to be sold on it afterward — and presenting unfiltered customer interviews rather than a summarized findings deck removed the room's ability to argue with the interpretation. Anchoring the usability script in analytics drop-off data was the other decision that paid off: it meant every session was spent on a screen already known to be failing.</p>
+      <p>Making the research undeniable rather than persuasive. The card-sorting sessions meant teams built the priority list themselves, so nobody had to be sold on it afterward — and presenting unfiltered customer interviews rather than a summarised findings deck removed the room's ability to argue with the interpretation. Anchoring the usability script in analytics drop-off data was the other decision that paid off: it meant every session was spent on a screen already known to be failing.</p>
     </div>
     <div class="reflection-col">
-      <p class="label">What I'd refine</p>
-      <p>All participants were Toronto-based, for a portfolio sold internationally — the regional read was solid, the global one wasn't. I'd also push harder, earlier, for agreement on how the quick wins would be measured after they shipped. The engagement produced strong alignment and a clear roadmap, but I'd want the follow-through instrumented so the value of the work is visible in the business's own numbers rather than in a report.</p>
+      <p class="label">What I'd do differently</p>
+      <p>I'd negotiate the measurement plan into the engagement before the research started, rather than hoping it followed. The work produced strong alignment and a clear roadmap, but the value of it lives in a report instead of in the business's own numbers — and a roadmap nobody instruments is a roadmap that quietly stops being credited. I'd also widen the sample beyond Toronto for a portfolio sold internationally, even if that meant fewer, shorter sessions across more markets.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I learned</p>
-      <p>The gap in most organizations isn't a lack of customer insight — it's that the insight sits with the teams who have the least power to act on it. Customer service knew the problems. My job wasn't to discover them so much as to give them a route into the rooms where roadmaps get set, in a form that couldn't be filtered on the way.</p>
+      <p>The gap in most organisations isn't a lack of customer insight — it's that the insight sits with the teams who have the least power to act on it. Customer service knew the problems. My job wasn't to discover them so much as to give them a route into the rooms where roadmaps get set, in a form that couldn't be filtered on the way.</p>
     </div>
   </div>
 </section>
 
-<!-- 06 STRENGTHS -->
 <section class="chapter" style="padding-bottom:96px;">
   <div class="chapter-head">
-    <span class="chapter-num">06</span>
-    <h2 class="chapter-title">Strengths</h2>
+    <h2 class="chapter-title">Strengths this project drew on</h2>
   </div>
   <div class="strengths-list">
     <span>Cross-functional influence</span>
@@ -375,8 +491,8 @@
       <a href="1800flowers-case-study-redesign.html" class="proj">1800Flowers — Alexa App →</a>
     </div>
     <div class="cta-contact">
-      <a href="#">View resume</a>
-      <a href="#">acb.graphics@gmail.com</a>
+      <a href="resume.html">View resume</a>
+      <a href="mailto:acb.graphics@gmail.com">acb.graphics@gmail.com</a>
     </div>
   </div>
   <div class="foot-bottom">

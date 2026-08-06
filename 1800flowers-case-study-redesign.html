@@ -10,6 +10,31 @@
 /* editorial placeholder flags — remove once real figures are confirmed */
 .editor-note{ font-size:12.5px; font-style:italic; color:var(--ink-faint); border-left:1px solid var(--line); padding-left:14px; margin:14px 0 0; line-height:1.6; max-width:520px; }
 </style>
+<style>
+/* ---------------------------------------------------------------
+   Blank slots awaiting a confirmed figure.
+   Search any page for "tbd" to find every unfilled value.
+   Delete this rule once every slot is filled.
+   --------------------------------------------------------------- */
+.tbd{
+  display:inline-block; min-width:6.5rem; height:1em;
+  border-bottom:1px dashed var(--ink-faint);
+  vertical-align:-0.12em;
+}
+.tbd::after{
+  content:"to add"; padding-left:6px;
+  font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-faint); font-style:normal; font-weight:400;
+}
+.outcome .tbd{ border-bottom-color:rgba(255,255,255,0.35); }
+.outcome .tbd::after{ color:rgba(255,255,255,0.45); }
+/* A stated limitation, shown deliberately to the reader. */
+.caveat{
+  border-left:2px solid var(--ink); padding-left:16px;
+  margin:26px 0 0; max-width:560px;
+  font-size:14.5px; line-height:1.65; color:var(--ink-soft);
+}
+</style>
 </head>
 <body>
 
@@ -29,9 +54,10 @@
 <header class="hero">
   <div class="eyebrow">Case Study — Voice &amp; Conversational Design</div>
   <h1 class="title">1-800-Flowers<br>Alexa Skill</h1>
-  <p class="subtitle">Designing a complete purchase experience with no screen, on an undocumented payments API.</p>
+  <p class="subtitle">A complete purchase experience with no screen, built on a payments flow that wasn't documented anywhere.</p>
 
   <div class="hero-art">
+    <!-- NOTE: this page currently reuses cbs_hero. Replace with a project-specific image. -->
     <picture>
       <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.avif">
       <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.webp">
@@ -46,9 +72,9 @@
     <dl>
       <dt>Client</dt><dd>1-800-Flowers</dd>
       <dt>Agency</dt><dd>Accedo</dd>
-      <dt>Role</dt><dd>Lead Product Designer</dd>
-      <dt>Duration</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
-      <dt>Launched</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
+      <dt>Role</dt><dd><span class="tbd"></span></dd>
+      <dt>Duration</dt><dd><span class="tbd"></span></dd>
+      <dt>Launched</dt><dd><span class="tbd"></span></dd>
     </dl>
   </div>
   <div class="intro">
@@ -56,16 +82,47 @@
   </div>
 </div>
 
-<!-- 01 SITUATION -->
+<!-- ============================================================
+     01 — PROJECT OVERVIEW
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
-    <h2 class="chapter-title">Situation</h2>
+    <h2 class="chapter-title">Project overview</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">That meant building one of the first Alexa skills to complete a purchase through Amazon Pay, at a point when almost nobody had done it.</p>
-      <p>The company had a clear commercial goal and no map for how to get there.</p>
+      <p class="lead">Design lead on the engagement, owning conversational design, flow architecture, and the research protocol.</p>
+      <p>Because there was nothing visual to hand off, my output <em>was</em> the engineering specification — which meant the responsibility ran further down the build than it normally would. Every branch that wasn't resolved in the flow was a branch nobody would resolve at all.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Team, tools &amp; scope</p>
+      <ul>
+        <li><strong>Team.</strong> Accedo strategy and the client's product team; direct working sessions with the Amazon Pay team. <span class="tbd"></span>
+          <!-- FILL: team size and who did what — engineers, strategists, client-side roles. --></li>
+        <li><strong>Tools.</strong> <span class="tbd"></span>
+          <!-- FILL: flow/diagramming tool, utterance library format, Zoom for the
+               simulated sessions. --></li>
+        <li><strong>Methods.</strong> Partner discovery calls, conversational flow architecture, Wizard-of-Oz utterance testing, affinity mapping, emotional and tonal session coding.</li>
+        <li><strong>Scope.</strong> 4 core scenarios architected to command level · ~30 flow nodes · 8 test participants · one living utterance library handed to the client.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — PROBLEM STATEMENT
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Problem statement</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Take someone from "order flowers for my mom's birthday" to a completed, paid order — using only speech.</p>
+      <p><strong style="font-weight:500;">Business context.</strong> Voice commerce was a genuinely open category at the time. Completing a purchase inside a skill, rather than handing off to a phone, was the differentiator the client was after, and Amazon Pay's voice-purchase path was the mechanism for it.</p>
+      <p><strong style="font-weight:500;">Why it mattered.</strong> Gifting is time-pressured and often done badly under that pressure. A voice flow that could recall a previous order and re-send it turned the platform's constraint — no browsing — into an advantage, provided the conversation could carry the whole transaction.</p>
     </div>
     <div class="takeaways">
       <p class="label">Why it had stalled</p>
@@ -76,94 +133,40 @@
       </ul>
     </div>
   </div>
-</section>
 
-<!-- 02 OBJECTIVE -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">02</span>
-    <h2 class="chapter-title">Objective</h2>
-  </div>
-  <div class="chapter-body">
+  <div class="chapter-body" style="margin-top:36px;">
     <div>
-      <p class="lead">Deliver a voice experience that takes someone from "order flowers for my mom's birthday" to a completed, paid order — and produce documentation precise enough for engineers to build from without a single mockup.</p>
-      <p><strong style="font-weight:500;">My role:</strong> Led. Lead Product Designer on the engagement — I owned the conversational design, the flow architecture, and the research protocol, working alongside Accedo strategy and the client's product team.</p>
-      <p><strong style="font-weight:500;">Timeframe:</strong> <span style="color:var(--ink-faint); font-style:italic;">To be confirmed.</span></p>
-    </div>
-    <div class="takeaways">
-      <p class="label">What success looked like</p>
-      <ul>
-        <li>A working understanding of Amazon Pay's voice-purchase constraints, established through direct access rather than documentation.</li>
-        <li>Flows covering new user, returning user, browsing, and purchase — each specified to the level of individual spoken commands.</li>
-        <li>An utterance library grounded in how real people speak, not how the design team assumed they would.</li>
-        <li>A handoff package the client's own team could extend and keep testing after the engagement ended.</li>
-      </ul>
+      <p class="label">User pain points</p>
+      <p>Testing surfaced three that shaped the design directly. People didn't know order history was accessible by voice, and reached for it only when prompted — "send the same as last time" was a phrase participants produced spontaneously once they realised it was possible. People asked for price before size, inverting the order the flow originally assumed. And cancellation produced audible hesitation: with no screen to confirm against, participants wanted a confirmation code read back to them before they'd trust that anything had happened.</p>
     </div>
   </div>
 </section>
 
-<!-- 03 ACTIONS -->
+<!-- ============================================================
+     03 — RESEARCH AND DISCOVERY
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">03</span>
-    <h2 class="chapter-title">Actions</h2>
+    <h2 class="chapter-title">Research and discovery</h2>
   </div>
-
-  <ol class="actions-list">
-    <li>
-      <span class="a-num">01</span>
-      <p><strong>Reverse-engineered an undocumented payment flow through direct access.</strong> Ran a series of calls with the Amazon Pay team to establish what the voice-purchase flow could and couldn't do, then iterated the user flow with both them and the client as each constraint surfaced.</p>
-    </li>
-    <li>
-      <span class="a-num">02</span>
-      <p><strong>Architected four core scenarios down to the command level.</strong> Mapped new user, returning user, browsing, and purchase — including what Alexa should volunteer versus wait to be asked, reorder logic, occasion-based recommendation, and the Amazon Pay handoff with address and payment fallbacks — branching to roughly 30 nodes.</p>
-    </li>
-    <li>
-      <span class="a-num">03</span>
-      <p><strong>Invented a testing method for a product that didn't exist yet.</strong> Simulated the device: laptops either side of a dimmed screen, a facilitator voicing Alexa live over Zoom, and an unplugged physical Alexa unit in front of the participant so the interaction stayed physically realistic despite there being no software to test.</p>
-    </li>
-    <li>
-      <span class="a-num">04</span>
-      <p><strong>Built a living utterance library from eight sessions and handed it off as an asset.</strong> Logged every deviation in phrasing into an utterance sheet, then structured it so the 1-800-Flowers team could keep adding to it after the engagement — turning a research artifact into infrastructure the client owned.</p>
-    </li>
-    <li>
-      <span class="a-num">05</span>
-      <p><strong>Coded sessions by emotion and tone, not just task.</strong> Sorted every session by participant background, emotional state, and tone of voice alongside the functional tasks, so patterns in language could be traced back to the moment and mindset that produced them — which is where the reorder and cancellation insights came from.</p>
-    </li>
-  </ol>
-
-  <div class="artifact">
-    <div class="flow">
-      <div class="flow-row">
-        <div class="flow-node step">Launch skill</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node decision">New or returning?</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node step">Ask occasion / recipient</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node decision">Reco or reorder?</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node step">Confirm arrangement + size</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node end">Amazon Pay handoff</div>
-      </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Two discovery problems at once: an undocumented partner API, and a product that didn't exist yet to test.</p>
+      <p><strong style="font-weight:500;">Partner discovery.</strong> The Amazon Pay constraints weren't in any guide, so I established them through a series of direct calls with the Amazon Pay team, iterating the user flow with them and the client as each constraint surfaced.</p>
+      <p><strong style="font-weight:500;">Utterance testing — 8 participants.</strong> Rather than wait for a build, I simulated the device: laptops either side of a dimmed screen, a facilitator voicing Alexa live over Zoom, and an unplugged physical Alexa unit in front of the participant so the interaction stayed physically realistic. Every deviation in phrasing was logged.</p>
+      <p><strong style="font-weight:500;">Analysis.</strong> Sessions were coded by participant background, emotional state, and tone of voice alongside the functional tasks — so patterns in language could be traced back to the moment and mindset that produced them. The reorder and cancellation insights both came out of that coding rather than out of task-completion data.</p>
+      <p><strong style="font-weight:500;">Competitive context.</strong> <span class="tbd"></span>
+        <!-- FILL, or delete: whether other voice-commerce skills were reviewed. If not,
+             leave this out rather than reconstructing it. --></p>
     </div>
-    <div class="artifact-caption">
-      <span class="tag">Fig. 01</span>
-      <span>Simplified reconstruction of the Order Intent flow — the full whiteboard version branched into ~30 nodes covering reorders, gifting flows, and payment fallbacks. Original artifact is legible only at full resolution; this crop isolates the single decision path referenced above.</span>
-    </div>
-  </div>
-
-  <div class="artifact">
-    <div class="transcript">
-      <div class="bubble user"><span class="who">User</span><span class="say">Alexa, order flowers for my mom's birthday.</span></div>
-      <div class="bubble alexa"><span class="who">Alexa</span><span class="say">I've got a birthday bouquet with white roses and purple alstroemeria. Want to hear another option?<span class="wave"><i></i><i></i><i></i><i></i><i></i></span></span></div>
-      <div class="bubble user"><span class="who">User</span><span class="say">Actually — what did I order her last time?</span></div>
-      <div class="bubble alexa"><span class="who">Alexa</span><span class="say">Your last order was the Spring Garden bouquet, sent in March. Want to send that again?<span class="wave"><i></i><i></i><i></i><i></i><i></i></span></span></div>
-    </div>
-    <div class="artifact-caption">
-      <span class="tag">Fig. 02</span>
-      <span>A reconstructed sample exchange from testing. Because voice has no visual UI to review, the transcript format is the closest analog to a wireframe for this project — it's how the team actually reviewed flows internally.</span>
+    <div class="takeaways">
+      <p class="label">Key findings</p>
+      <ul>
+        <li><strong>People reorder by memory, not by catalogue.</strong> "Send the same as last time" only appeared when someone was actually speaking to a device — it never came up in scripted review.</li>
+        <li><strong>Confirmation is the substitute for a screen.</strong> Hesitation in the cancellation flow indicated participants needed a spoken confirmation code to believe the action had registered.</li>
+        <li><strong>Voice can't describe a bouquet.</strong> Participants without floristry knowledge couldn't picture species and colours from description alone — the one problem the medium structurally cannot solve.</li>
+      </ul>
     </div>
   </div>
 
@@ -190,36 +193,119 @@
       </div>
     </div>
     <div class="artifact-caption">
-      <span class="tag">Fig. 03</span>
-      <span>Recreated crop of the affinity map used to sort utterance-testing notes into themes, reconstructed here as four legible columns rather than the full wall of sticky notes.</span>
+      <span class="tag">Fig. 01</span>
+      <span>Reconstruction of the affinity map used to sort utterance-testing notes into themes, shown here as four legible columns rather than the full wall of sticky notes.</span>
+    </div>
+  </div>
+
+  <div class="caveat">
+    Eight participants was enough to find the obvious phrasings, not enough to be confident about the long tail — and in voice, the long tail is where the failures live. The utterance library was structured for the client to keep extending precisely because the first round couldn't be exhaustive.
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — DESIGN PROCESS
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Design process</h2>
+  </div>
+
+  <ol class="actions-list">
+    <li>
+      <span class="a-num">01</span>
+      <p><strong>Reverse-engineered an undocumented payment flow through direct access.</strong> Established what the voice-purchase flow could and couldn't do by going to the source, then iterated the user flow as each constraint surfaced — rather than designing against assumptions and discovering the limits in build.</p>
+    </li>
+    <li>
+      <span class="a-num">02</span>
+      <p><strong>Architected four core scenarios down to the command level.</strong> Mapped new user, returning user, browsing, and purchase — including what Alexa should volunteer versus wait to be asked, reorder logic, occasion-based recommendation, and the Amazon Pay handoff with address and payment fallbacks — branching to roughly 30 nodes.</p>
+    </li>
+    <li>
+      <span class="a-num">03</span>
+      <p><strong>Invented a testing method for a product that didn't exist yet.</strong> The unplugged Alexa unit was the detail that mattered: participants addressed the object rather than the facilitator, which is what kept their speech patterns natural instead of conversational.</p>
+    </li>
+    <li>
+      <span class="a-num">04</span>
+      <p><strong>Turned the research artifact into infrastructure the client owned.</strong> Structured the utterance library so the 1-800-Flowers team could keep adding to it after the engagement ended, rather than handing over a findings report with a shelf life.</p>
+    </li>
+    <li>
+      <span class="a-num">05</span>
+      <p><strong>Coded sessions by emotion and tone, not just task.</strong> Sorting by emotional state alongside functional success is where the reorder and cancellation insights came from — neither would have surfaced in a completion-rate view.</p>
+    </li>
+  </ol>
+
+  <div class="chapter-body" style="margin-top:44px;">
+    <div>
+      <p class="label">Iterations from testing</p>
+      <p>Testing changed the flow in three specific places: order history was surfaced proactively rather than waiting to be asked for, price moved ahead of size in the recommendation sequence, and the cancellation path gained a spoken confirmation code. Each change traces to a logged utterance rather than to a design opinion.</p>
+    </div>
+    <div>
+      <p class="label">What got in the way</p>
+      <p>Designing without a screen exposed how much visual interfaces let you defer decisions. A layout can hold ambiguity; a sentence can't. Every branch had to be resolved explicitly in language, which made the work slower and the specification far more rigorous than an equivalent screen-based project.</p>
+    </div>
+  </div>
+
+  <div class="artifact">
+    <div class="flow">
+      <div class="flow-row">
+        <div class="flow-node step">Launch skill</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node decision">New or returning?</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node step">Ask occasion / recipient</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node decision">Reco or reorder?</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node step">Confirm arrangement + size</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node end">Amazon Pay handoff</div>
+      </div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 02</span>
+      <span>Reconstruction of the Order Intent flow — the full version branched into roughly 30 nodes covering reorders, gifting flows, and payment fallbacks. This crop isolates the single decision path referenced above.</span>
     </div>
   </div>
 </section>
 
-<!-- 04 IMPACT -->
+<!-- ============================================================
+     05 — SOLUTION
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">04</span>
-    <h2 class="chapter-title">Impact</h2>
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Solution</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Shipped one of the earliest Alexa skills to complete an end-to-end purchase via Amazon Pay, at a point when the flow was undocumented and largely unproven.</p>
-      <p class="editor-note">Editor's note — confirm the skill launched publicly and the exact date before using "first of its kind" language anywhere.</p>
-      <p style="margin-top:28px;">Design documentation that functioned as engineering spec, removing a translation layer between design and build on a project with no visual reference.</p>
+      <p class="lead">A skill that carries a gift purchase from intent to paid order without a screen, specified precisely enough that engineers built from the flows alone.</p>
+      <p><strong style="font-weight:500;">Key interactions.</strong> Occasion-based recommendation opens the conversation; reorder is offered rather than requested, because testing showed people didn't know to ask; arrangement and size are confirmed in sequence with price stated first; and the Amazon Pay handoff completes the transaction in-skill, with address and payment fallbacks handled in language.</p>
+      <p><strong style="font-weight:500;">The design system, for voice.</strong> With no components to build, the system was linguistic: a defined persona and register for Alexa's responses, consistent confirmation and error patterns, rules for what the assistant volunteers versus waits to be asked, and the utterance library mapping how real people phrase each intent. That library is the closest analogue to a component set this project had, and it was the artifact the client kept.</p>
+      <p><strong style="font-weight:500;">Reviewing without visuals.</strong> The transcript format became the team's wireframe. Reading exchanges aloud in review was how flows were evaluated internally — the only reliable way to catch a sentence that scanned well but didn't speak well.</p>
     </div>
     <div class="takeaways">
-      <p class="label">What it delivered</p>
+      <p class="label">What was delivered</p>
       <ul>
-        <li>Established the Amazon Pay voice-purchase constraints for the client's product team — knowledge that didn't exist in public documentation at the time.</li>
-        <li>8 participants tested, producing a phrase library the client continued to extend — the research output became a durable asset rather than a one-off report.</li>
+        <li>Flows covering new user, returning user, browsing, and purchase, specified to individual spoken commands.</li>
+        <li>A working understanding of Amazon Pay's voice-purchase constraints, established through direct access rather than documentation.</li>
+        <li>An utterance library grounded in how real people speak, structured for the client to extend.</li>
+        <li>Documentation that functioned as engineering spec, removing the translation layer between design and build.</li>
       </ul>
     </div>
   </div>
 
-  <div style="margin-top:32px;">
-    <p class="editor-note">Editor's note — add the single hard business metric this case study is missing: order-completion rate, skill installs, orders placed via voice, average time to complete an order, or share of reorders.</p>
-    <p class="editor-note" style="margin-top:14px;">Editor's note — add any award, Amazon feature/showcase, press coverage, or client quote.</p>
+  <div class="artifact">
+    <div class="transcript">
+      <div class="bubble user"><span class="who">User</span><span class="say">Alexa, order flowers for my mom's birthday.</span></div>
+      <div class="bubble alexa"><span class="who">Alexa</span><span class="say">I've got a birthday bouquet with white roses and purple alstroemeria. Want to hear another option?<span class="wave"><i></i><i></i><i></i><i></i><i></i></span></span></div>
+      <div class="bubble user"><span class="who">User</span><span class="say">Actually — what did I order her last time?</span></div>
+      <div class="bubble alexa"><span class="who">Alexa</span><span class="say">Your last order was the Spring Garden bouquet, sent in March. Want to send that again?<span class="wave"><i></i><i></i><i></i><i></i><i></i></span></span></div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 03</span>
+      <span>Reconstruction of a sample exchange from testing. Because voice has no visual UI to review, the transcript format is the closest analogue to a wireframe for this project — it's how the team actually reviewed flows internally.</span>
+    </div>
   </div>
 </section>
 
@@ -227,53 +313,74 @@
   <div class="outcome-inner">
     <div class="outcome-grid">
       <div class="outcome-stat">
-        <div class="num">4</div>
-        <div class="lbl">core scenarios architected down to the command level — new user, returning user, browsing, purchase</div>
+        <div class="num">Amazon Pay</div>
+        <div class="lbl">one of the earliest Alexa skills to complete an end-to-end purchase in-skill, at a point when the flow was undocumented</div>
       </div>
       <div class="outcome-stat">
-        <div class="num">~30</div>
-        <div class="lbl">flow nodes mapped across the order-intent flow, including reorder, gifting, and payment-fallback branches</div>
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">orders placed via voice, or order-completion rate
+          <!-- FILL: the single hard business metric this case study is missing. Skill
+               installs or share of reorders would also work. --></div>
       </div>
       <div class="outcome-stat">
-        <div class="num">8</div>
-        <div class="lbl">participants in first-round utterance testing, feeding a living phrase library handed off to the client team</div>
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">launch date
+          <!-- FILL: confirm the public launch date before using "one of the first"
+               language anywhere on the site. --></div>
       </div>
     </div>
     <p class="body-text">Design documentation that functioned as <i class="serif" style="color:#fff;">engineering spec</i> — removing the translation layer between design and build on a project with no visual reference at all.</p>
   </div>
 </div>
 
-<!-- 05 REFLECTION -->
+<!-- ============================================================
+     06 — IMPACT AND RESULTS
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">05</span>
-    <h2 class="chapter-title">Reflection</h2>
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Impact and results</h2>
   </div>
-  <div class="reflection-grid cols-4">
+  <div class="chapter-body">
+    <div>
+      <p class="lead">The skill shipped as one of the earliest to complete a purchase end to end through Amazon Pay, at a point when that path was undocumented and largely unproven.</p>
+      <p><strong style="font-weight:500;">Business outcome.</strong> The engagement established the Amazon Pay voice-purchase constraints for the client's product team — knowledge that didn't exist in public documentation at the time — and left them an utterance library they continued to extend. The research output became a durable asset rather than a one-off report, which is the outcome I'd argue mattered most: the client could keep improving the skill without us.</p>
+      <p><strong style="font-weight:500;">User feedback.</strong> <span class="tbd"></span>
+        <!-- FILL: a client quote, or any Amazon feature/showcase, award, or press
+             coverage. This project has the strongest external corroboration of any on
+             the site and currently cites none of it. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Measurement gap</p>
+      <ul>
+        <li>The design and research outcomes are well evidenced; the commercial one isn't. No completion rate, install count, or voice-order volume was instrumented in a form I can point to — which on a first-of-its-kind build was a loss for the client as much as for the case study.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reflection-grid cols-4" style="margin-top:56px;">
     <div class="reflection-col">
       <p class="label">What worked</p>
-      <p>Building the test rig before the product existed. Putting an unplugged Alexa in front of people and voicing it live got us real speech patterns months earlier than waiting for a build would have — and phrasings like "send the same as last time" only surface when someone is actually talking to a device, not reading a script. Coding sessions by tone and emotional state was the other decision that paid off: hesitation in the cancellation flow was what told us people wanted a confirmation code read back, and that never shows up in task-completion data.</p>
+      <p>Building the test rig before the product existed. Putting an unplugged Alexa in front of people and voicing it live got us real speech patterns months earlier than waiting for a build would have — and phrasings like "send the same as last time" only surface when someone is actually talking to a device, not reading a script. Coding sessions by tone and emotional state was the other decision that paid off.</p>
     </div>
     <div class="reflection-col">
-      <p class="label">What I'd refine</p>
-      <p>Eight participants was enough to find the obvious phrasings, not enough to be confident about the long tail — and in voice, the long tail is where the failures live. I'd also push earlier for agreement on how success would be measured post-launch. The engagement produced excellent design documentation and a real shipped product, but the business outcome isn't instrumented in a way I can point to, and on a first-of-its-kind build that evidence would have been valuable to the client too.</p>
+      <p class="label">What I'd do differently</p>
+      <p>I'd run a second, larger round of utterance testing before launch rather than treating eight participants as sufficient — in voice, the failures live in the long tail, and the first round is designed to find the head. I'd also fix the measurement question at the start of the engagement rather than the end. The work produced excellent documentation and a real shipped product, and I still can't point to what it did commercially.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I learned</p>
-      <p>Designing without a screen exposed how much visual interfaces let you defer decisions. A layout can hold ambiguity; a sentence can't. Every branch had to be resolved explicitly in language, which made the work slower and the specification far more rigorous than an equivalent screen-based project — and permanently changed how I think about edge cases in any medium.</p>
+      <p>Designing without a screen exposed how much visual interfaces let you defer decisions. A layout can hold ambiguity; a sentence can't. That permanently changed how I think about edge cases in any medium.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I'd build next</p>
-      <p>An Alexa Show version. Testing showed that people without floristry knowledge couldn't picture species and colors from description alone — the one problem voice structurally cannot solve.</p>
+      <p>An Alexa Show version. Testing showed that people without floristry knowledge couldn't picture species and colours from description alone — the one problem voice structurally cannot solve, and the obvious next move for the product.</p>
     </div>
   </div>
 </section>
 
-<!-- 06 STRENGTHS -->
 <section class="chapter" style="padding-bottom:96px;">
   <div class="chapter-head">
-    <span class="chapter-num">06</span>
-    <h2 class="chapter-title">Strengths</h2>
+    <h2 class="chapter-title">Strengths this project drew on</h2>
   </div>
   <div class="strengths-list">
     <span>Ambiguity navigation</span>
@@ -289,7 +396,7 @@
   <div class="cta-row">
     <div class="cta-next">
       <div class="lbl">Next project</div>
-      <a href="/directv-wear-os-case-study.html" class="proj">DirecTV — Wear OS Companion App →</a>
+      <a href="directv-wear-os-case-study.html" class="proj">DirecTV — Wear OS Companion App →</a>
     </div>
     <div class="cta-contact">
       <a href="resume.html">View resume</a>

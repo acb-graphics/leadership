@@ -10,6 +10,31 @@
 /* editorial placeholder flags — remove once real figures are confirmed */
 .editor-note{ font-size:12.5px; font-style:italic; color:var(--ink-faint); border-left:1px solid var(--line); padding-left:14px; margin:14px 0 0; line-height:1.6; max-width:520px; }
 </style>
+<style>
+/* ---------------------------------------------------------------
+   Blank slots awaiting a confirmed figure.
+   Search any page for "tbd" to find every unfilled value.
+   Delete this rule once every slot is filled.
+   --------------------------------------------------------------- */
+.tbd{
+  display:inline-block; min-width:6.5rem; height:1em;
+  border-bottom:1px dashed var(--ink-faint);
+  vertical-align:-0.12em;
+}
+.tbd::after{
+  content:"to add"; padding-left:6px;
+  font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-faint); font-style:normal; font-weight:400;
+}
+.outcome .tbd{ border-bottom-color:rgba(255,255,255,0.35); }
+.outcome .tbd::after{ color:rgba(255,255,255,0.45); }
+/* A stated limitation, shown deliberately to the reader. */
+.caveat{
+  border-left:2px solid var(--ink); padding-left:16px;
+  margin:26px 0 0; max-width:560px;
+  font-size:14.5px; line-height:1.65; color:var(--ink-soft);
+}
+</style>
 </head>
 <body>
 
@@ -29,9 +54,10 @@
 <header class="hero">
   <div class="eyebrow">Case Study — Multi-Device Companion Experience</div>
   <h1 class="title">DirecTV<br>Wear OS</h1>
-  <p class="subtitle">Making three connected surfaces behave like one continuous system.</p>
+  <p class="subtitle">In a three-device system, the design object isn't any of the screens — it's the handoff between them.</p>
 
   <div class="hero-art">
+    <!-- NOTE: this page currently reuses cbs_hero. Replace with a project-specific image. -->
     <picture>
       <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.avif">
       <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.webp">
@@ -46,9 +72,9 @@
     <dl>
       <dt>Client</dt><dd>AT&amp;T (DirecTV)</dd>
       <dt>Agency</dt><dd>Accedo</dd>
-      <dt>Role</dt><dd>Senior Interactive Designer</dd>
-      <dt>Duration</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
-      <dt>Launched</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
+      <dt>Role</dt><dd><span class="tbd"></span></dd>
+      <dt>Duration</dt><dd><span class="tbd"></span></dd>
+      <dt>Launched</dt><dd><span class="tbd"></span></dd>
     </dl>
   </div>
   <div class="intro">
@@ -56,16 +82,46 @@
   </div>
 </div>
 
-<!-- 01 SITUATION -->
+<!-- ============================================================
+     01 — PROJECT OVERVIEW
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
-    <h2 class="chapter-title">Situation</h2>
+    <h2 class="chapter-title">Project overview</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">The ambition wasn't a smaller version of the phone app; it was continuity.</p>
-      <p>Start something on one device, pick it up on another, never repeat a step.</p>
+      <p class="lead">Contributing designer on the Accedo team, owning the device-contingency logic with engineering and the high-fidelity UI and motion guide.</p>
+      <p>This was a shared-ownership project rather than a solo lead one, and the page says so — flow architecture was worked within a team. What was mine end to end was the failure-state model: what the watch shows when a receiver is offline, unpaired, or mid-buffer.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Team, tools &amp; scope</p>
+      <ul>
+        <li><strong>Team.</strong> Accedo design and engineering, plus AT&amp;T's product and writing teams. <span class="tbd"></span>
+          <!-- FILL: team size, and which parts you led vs. contributed to. --></li>
+        <li><strong>Tools.</strong> <span class="tbd"></span>
+          <!-- FILL: design, prototyping and motion-spec tooling. --></li>
+        <li><strong>Methods.</strong> Engineering-led contingency modelling, context-based flow architecture, pairing and setup design, working demo for stakeholder sign-off, motion specification, cross-team copy handoff.</li>
+        <li><strong>Scope.</strong> 3 connected surfaces — set-top box, mobile app, watch · 2 usage contexts — at-home and out-of-home · pairing, receiver discovery, IP validation and default-receiver selection flows · full failure-state coverage.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — PROBLEM STATEMENT
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Problem statement</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">The ambition wasn't a smaller version of the phone app; it was continuity. Start something on one device, pick it up on another, never repeat a step.</p>
+      <p><strong style="font-weight:500;">Business context.</strong> AT&amp;T was evaluating the wearable category. The Wear OS app had to work as a product and as an argument — good enough to justify further investment in a platform the business hadn't committed to.</p>
+      <p><strong style="font-weight:500;">Why it mattered.</strong> A companion app that breaks continuity is worse than no companion app: it adds a device to the household without removing a step from the task. The promise only holds if state travels reliably, which made the engineering constraints the design constraints.</p>
     </div>
     <div class="takeaways">
       <p class="label">Why it was hard</p>
@@ -76,43 +132,58 @@
       </ul>
     </div>
   </div>
+
+  <div class="chapter-body" style="margin-top:36px;">
+    <div>
+      <p class="label">User pain points</p>
+      <p>Two distinct contexts produce two distinct problems. At home, the pain is the remote — misplaced, shared, or across the room. Out of home, the pain is missing something: a live show starts and there's no way to record it to the right box without going back to a phone. Multi-receiver households compound both, because "record this" is ambiguous until you can name a room.</p>
+      <p class="caveat">These were derived from AT&amp;T's product understanding and the existing DirecTV app rather than from primary research with customers. No user research was run on this engagement.</p>
+    </div>
+  </div>
 </section>
 
-<!-- 02 OBJECTIVE -->
+<!-- ============================================================
+     03 — RESEARCH AND DISCOVERY
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">02</span>
-    <h2 class="chapter-title">Objective</h2>
+    <span class="chapter-num">03</span>
+    <h2 class="chapter-title">Research and discovery</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Ship a Wear OS companion app that behaves as one part of a connected system rather than a standalone product — and prove the concept convincingly enough for AT&amp;T to commit to the wearable category.</p>
-      <p><strong style="font-weight:500;">My role:</strong> Contributed. Senior Interactive Designer on the Accedo team — I owned the device-contingency logic with engineering and the high-fidelity UI and motion guide, working within a team on flow architecture.</p>
-      <p><strong style="font-weight:500;">Timeframe:</strong> <span style="color:var(--ink-faint); font-style:italic;">To be confirmed.</span></p>
+      <p class="lead">Discovery here was technical rather than user-facing: understanding how the three devices actually communicated, and designing from what the system could truthfully report.</p>
+      <p><strong style="font-weight:500;">Engineering discovery.</strong> I sat with developers to establish how the set-top box, phone and watch exchanged state — what each device could know about the others, how quickly, and what happened when the link dropped. That investigation produced the contingency model, and it's the reason the failure states are specific rather than generic.</p>
+      <p><strong style="font-weight:500;">Platform constraints.</strong> Wear OS's input model and screen size were treated as a starting point rather than an obstacle: the question was what a watch is genuinely good for in this system, not how to compress a remote onto it.</p>
+      <p><strong style="font-weight:500;">User research: none.</strong> The work was validated technically and with AT&amp;T stakeholders. Neither is customer validation, and for a wrist interface — where assumptions feel obvious in a demo and fail in a kitchen — that's a real limitation.</p>
+      <p><strong style="font-weight:500;">Competitive analysis.</strong> <span class="tbd"></span>
+        <!-- FILL, or delete: whether other TV companion or wearable remote apps were
+             reviewed. --></p>
     </div>
     <div class="takeaways">
-      <p class="label">What success looked like</p>
+      <p class="label">Key findings</p>
       <ul>
-        <li>A released Wear OS app syncing live TV browsing, playback, and recording with the set-top box and mobile app.</li>
-        <li>Complete flow coverage for both at-home and out-of-home use, including the failure states — no receiver paired, receiver offline, multiple receivers in a household.</li>
-        <li>A technically viable interaction model, validated against real Wear OS and device-communication constraints rather than designed in the abstract.</li>
-        <li>Stakeholder sign-off at AT&amp;T on something they could see working, not a static deck.</li>
+        <li><strong>Failure states aren't edge cases here.</strong> On a three-device system, offline, unpaired and mid-buffer conditions are a large share of the actual experience, which is why they were designed first rather than last.</li>
+        <li><strong>Context splits the product in two.</strong> At-home wants remote-control parity; out-of-home wants notification and remote recording. Treating them as one generic user would have produced an interface that served neither.</li>
+        <li><strong>Multi-receiver households need naming.</strong> Recording is only unambiguous if a user can direct it to a specific room, which made default-receiver selection a first-class part of setup rather than a settings afterthought.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- 03 ACTIONS -->
+<!-- ============================================================
+     04 — DESIGN PROCESS
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">03</span>
-    <h2 class="chapter-title">Actions</h2>
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Design process</h2>
   </div>
 
   <ol class="actions-list">
     <li>
       <span class="a-num">01</span>
-      <p><strong>Worked directly with engineering to define contingency messaging from device behavior.</strong> Sat with developers to understand how the devices actually communicated, then designed what the watch shows when a receiver is offline, unpaired, or mid-buffer — turning technical failure modes into intelligible user-facing states.</p>
+      <p><strong>Worked directly with engineering to define contingency messaging from device behaviour.</strong> Designed what the watch shows when a receiver is offline, unpaired, or mid-buffer — turning technical failure modes into intelligible user-facing states rather than error codes.</p>
     </li>
     <li>
       <span class="a-num">02</span>
@@ -120,7 +191,7 @@
     </li>
     <li>
       <span class="a-num">03</span>
-      <p><strong>Designed the pairing and setup flows that made multi-receiver households work.</strong> Covered watch-to-network joining, receiver discovery, IP validation, and default-receiver selection, so a household with several set-top boxes could record to a specific room ("Record Westworld in the Living Room") instead of guessing.</p>
+      <p><strong>Designed the pairing and setup flows that made multi-receiver households work.</strong> Covered watch-to-network joining, receiver discovery, IP validation, and default-receiver selection, so a household with several set-top boxes could record to a specific room — "Record Westworld in the Living Room" — instead of guessing.</p>
     </li>
     <li>
       <span class="a-num">04</span>
@@ -128,27 +199,18 @@
     </li>
     <li>
       <span class="a-num">05</span>
-      <p><strong>Produced a high-fidelity UI and motion guide, and ran the copy handoff.</strong> Labeled every screen where copy was still needed and worked with AT&amp;T's writing team to hold brand voice consistent across three devices with very different amounts of room for language.</p>
+      <p><strong>Produced a high-fidelity UI and motion guide, and ran the copy handoff.</strong> Labelled every screen where copy was still needed and worked with AT&amp;T's writing team to hold brand voice consistent across three devices with very different amounts of room for language.</p>
     </li>
   </ol>
 
-  <div class="artifact">
-    <div class="flow">
-      <div class="flow-row">
-        <div class="flow-node step">Log in on phone</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node step">Voice or text search</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node step">Search results</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node decision">Series or episode?</div>
-        <div class="flow-arrow"></div>
-        <div class="flow-node end">Start recording</div>
-      </div>
+  <div class="chapter-body" style="margin-top:44px;">
+    <div>
+      <p class="label">Decisions and rationale</p>
+      <p>Designing the failure states alongside engineering rather than after them was the decision the project rests on. The alternative — design the happy path, then ask engineering what could go wrong — produces error screens that describe system conditions rather than user situations. Starting from device behaviour meant every contingency message answered "what should I do now" instead of "what went wrong."</p>
     </div>
-    <div class="artifact-caption">
-      <span class="tag">Fig. 01</span>
-      <span>Reconstruction of the in-home recording path — searching for a title, choosing to record a single episode or the full series, and confirming.</span>
+    <div>
+      <p class="label">Testing and iteration</p>
+      <p>Iteration ran against engineering feasibility and stakeholder review, not against users. The working demo was the mechanism: continuity across devices is something people have to see behaving, and reviewing a live sync rather than a static flow is what surfaced the timing and state questions early.</p>
     </div>
   </div>
 
@@ -167,8 +229,8 @@
       </div>
     </div>
     <div class="artifact-caption">
-      <span class="tag">Fig. 02</span>
-      <span>Simplified reconstruction of the companion app flow — from first launch through sign-in and default-receiver selection. The full wireframe set covered every state in between, including invalid credentials and receiver discovery failures.</span>
+      <span class="tag">Fig. 01</span>
+      <span>Reconstruction of the companion app flow — from first launch through sign-in and default-receiver selection. The full wireframe set covered every state in between, including invalid credentials and receiver discovery failures.</span>
     </div>
   </div>
 
@@ -185,48 +247,59 @@
       </div>
     </div>
     <div class="artifact-caption">
-      <span class="tag">Fig. 03</span>
+      <span class="tag">Fig. 02</span>
       <span>Reconstruction of the receiver-pairing flow, run the first time a watch is connected to a household with one or more set-top boxes.</span>
-    </div>
-  </div>
-
-  <div class="artifact">
-    <picture>
-      <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.avif">
-      <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.webp">
-      <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg"
-           alt="" width="2400" height="1140" loading="lazy">
-    </picture>
-    <div class="artifact-caption">
-      <span class="tag">Fig. 04</span>
-      <span>Reconstruction of the demo used with AT&amp;T stakeholders — showing the same title playing in sync across the living-room TV and the connected watch.</span>
     </div>
   </div>
 </section>
 
-<!-- 04 IMPACT -->
+<!-- ============================================================
+     05 — SOLUTION
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">04</span>
-    <h2 class="chapter-title">Impact</h2>
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Solution</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Shipped a released Wear OS app connecting set-top box, mobile app, and watch into one synced system — live TV browsing, playback, and recording from the wrist.</p>
-      <p>A demo that secured stakeholder sign-off on a technically uncertain concept, converting an internal debate into an approved build.</p>
+      <p class="lead">A Wear OS companion that behaves as one part of a connected system — live TV browsing, playback, and recording from the wrist, in sync with the set-top box and mobile app.</p>
+      <p><strong style="font-weight:500;">Key interactions.</strong> At home, the watch acts as a remote with parity for the actions that make sense on a wrist — browse, play, record — without attempting the full remote's surface. Out of home, live-show notifications arrive on the wrist and can be recorded to a named receiver in a single confirmation. Pairing covers network joining, receiver discovery, IP validation and default-receiver selection, so the "which room" question is answered once at setup rather than every time.</p>
+      <p><strong style="font-weight:500;">Failure states as features.</strong> No receiver paired, receiver offline, multiple receivers in a household, mid-buffer — each has a designed state that tells the user what to do next. On a three-device system these carry more of the experience than the happy path does.</p>
+      <p><strong style="font-weight:500;">Design system and motion.</strong> A high-fidelity UI and motion guide covered the transitions and states, specified for a screen where motion carries wayfinding that layout can't. <span class="tbd"></span>
+        <!-- FILL: what was systematised — components, type scale for the watch,
+             how it related to DirecTV's existing mobile design language. --></p>
+      <p><strong style="font-weight:500;">Copy.</strong> Every screen needing copy was labelled and routed to AT&amp;T's writing team, holding one brand voice across three devices with very different amounts of room for language.</p>
     </div>
     <div class="takeaways">
-      <p class="label">What it delivered</p>
+      <p class="label">What was delivered</p>
       <ul>
-        <li>Design specification that accounted for real device-communication failure modes, not just the happy path — the difference between a concept and something engineering could ship.</li>
-        <li>AT&amp;T's product team committed to Apple Watch OS next, on the strength of this app's reception — the clearest available signal that the work validated the wearable category for them internally.</li>
+        <li>A released Wear OS app syncing live TV browsing, playback, and recording with the set-top box and mobile app.</li>
+        <li>Complete flow coverage for both at-home and out-of-home use, including the failure states.</li>
+        <li>A technically viable interaction model validated against real Wear OS and device-communication constraints.</li>
+        <li>A high-fidelity UI and motion guide, plus a structured copy handoff.</li>
       </ul>
     </div>
   </div>
 
-  <div style="margin-top:32px;">
-    <p class="editor-note">Editor's note — add the single hard metric this case study is missing: installs, adoption among DirecTV mobile users, recordings initiated from the watch, or retention.</p>
-    <p class="editor-note" style="margin-top:14px;">Editor's note — add any AT&amp;T leadership quote, internal recognition, Google/Wear OS showcase, or press coverage.</p>
+  <div class="artifact">
+    <div class="flow">
+      <div class="flow-row">
+        <div class="flow-node step">Log in on phone</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node step">Voice or text search</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node step">Search results</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node decision">Series or episode?</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node end">Start recording</div>
+      </div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 03</span>
+      <span>Reconstruction of the in-home recording path — searching for a title, choosing to record a single episode or the full series, and confirming.</span>
+    </div>
   </div>
 </section>
 
@@ -234,36 +307,55 @@
   <div class="outcome-inner">
     <div class="outcome-grid">
       <div class="outcome-stat">
-        <div class="num">3</div>
-        <div class="lbl">connected surfaces — set-top box, mobile app, watch — kept in sync as one continuous system</div>
+        <div class="num">Shipped</div>
+        <div class="lbl">released Wear OS app connecting set-top box, mobile app and watch into one synced system</div>
       </div>
       <div class="outcome-stat">
-        <div class="num">2</div>
-        <div class="lbl">distinct usage contexts designed for: at-home and out-of-home, including receiver failure states</div>
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">installs, adoption among DirecTV mobile users, or recordings initiated from the watch
+          <!-- FILL: the single hard metric this case study is missing. --></div>
       </div>
       <div class="outcome-stat">
         <div class="num">Watch OS</div>
         <div class="lbl">the platform AT&amp;T's product team committed to next, on the strength of this app's reception</div>
       </div>
     </div>
-    <p class="body-text">AT&amp;T's product team moved to design for <i class="serif" style="color:#fff;">Apple's Watch OS</i> next, on the strength of this app's reception.</p>
+    <p class="body-text">AT&amp;T's product team moved to design for <i class="serif" style="color:#fff;">Apple's Watch OS</i> next — the clearest available signal that this work validated the wearable category for them internally.</p>
   </div>
 </div>
 
-<!-- 05 REFLECTION -->
+<!-- ============================================================
+     06 — IMPACT AND RESULTS
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">05</span>
-    <h2 class="chapter-title">Reflection</h2>
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Impact and results</h2>
   </div>
-  <div class="reflection-grid">
+  <div class="chapter-body">
+    <div>
+      <p class="lead">The app shipped, and AT&amp;T's product team committed to Apple Watch OS next on the strength of its reception.</p>
+      <p><strong style="font-weight:500;">Business outcome.</strong> The clearest evidence the work landed is a platform decision: AT&amp;T went from evaluating the wearable category to investing further in it. That signal is real but it's a decision rather than a number, and it lives in a feedback conversation rather than in instrumentation I can point to.</p>
+      <p><strong style="font-weight:500;">User feedback.</strong> <span class="tbd"></span>
+        <!-- FILL: any AT&T leadership quote, internal recognition, Google/Wear OS
+             showcase, or press coverage. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Measurement gap</p>
+      <ul>
+        <li>No adoption, retention or usage figure was agreed before launch, so the app's performance is described rather than measured. On a project whose explicit purpose was to prove a category, that's the evidence that would have made the argument for AT&amp;T rather than to them.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reflection-grid" style="margin-top:56px;">
     <div class="reflection-col">
       <p class="label">What worked</p>
       <p>Designing the failure states alongside engineering rather than after them. On a three-device system, the offline and unpaired cases aren't edge cases — they're most of the actual experience, and treating them as first-class from discovery is why the flows held up. Building a working demo instead of presenting wireframes was the other decision that mattered: continuity across devices is something people have to see behaving, not read about, and the sign-off came in the room because of it.</p>
     </div>
     <div class="reflection-col">
-      <p class="label">What I'd refine</p>
-      <p>The work was validated technically and with stakeholders, but not with customers. I'd have pushed for even lightweight testing on the wrist before release — Wear OS interaction assumptions are exactly the kind that feel obvious in a demo and fail in a kitchen. I'd also want the post-launch measurement agreed before shipping. The app went to market and informed a platform decision, but the evidence behind that decision lives in a feedback conversation rather than in numbers I can point to.</p>
+      <p class="label">What I'd do differently</p>
+      <p>I'd push for even lightweight testing on the wrist before release. Wear OS interaction assumptions are exactly the kind that feel obvious in a demo and fail in a kitchen, and nothing in this process would have caught that. I'd also fix the post-launch measurement before shipping — the app informed a platform decision, and I'd want that decision resting on numbers rather than on impressions, both for the client's sake and for my own ability to describe the outcome.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I learned</p>
@@ -272,11 +364,9 @@
   </div>
 </section>
 
-<!-- 06 STRENGTHS -->
 <section class="chapter" style="padding-bottom:96px;">
   <div class="chapter-head">
-    <span class="chapter-num">06</span>
-    <h2 class="chapter-title">Strengths</h2>
+    <h2 class="chapter-title">Strengths this project drew on</h2>
   </div>
   <div class="strengths-list">
     <span>Multi-device systems thinking</span>

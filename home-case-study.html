@@ -49,6 +49,31 @@
 /* editorial placeholder flags — remove once real figures are confirmed */
 .editor-note{ font-size:12.5px; font-style:italic; color:var(--ink-faint); border-left:1px solid var(--line); padding-left:14px; margin:14px 0 0; line-height:1.6; max-width:520px; }
 </style>
+<style>
+/* ---------------------------------------------------------------
+   Blank slots awaiting a confirmed figure.
+   Search any page for "tbd" to find every unfilled value.
+   Delete this rule once every slot is filled.
+   --------------------------------------------------------------- */
+.tbd{
+  display:inline-block; min-width:6.5rem; height:1em;
+  border-bottom:1px dashed var(--ink-faint);
+  vertical-align:-0.12em;
+}
+.tbd::after{
+  content:"to add"; padding-left:6px;
+  font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-faint); font-style:normal; font-weight:400;
+}
+.outcome .tbd{ border-bottom-color:rgba(255,255,255,0.35); }
+.outcome .tbd::after{ color:rgba(255,255,255,0.45); }
+/* A stated limitation, shown deliberately to the reader. */
+.caveat{
+  border-left:2px solid var(--ink); padding-left:16px;
+  margin:26px 0 0; max-width:560px;
+  font-size:14.5px; line-height:1.65; color:var(--ink-soft);
+}
+</style>
 </head>
 <body>
 
@@ -68,14 +93,14 @@
 <header class="hero">
   <div class="eyebrow">Case Study — 0→1 Product Strategy, Research &amp; Brand</div>
   <h1 class="title">Home</h1>
-  <p class="subtitle">Turning an unvalidated founder idea into a tested product direction, brand, and roadmap in 8 weeks.</p>
+  <p class="subtitle">A founder had conviction and a concept. In eight weeks we found out whether anyone else wanted it.</p>
 
   <div class="hero-art">
     <picture>
       <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.avif">
       <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.webp">
       <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.jpeg"
-           alt="" width="2400" height="1140" loading="lazy">
+           alt="Home — savings and advice product for first-time homebuyers" width="2400" height="1140" loading="lazy">
     </picture>
   </div>
 </header>
@@ -84,26 +109,59 @@
   <div class="meta-block">
     <dl>
       <dt>Client</dt><dd>Home (early-stage fintech — savings + advice for first-time homebuyers)</dd>
-      <dt>Role</dt><dd>Sole designer-researcher</dd>
-      <dt>Team</dt><dd>Renga</dd>
+      <dt>Engagement</dt><dd>Renga</dd>
       <dt>Duration</dt><dd>8 weeks, kickoff to final shareout</dd>
+      <dt>Year</dt><dd><span class="tbd"></span></dd>
     </dl>
   </div>
   <div class="intro">
-    <p>A founder came to us with conviction and a concept: a product that would combine <i class="serif">savings and advice</i> so first-time buyers could actually get to a down payment.</p>
+    <p>A founder came to us with conviction and a concept: a product that would combine <i class="serif">savings and advice</i> so first-time buyers could actually get to a down payment. What they didn't have was evidence.</p>
   </div>
 </div>
 
-<!-- 01 SITUATION -->
+<!-- ============================================================
+     01 — PROJECT OVERVIEW
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
-    <h2 class="chapter-title">Situation</h2>
+    <h2 class="chapter-title">Project overview</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">What they didn't have was evidence — no product, no validated market, no definition of what a first release should even contain.</p>
-      <p>The idea had momentum but nothing underneath it to hand to investors or engineers.</p>
+      <p class="lead">Sole designer-researcher on an eight-week engagement, reporting directly to the client-founder.</p>
+      <p>I owned research design, discovery, concept testing, UX and prototyping end to end, and co-led brand and positioning workshops with the Renga team. Because there was one designer and no sequencing room, the accountability was unusually flat: every research decision, design decision, and recommendation to the founder was mine to make and defend.</p>
+      <!-- FILL: replace "Sole designer-researcher" with your standard role title if you want
+           one title used identically across all nine case studies and the résumé. -->
+    </div>
+    <div class="takeaways">
+      <p class="label">Team, tools &amp; scope</p>
+      <ul>
+        <li><strong>Team.</strong> <span class="tbd"></span>
+          <!-- FILL: composition and size — who else from Renga was on the engagement,
+               and what you led vs. collaborated on. Currently the page says only "Renga". --></li>
+        <li><strong>Tools.</strong> <span class="tbd"></span>
+          <!-- FILL: e.g. Figma, survey platform, Miro, video-interview tool. --></li>
+        <li><strong>Methods.</strong> Quantitative survey with journey-stage segmentation, video interviews recruited from the survey pool, four facilitated positioning workshops, competitive landscape mapping, prototype concept testing.</li>
+        <li><strong>Scope.</strong> 410 survey responses collected and segmented · 6 home-buying journey stages mapped · brand, positioning, prototype and roadmap delivered as one package.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — PROBLEM STATEMENT
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Problem statement</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">No product, no validated market, and no definition of what a first release should even contain.</p>
+      <p><strong style="font-weight:500;">Business context.</strong> The idea had momentum but nothing underneath it to hand to investors or engineers. The founder needed two things the concept alone couldn't produce: evidence credible enough to raise against, and a scope definition specific enough to hire against.</p>
+      <p><strong style="font-weight:500;">Why it mattered.</strong> Building without validation would have spent the founder's runway proving an assumption rather than testing it. The engagement's real job was to make the next decision — build, pivot, or stop — an informed one.</p>
     </div>
     <div class="takeaways">
       <p class="label">Why it had stalled</p>
@@ -114,43 +172,81 @@
       </ul>
     </div>
   </div>
-</section>
 
-<!-- 02 OBJECTIVE -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">02</span>
-    <h2 class="chapter-title">Objective</h2>
-  </div>
-  <div class="chapter-body">
+  <div class="chapter-body" style="margin-top:36px;">
     <div>
-      <p class="lead">Prove or disprove the concept quickly, and leave the founder with enough evidence and structure to raise money and hire a permanent team.</p>
-      <p><strong style="font-weight:500;">My role:</strong> Led. Sole designer-researcher on the engagement, reporting directly to the client-founder. I owned research design, discovery, concept testing, UX and prototyping end to end, and co-led brand and positioning workshops with the Renga team.</p>
-      <p><strong style="font-weight:500;">Timeframe:</strong> 8 weeks, kickoff to final stakeholder shareout.</p>
-    </div>
-    <div class="takeaways">
-      <p class="label">What success looked like</p>
-      <ul>
-        <li>A validated problem statement — grounded in primary research, not founder intuition.</li>
-        <li>A differentiated brand and positioning that could carry an investor conversation.</li>
-        <li>A tested prototype demonstrating the core experience end to end.</li>
-        <li>A product roadmap the client could execute against without us.</li>
-      </ul>
+      <p class="label">User pain points</p>
+      <p>First-time buyers were the assumed user, and the survey and interviews were designed to establish what actually blocked them rather than to confirm the founder's version.</p>
+      <p class="caveat"><span class="tbd"></span>
+        <!-- FILL: the two or three pain points the research actually surfaced, in the
+             participants' own terms. This is the one place the page still asserts a user
+             problem without showing the evidence behind it. If the findings were directional
+             rather than conclusive, say that here instead. --></p>
     </div>
   </div>
 </section>
 
-<!-- 03 ACTIONS -->
+<!-- ============================================================
+     03 — RESEARCH AND DISCOVERY
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">03</span>
-    <h2 class="chapter-title">Actions</h2>
+    <h2 class="chapter-title">Research and discovery</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">A 410-response survey, segmented by stage in the home-buying journey, then converted into a qualitative pipeline.</p>
+      <p><strong style="font-weight:500;">Methods.</strong> I fielded a quantitative survey that sorted respondents by where they were in the buying journey, then recruited video-interview participants from within that same pool. That meant concept testing spoke to real buyers at the exact stage each concept targeted, rather than to a cold-recruited panel standing in for them.</p>
+      <p><strong style="font-weight:500;">Segments, not personas.</strong> The organizing frame was journey stage — from early saving through to selling — rather than demographic persona. Stage predicted need far more reliably than age or income, and it was also the axis the competitive analysis turned on.</p>
+      <p><strong style="font-weight:500;">Interview participants:</strong> <span class="tbd"></span>
+        <!-- FILL: how many video interviews, and how they were distributed across the
+             six journey stages. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Key findings</p>
+      <ul>
+        <li><strong>Nearly every competitor owned a single stage.</strong> Plotting the market against the six stages from saving to selling exposed that no one was carrying a buyer across the whole journey — which became the strategic wedge and the anchor slide of the investor deck.</li>
+        <li><strong>Findings from primary research:</strong> <span class="tbd"></span>
+          <!-- FILL: two or three findings from the survey and interviews, stated as observed
+               behaviour rather than conclusion. The competitive insight above is currently
+               the only finding the page evidences. --></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="artifact">
+    <picture>
+      <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-comp-analysis.avif">
+      <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-comp-analysis.webp">
+      <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-comp-analysis.jpg"
+           alt="Competitive landscape map plotting competitors against six stages of the home-buying journey"
+           width="2400" height="1140" loading="lazy">
+    </picture>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 01</span>
+      <span>Reconstruction of the competitive landscape map presented in the investor deck — most competitors covered a single stage of the home-buying journey; Home was positioned to cover nearly all of them.</span>
+    </div>
+  </div>
+
+  <div class="caveat">
+    The survey drew on my own network, which is fast and free but skews the sample toward people like me. The segment patterns should be read as directional until they're checked against a screened panel.
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — DESIGN PROCESS
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Design process</h2>
   </div>
 
   <ol class="actions-list">
     <li>
       <span class="a-num">01</span>
-      <p><strong>Structured an 8-week plan that front-loaded evidence.</strong> Sequenced strategy, research, positioning, and concept testing so validation gated design work, rather than running design and research in parallel and hoping they'd agree.</p>
+      <p><strong>Structured an 8-week plan that front-loaded evidence.</strong> Sequenced strategy, research, positioning, and concept testing so validation gated design work, rather than running design and research in parallel and hoping they'd agree. This was the first real decision of the engagement and the one everything else depended on.</p>
     </li>
     <li>
       <span class="a-num">02</span>
@@ -158,115 +254,142 @@
     </li>
     <li>
       <span class="a-num">03</span>
-      <p><strong>Mapped the competitive landscape across the entire home-buying journey.</strong> Plotted competitors against the six stages from saving to selling, exposing that nearly every player owned a single stage — which became the strategic wedge and the anchor slide of the investor deck.</p>
+      <p><strong>Mapped the competitive landscape across the entire home-buying journey.</strong> Plotted competitors against the six stages from saving to selling, which is what exposed the single-stage pattern and gave the positioning something defensible to sit on.</p>
     </li>
     <li>
       <span class="a-num">04</span>
-      <p><strong>Designed and fielded a 410-response study, then converted it into a qualitative pipeline.</strong> Ran a quantitative survey segmenting respondents by their stage in the buying journey, then recruited from within that pool for video interviews — so concept testing spoke to real buyers at the exact stage each concept targeted.</p>
+      <p><strong>Turned one research instrument into two.</strong> Rather than running a survey and then recruiting separately, I built the interview pipeline out of the survey pool — the highest-leverage decision of the project, and the reason concept testing was sharper than a cold-recruited panel would have allowed in the time available.</p>
     </li>
     <li>
       <span class="a-num">05</span>
-      <p><strong>Built and tested a prototype the founder could hand to a team.</strong> Designed the onboarding and savings-goal flow, validated it in interviews across each buying stage, and paired it with a roadmap that translated "what the founder wanted to build" into the problem worth solving first.</p>
+      <p><strong>Built and tested a prototype the founder could hand to a team.</strong> Designed the onboarding and savings-goal flow, tested it in interviews across each buying stage, and paired it with a roadmap that translated "what the founder wanted to build" into the problem worth solving first.</p>
     </li>
   </ol>
 
-  <div class="hero-art">
-    <picture>
-      <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-comp-analysis.avif">
-      <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-comp-analysis.webp">
-      <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-comp-analysis.jpg"
-           alt="" width="2400" height="1140" loading="lazy">
-    </picture>
+  <div class="chapter-body" style="margin-top:44px;">
+    <div>
+      <p class="label">Testing and iteration</p>
+      <p>The prototype was tested with interview participants at each stage of the buying journey. <span class="tbd"></span></p>
+      <!-- FILL: what changed in the prototype as a result of testing. A test with no
+           resulting change reads as theatre; naming even one revision is what makes this
+           section evidence rather than description. -->
     </div>
-    <div class="artifact-caption">
-      <span class="tag">Fig. 01</span>
-      <span>Recreation of the competitive landscape map presented in the investor deck — most competitors covered a single stage of the home-buying journey; Home was positioned to cover nearly all of them.</span>
-    </div>
-  </div>
-
-  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 699.4375px; height: 393.433594px;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2F3VNFGPd0OWyponDs7FL79X%2FHome-Product-v1%3Fnode-id%3D1413%253A4173%26viewport%3D5895%252C8%252C0.5%26scaling%3Dscale-down" allowfullscreen="" class=""></iframe>
-  
-    <div class="artifact-caption">
-      <span class="tag">Fig. 02</span>
-      <span>Reconstruction of the onboarding prototype shown at the final stakeholder shareout — the first of a short question flow used to personalize savings goals.</span>
+    <div>
+      <p class="label">What got in the way</p>
+      <p>Eight weeks, one designer-researcher, and five workstreams that all wanted to be first. The constraint was resolved by refusing to run them concurrently — gating design behind validation meant the schedule was tight but never circular, and it meant no design work had to be thrown away when the evidence arrived.</p>
     </div>
   </div>
 </section>
 
-<!-- 04 IMPACT -->
+<!-- ============================================================
+     05 — SOLUTION
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">04</span>
-    <h2 class="chapter-title">Impact</h2>
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Solution</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">A waitlist landing page that converted real interest before a product existed — early signups validated the messaging and gave the founder a demand signal to show investors.</p>
-      <p class="editor-note">Editor's note — add the confirmed waitlist signup count once available.</p>
-      <p style="margin-top:28px;">A brand and competitive landscape that became the spine of the investor deck.</p>
-      <p class="editor-note">Editor's note — confirm fundraising outcome (raised / amount / stage) before using this claim externally.</p>
+      <p class="lead">A validated product direction delivered as one package: brand and positioning, a tested onboarding and savings-goal prototype, a waitlist landing page, and a roadmap the client could execute without us.</p>
+      <p><strong style="font-weight:500;">Key features.</strong> The core of the product experience was a short question flow that personalised a savings goal to the individual buyer — the mechanism that made "savings plus advice" concrete rather than conceptual. The waitlist page carried the positioning into market before any product existed, so the messaging could be tested against real interest.</p>
+      <p><strong style="font-weight:500;">Design system.</strong> <span class="tbd"></span>
+        <!-- FILL: what was systematised — type scale, colour, components — and what the
+             client's incoming team inherited. Currently the page shows the product only as
+             flows, which understates the craft. --></p>
+      <p><strong style="font-weight:500;">Visual direction.</strong> <span class="tbd"></span>
+        <!-- FILL: the brand decisions and why they suited a first-time-buyer fintech.
+             Positioning workshops are described, but the visual outcome isn't. --></p>
     </div>
     <div class="takeaways">
-      <p class="label">What it delivered</p>
+      <p class="label">What was delivered</p>
       <ul>
-        <li>410 survey responses collected and segmented, giving the company its first primary evidence base about who its user actually was.</li>
-        <li>A validated product direction in 8 weeks — brand, positioning, tested prototype, and roadmap, delivered as a single package.</li>
+        <li>A validated problem statement grounded in primary research rather than founder intuition.</li>
+        <li>Brand and positioning differentiated enough to carry an investor conversation.</li>
+        <li>A tested prototype demonstrating the core experience end to end.</li>
+        <li>A product roadmap the client could execute against without us.</li>
       </ul>
     </div>
   </div>
 
-  <div class="hero-art">
+  <div class="artifact">
+    <iframe style="border:1px solid rgba(0,0,0,0.1); width:100%; max-width:700px; height:394px;" width="800" height="450" title="Home onboarding prototype" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2F3VNFGPd0OWyponDs7FL79X%2FHome-Product-v1%3Fnode-id%3D1413%253A4173%26viewport%3D5895%252C8%252C0.5%26scaling%3Dscale-down" allowfullscreen=""></iframe>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 02</span>
+      <span>Reconstruction of the onboarding prototype shown at the final stakeholder shareout — the first of a short question flow used to personalise savings goals.</span>
+    </div>
+  </div>
+
+  <div class="artifact">
     <picture>
       <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-homepage.avif">
       <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-homepage.webp">
       <img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-homepage.jpg"
-           alt="" width="2400" height="1140" loading="lazy">
+           alt="Waitlist landing page for Home, used to test messaging before a product existed"
+           width="2400" height="1140" loading="lazy">
     </picture>
-    </div>
-
     <div class="artifact-caption">
       <span class="tag">Fig. 03</span>
       <span>Reconstruction of the waitlist landing page used to test messaging and gauge early interest before any product existed.</span>
     </div>
   </div>
-
-  <p class="editor-note" style="margin-top:24px;">Editor's note — add a founder or Renga leadership quote here if available; a single line of praise is worth more than another bullet.</p>
 </section>
 
 <div class="outcome">
   <div class="outcome-inner">
     <div class="outcome-grid">
       <div class="outcome-stat">
-        <div class="num">410</div>
-        <div class="lbl">survey responses collected and segmented during the research phase</div>
-      </div>
-      <div class="outcome-stat">
-        <div class="num">8 wks</div>
-        <div class="lbl">from kickoff to a validated product direction — brand, positioning, prototype and roadmap</div>
-      </div>
-      <div class="outcome-stat">
         <div class="num">FTE</div>
         <div class="lbl">the client hired a permanent design and engineering team off the back of this work</div>
       </div>
+      <div class="outcome-stat">
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">waitlist signups collected before a product existed
+          <!-- FILL: the confirmed signup count. --></div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">fundraising outcome — amount and stage
+          <!-- FILL, or delete this tile: only claim this if the raise is confirmed and
+               attributable to work that included this engagement. --></div>
+      </div>
     </div>
-    <p class="body-text">The engagement's clearest outcome: the founder went from needing an agency to prove the idea, to needing staff to build it.</p>
+    <p class="body-text">The engagement's clearest outcome: the founder went from needing an agency to prove the idea, to needing <i class="serif" style="color:#fff;">staff to build it</i>.</p>
   </div>
 </div>
 
-<!-- 05 REFLECTION -->
+<!-- ============================================================
+     06 — IMPACT AND RESULTS
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">05</span>
-    <h2 class="chapter-title">Reflection</h2>
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Impact and results</h2>
   </div>
-  <div class="reflection-grid">
+  <div class="chapter-body">
+    <div>
+      <p class="lead">The client hired a permanent design and engineering team off the back of this work — the outcome that matters most, because it means the direction was credible enough to staff against.</p>
+      <p><strong style="font-weight:500;">Business outcome.</strong> The brand and competitive landscape became the spine of the investor deck. The waitlist page converted real interest before a product existed, giving the founder a demand signal to show investors rather than a projection.</p>
+      <p><strong style="font-weight:500;">User feedback.</strong> <span class="tbd"></span>
+        <!-- FILL: one line from the founder or Renga leadership, with attribution.
+             A single sourced quote is worth more here than another bullet. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Measurement gap</p>
+      <ul>
+        <li>The waitlist page generated a demand signal that was observed rather than instrumented. The signup count and the fundraising outcome are the two figures this case study needs, and both are pending confirmation rather than estimated.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reflection-grid" style="margin-top:56px;">
     <div class="reflection-col">
       <p class="label">What worked</p>
       <p>Refusing to design before there was evidence. The founder arrived knowing what they wanted to build; the survey and interviews reframed the engagement around what problem was actually worth solving, and that reframe is what made the roadmap credible enough to hire against. Recruiting interview participants out of the survey pool was the highest-leverage decision of the project — it turned one research instrument into two and made concept testing sharper than a cold-recruited panel would have been.</p>
     </div>
     <div class="reflection-col">
-      <p class="label">What I'd refine</p>
-      <p>The survey drew on my own network, which is fast and free but skews the sample toward people like me. With more time or budget I'd have paired it with a screened panel to check whether the segment patterns held outside my circle. I'd also have instrumented the waitlist page more deliberately from day one — it generated a real demand signal, and I'd want that quantified rather than observed.</p>
+      <p class="label">What I'd do differently</p>
+      <p>I'd pair the network-sourced survey with a screened panel to check whether the segment patterns held outside my own circle — fast and free is a real advantage at eight weeks, but it isn't a defensible sample. I'd also instrument the waitlist page deliberately from day one. It produced the engagement's clearest demand signal and I can describe it but not quantify it, which is exactly the evidence an investor conversation leans on hardest.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I learned</p>
@@ -275,11 +398,9 @@
   </div>
 </section>
 
-<!-- 06 STRENGTHS -->
 <section class="chapter" style="padding-bottom:96px;">
   <div class="chapter-head">
-    <span class="chapter-num">06</span>
-    <h2 class="chapter-title">Strengths</h2>
+    <h2 class="chapter-title">Strengths this project drew on</h2>
   </div>
   <div class="strengths-list">
     <span>0→1 builder</span>
@@ -298,8 +419,8 @@
       <a href="screambox-case-study.html" class="proj">Screambox →</a>
     </div>
     <div class="cta-contact">
-      <a href="#">View resume</a>
-      <a href="#">acb.graphics@gmail.com</a>
+      <a href="resume.html">View resume</a>
+      <a href="mailto:acb.graphics@gmail.com">acb.graphics@gmail.com</a>
     </div>
   </div>
   <div class="foot-bottom">

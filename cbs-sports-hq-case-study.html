@@ -35,6 +35,31 @@
 /* editorial placeholder flags — remove once real figures are confirmed */
 .editor-note{ font-size:12.5px; font-style:italic; color:var(--ink-faint); border-left:1px solid var(--line); padding-left:14px; margin:14px 0 0; line-height:1.6; max-width:520px; }
 </style>
+<style>
+/* ---------------------------------------------------------------
+   Blank slots awaiting a confirmed figure.
+   Search any page for "tbd" to find every unfilled value.
+   Delete this rule once every slot is filled.
+   --------------------------------------------------------------- */
+.tbd{
+  display:inline-block; min-width:6.5rem; height:1em;
+  border-bottom:1px dashed var(--ink-faint);
+  vertical-align:-0.12em;
+}
+.tbd::after{
+  content:"to add"; padding-left:6px;
+  font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-faint); font-style:normal; font-weight:400;
+}
+.outcome .tbd{ border-bottom-color:rgba(255,255,255,0.35); }
+.outcome .tbd::after{ color:rgba(255,255,255,0.45); }
+/* A stated limitation, shown deliberately to the reader. */
+.caveat{
+  border-left:2px solid var(--ink); padding-left:16px;
+  margin:26px 0 0; max-width:560px;
+  font-size:14.5px; line-height:1.65; color:var(--ink-soft);
+}
+</style>
 </head>
 <body>
 
@@ -54,7 +79,7 @@
 <header class="hero">
   <div class="eyebrow">Case Study — OTT / Connected TV</div>
   <h1 class="title">CBS Sports<br>HQ</h1>
-  <p class="subtitle">A live-first, always-on sports experience across four platforms, designed in parallel with the channel's own launch.</p>
+  <p class="subtitle">When the problem is overload, the design work is subtraction — and then defending the absences to four platform teams.</p>
 
   <div class="hero-art">
     <picture>
@@ -72,25 +97,56 @@
     <dl>
       <dt>Client</dt><dd>CBS Sports</dd>
       <dt>Agency</dt><dd>TribalScale</dd>
-      <dt>Role</dt><dd>Lead Product Designer across four platforms</dd>
+      <dt>Role</dt><dd><span class="tbd"></span></dd>
+      <dt>Duration</dt><dd><span class="tbd"></span></dd>
       <dt>Launched</dt><dd>February 26, 2018</dd>
     </dl>
   </div>
   <div class="intro">
-    <p>CBS Sports was launching <i class="serif">CBS Sports HQ</i> — a free, 24/7 streaming sports news channel — and needed a product experience to carry it across TV and mobile.</p>
+    <p>CBS Sports was launching <i class="serif">CBS Sports HQ</i> — a free, 24/7 streaming sports news channel — and needed a product experience to carry it across TV and mobile, built while the broadcast team was still testing the channel itself.</p>
   </div>
 </div>
 
-<!-- 01 SITUATION -->
+<!-- ============================================================
+     01 — PROJECT OVERVIEW
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
-    <h2 class="chapter-title">Situation</h2>
+    <h2 class="chapter-title">Project overview</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Design lead across all four platforms, negotiating feature scope directly with each Tech Platform Lead.</p>
+      <p>The accountability that defined this role wasn't the screens — it was the scope. Four surfaces with different capabilities on one launch date usually ends in either a lowest-common-denominator product or a slipped date, and avoiding both was the job.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Team, tools &amp; scope</p>
+      <ul>
+        <li><strong>Team.</strong> Four Tech Platform Leads, plus the TribalScale engagement team and CBS Sports' broadcast and product organisations. <span class="tbd"></span>
+          <!-- FILL: design team size — were you the only designer, or leading others? --></li>
+        <li><strong>Tools.</strong> <span class="tbd"></span>
+          <!-- FILL: design, prototyping and handoff tooling. --></li>
+        <li><strong>Methods.</strong> Analytics-informed problem framing, competitive format analysis (live TV news), blue-sky concepting, platform-by-platform feasibility negotiation, full-state specification, post-launch iteration from early-adopter behaviour.</li>
+        <li><strong>Scope.</strong> 4 platforms shipped on launch day — phone and tablet, Fire TV, Apple TV, Roku, plus web · 3 connected-TV platforms refined post-launch · new and returning user states specified across the full connected-TV experience.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — PROBLEM STATEMENT
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Problem statement</h2>
   </div>
   <div class="chapter-body">
     <div>
       <p class="lead">The existing CBS Sports surfing experience wasn't working: too much content, too many entry points, and a drop-off rate that pointed straight at cognitive overload.</p>
-      <p>The new channel needed a live-first experience that still let people find on-demand content, and it had to be built inside CBS Sports' existing architecture while the broadcast team was simultaneously testing and launching the channel itself.</p>
+      <p><strong style="font-weight:500;">Business context.</strong> CBS Sports HQ was a free, ad-supported, 24/7 channel — a bet on reach. The product experience had to make live viewing the default while keeping the existing on-demand library findable, and it had to ship on the broadcast team's launch date, inside CBS Sports' existing architecture.</p>
+      <p><strong style="font-weight:500;">Why it mattered.</strong> A free 24/7 channel only works if people stay. Drop-off was the metric the brief was written against, which made this one of the rare projects where the problem arrived already quantified.</p>
     </div>
     <div class="takeaways">
       <p class="label">Why it was hard</p>
@@ -101,38 +157,58 @@
       </ul>
     </div>
   </div>
-</section>
 
-<!-- 02 OBJECTIVE -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">02</span>
-    <h2 class="chapter-title">Objective</h2>
-  </div>
-  <div class="chapter-body">
+  <div class="chapter-body" style="margin-top:36px;">
     <div>
-      <p class="lead">Design a connected experience that made live broadcast the default without hiding on-demand content — and get it shipped across four platforms alongside a live channel launch.</p>
-      <p><strong style="font-weight:500;">My role:</strong> Led. Design lead across all four platforms, negotiating feature scope directly with each Tech Platform Lead.</p>
-      <p><strong style="font-weight:500;">Timeframe:</strong> Launched February 26, 2018.</p>
-      <p class="editor-note">Editor's note — add the engagement start date and total duration.</p>
-    </div>
-    <div class="takeaways">
-      <p class="label">What success looked like</p>
-      <ul>
-        <li>A live-first model that mimicked the ease of surfing broadcast TV, reducing the cognitive load that was driving drop-off.</li>
-        <li>One coherent experience across TV, laptop, tablet, and phone, scoped per platform rather than lowest-common-denominator.</li>
-        <li>Feature scope agreed with each Tech Platform Lead against real technical feasibility, not aspiration.</li>
-        <li>A shipped MVP, with a refinement path driven by real early-adopter behavior.</li>
-      </ul>
+      <p class="label">User pain points</p>
+      <p>The core pain point was choice paralysis at the entry point: too many surfaces competing for the first decision, with no clear default. The second was a control problem that only became visible after launch — a full-screen video on the home page gave users no sense of what else was navigable, so the experience read as a dead end rather than a starting point.</p>
     </div>
   </div>
 </section>
 
-<!-- 03 ACTIONS -->
+<!-- ============================================================
+     03 — RESEARCH AND DISCOVERY
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">03</span>
-    <h2 class="chapter-title">Actions</h2>
+    <h2 class="chapter-title">Research and discovery</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">No primary user research was run before launch. Discovery was analytics, format analysis, and platform feasibility — and the most important finding arrived after shipping, from real early adopters.</p>
+      <p><strong style="font-weight:500;">Data and evidence.</strong> The brief was anchored in an existing drop-off rate, which is what allowed the problem to be diagnosed as content density rather than missing features. <span class="tbd"></span>
+        <!-- FILL, if available: the pre-launch drop-off baseline. Even an approximate
+             figure makes the diagnosis concrete rather than asserted. --></p>
+      <p><strong style="font-weight:500;">Competitive and format analysis.</strong> I studied how live TV news channels keep a broadcast running while surfacing other stories — an existing solved problem in an adjacent medium, and the source of the picture-in-picture decision.</p>
+      <p><strong style="font-weight:500;">Technical discovery.</strong> Feasibility was established platform by platform with each Tech Platform Lead, walking blue-sky concepts and wireframes through against real capability rather than assumed parity.</p>
+      <p><strong style="font-weight:500;">Post-launch signal.</strong> Early-adopter behaviour and feedback on the Apple TV MVP drove the home-page revision that followed. <span class="tbd"></span>
+        <!-- FILL: how that feedback was gathered — app-store reviews, support channels,
+             analytics, or direct sessions — and roughly how many users it represented.
+             Describing the mechanism turns this from an assertion into evidence. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Key findings</p>
+      <ul>
+        <li><strong>The problem was density, not absence.</strong> Reframing the brief from "surface more content" to "make live legible" was the structural decision everything else followed from.</li>
+        <li><strong>Live news had already solved discovery-without-interruption.</strong> The format keeps a broadcast running while other stories surface around it — directly transferable to a 24/7 sports channel.</li>
+        <li><strong>Full-screen video removed the sense of control.</strong> Early adopters couldn't tell what else was navigable, which is what prompted the collapsed-video revision.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caveat">
+    The pre-launch work was validated against platform leads and stakeholders, not against users. Stakeholder sign-off is not user validation, and the distinction matters here: the change that mattered most came from customers after shipping, when it was most expensive to make.
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — DESIGN PROCESS
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Design process</h2>
   </div>
 
   <ol class="actions-list">
@@ -142,11 +218,11 @@
     </li>
     <li>
       <span class="a-num">02</span>
-      <p><strong>Negotiated feature scope platform by platform with each Tech Platform Lead.</strong> Walked blue-sky concepts and wireframes through with every platform lead, scaling features down against each platform's real capabilities — which kept four surfaces on one launch date instead of one platform holding the rest hostage.</p>
+      <p><strong>Concepted blue-sky, then negotiated scope platform by platform.</strong> Walked concepts and wireframes through with every Tech Platform Lead individually, scaling features down against each platform's real capabilities — which kept four surfaces on one launch date instead of one platform holding the rest hostage.</p>
     </li>
     <li>
       <span class="a-num">03</span>
-      <p><strong>Borrowed the live-news format to solve discoverability without sacrificing "always on."</strong> Studied how live TV news channels keep a broadcast running while surfacing other stories, and landed on picture-in-picture as the mechanism that let live content stay visible while a user browsed.</p>
+      <p><strong>Borrowed the live-news format to solve discoverability without sacrificing "always on."</strong> Landed on picture-in-picture as the mechanism that let live content stay visible while a user browsed — resolving the live-versus-discovery tension structurally rather than through navigation.</p>
     </li>
     <li>
       <span class="a-num">04</span>
@@ -154,20 +230,18 @@
     </li>
     <li>
       <span class="a-num">05</span>
-      <p><strong>Drove the post-launch revision that changed the home page.</strong> After the Apple TV MVP shipped, used early-adopter feedback to move the home page from full-screen video to a collapsed video — giving users a clearer sense of what else was navigable — and carried that refinement into Roku and Fire TV.</p>
+      <p><strong>Drove the post-launch revision that changed the home page.</strong> Used early-adopter feedback to move the home page from full-screen video to a collapsed video — giving users a clearer sense of what else was navigable — and carried that refinement into Roku and Fire TV.</p>
     </li>
   </ol>
 
-  <div class="artifact" style="border:none;">
-    <div class="device-panel">
-      <div class="device laptop"></div>
-      <div class="device tv"></div>
-      <div class="device tablet"></div>
-      <div class="device phone"></div>
+  <div class="chapter-body" style="margin-top:44px;">
+    <div>
+      <p class="label">Decisions and rationale</p>
+      <p>Two concepts were taken to the platform leads. The first kept a full-screen live game with a sidebar and a "top videos" strip; the second made the live module a persistent element with a shelf beneath it. The second won because it degraded better — the shelf worked identically whether a platform could support rich sidebar interaction or not, which is what made one design shippable across four different capability profiles.</p>
     </div>
-    <div class="artifact-caption">
-      <span class="tag">Fig. 01</span>
-      <span>Reconstruction of the cross-platform device set the experience had to ship on simultaneously — TV, laptop, tablet and phone, all sharing one connected structure.</span>
+    <div>
+      <p class="label">What got in the way</p>
+      <p>Shipping in parallel with a live broadcast launch, inside an architecture I didn't author. The sequencing answer was to ship an MVP on one platform first, learn from it, then propagate — which is exactly the path the home-page revision took from Apple TV to Roku and Fire TV.</p>
     </div>
   </div>
 
@@ -198,8 +272,8 @@
       <div class="player-controls">▶ 00:31 <span class="bar"></span> vimeo</div>
     </div>
     <div class="artifact-caption">
-      <span class="tag">Fig. 02</span>
-      <span>Reconstruction of an early blue-sky concept shown to Tech Platform Leads — full-screen live game with a sidebar and a "top videos" strip for discoverability.</span>
+      <span class="tag">Fig. 01</span>
+      <span>Reconstruction of the first blue-sky concept shown to Tech Platform Leads — full-screen live game with a sidebar and a "top videos" strip for discoverability.</span>
     </div>
   </div>
 
@@ -225,34 +299,56 @@
       <div class="player-controls">▶ 00:17 <span class="bar"></span> vimeo</div>
     </div>
     <div class="artifact-caption">
-      <span class="tag">Fig. 03</span>
-      <span>Reconstruction of the second concept — the "Live TV" module keeps the current broadcast in view while a persistent shelf below surfaces other top videos.</span>
+      <span class="tag">Fig. 02</span>
+      <span>Reconstruction of the second concept — the "Live TV" module keeps the current broadcast in view while a persistent shelf below surfaces other top videos. This is the direction that shipped.</span>
     </div>
   </div>
 </section>
 
-<!-- 04 IMPACT -->
+<!-- ============================================================
+     05 — SOLUTION
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">04</span>
-    <h2 class="chapter-title">Impact</h2>
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Solution</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Shipped across four platforms on the channel's launch date, February 26, 2018 — CBS Sports HQ went live free and 24/7 across iOS and Android phones and tablets, Amazon Fire TV, Apple TV, and Roku via the CBS Sports app, plus the web.</p>
-      <p>Refined three connected-TV platforms post-launch from real usage — Apple TV's MVP shipped first, with Roku and Fire TV improved from early-adopter feedback.</p>
+      <p class="lead">A live-first experience that keeps the broadcast running while a viewer browses — shipped across four platforms on the channel's launch date.</p>
+      <p><strong style="font-weight:500;">Key interaction.</strong> Picture-in-picture is the mechanism the whole design rests on. It lets live content stay visible during browsing, which means discovery never costs the viewer the thing they came for — the structural resolution of the live-versus-on-demand tension that had been driving drop-off.</p>
+      <p><strong style="font-weight:500;">Cross-platform system.</strong> One connected structure scaled per platform rather than to a lowest common denominator: the persistent live module and content shelf are constant, while interaction richness varies with what each surface can actually support.</p>
+      <p><strong style="font-weight:500;">Post-launch refinement.</strong> The home page moved from full-screen video to a collapsed video, restoring the viewer's sense of what else was navigable — shipped first on Apple TV, then carried into Roku and Fire TV.</p>
+      <p><strong style="font-weight:500;">Design system elements.</strong> <span class="tbd"></span>
+        <!-- FILL: what was systematised across the four platforms — shelf components,
+             focus states for remote navigation, type scale for 10-foot legibility,
+             and how it related to CBS Sports' existing system. --></p>
+      <p><strong style="font-weight:500;">Visual design choices.</strong> <span class="tbd"></span>
+        <!-- FILL: the 10-foot-specific decisions — contrast, type sizing, colour under
+             broadcast conditions, and how CBS Sports HQ's identity was carried through. --></p>
     </div>
     <div class="takeaways">
-      <p class="label">What it delivered</p>
+      <p class="label">What was delivered</p>
       <ul>
-        <li>Solved the stated problem: the home page revision reduced cognitive load by collapsing the full-screen video and clarifying what else users could navigate to.</li>
-        <li>The product became the surface for a channel that went on to grow substantially in its first year.</li>
+        <li>A live-first model that mimicked the ease of surfing broadcast TV, reducing the cognitive load driving drop-off.</li>
+        <li>One coherent experience across TV, laptop, tablet, and phone, scoped per platform rather than lowest-common-denominator.</li>
+        <li>Feature scope agreed with each Tech Platform Lead against real technical feasibility.</li>
+        <li>A shipped MVP with a refinement path driven by real early-adopter behaviour.</li>
       </ul>
     </div>
   </div>
 
-  <div style="margin-top:32px;">
-    <p class="editor-note">Editor's note — add any CBS or TribalScale leadership quote, or follow-on work won off this engagement.</p>
+  <div class="artifact" style="border:none;">
+    <div class="device-panel">
+      <div class="device laptop"></div>
+      <div class="device tv"></div>
+      <div class="device tablet"></div>
+      <div class="device phone"></div>
+    </div>
+    <div class="artifact-caption">
+      <span class="tag">Fig. 03</span>
+      <span>Reconstruction of the cross-platform device set the experience had to ship on simultaneously — TV, laptop, tablet and phone, all sharing one connected structure.</span>
+    </div>
   </div>
 </section>
 
@@ -260,12 +356,15 @@
   <div class="outcome-inner">
     <div class="outcome-grid">
       <div class="outcome-stat">
-        <div class="num">4</div>
-        <div class="lbl">platforms shipped simultaneously on launch day — phone and tablet, Fire TV, Apple TV, and Roku, plus web</div>
+        <div class="num">Feb 26, 2018</div>
+        <div class="lbl">shipped on the channel's launch date across phone, tablet, Fire TV, Apple TV, Roku and web</div>
       </div>
       <div class="outcome-stat">
-        <div class="num">3</div>
-        <div class="lbl">connected-TV platforms refined post-launch from real early-adopter usage: Apple TV, Roku, Fire TV</div>
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">change in drop-off rate after launch — the measure the brief was written against
+          <!-- FILL: this is the metric this case study most needs. If it was never
+               read post-launch, say so in the section below rather than leaving
+               this tile ambiguous. --></div>
       </div>
       <div class="outcome-stat">
         <div class="num">1M+</div>
@@ -276,20 +375,38 @@
   </div>
 </div>
 
-<!-- 05 REFLECTION -->
+<!-- ============================================================
+     06 — IMPACT AND RESULTS
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">05</span>
-    <h2 class="chapter-title">Reflection</h2>
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Impact and results</h2>
   </div>
-  <div class="reflection-grid">
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Shipped across four platforms on the channel's launch date, then refined three connected-TV platforms post-launch from real usage.</p>
+      <p><strong style="font-weight:500;">Business outcome.</strong> The product became the surface for a channel that went on to draw more than a million unique viewers in a single day within its first year. That figure belongs to the channel rather than to the design, and it's stated that way deliberately — the honest claim is that the experience didn't get in the way of that growth, not that it caused it.</p>
+      <p><strong style="font-weight:500;">User feedback.</strong> Early adopters drove the home-page revision, which is the clearest evidence the post-launch loop worked. <span class="tbd"></span>
+        <!-- FILL: a CBS or TribalScale leadership quote, or follow-on work won off
+             this engagement. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Measurement gap</p>
+      <ul>
+        <li>The brief named a measurable problem — drop-off from content overload — and I can't report whether the shipped experience moved it. That's the single figure this case study needs, and the reason I now treat a baseline-and-readout agreement as part of scoping rather than as a post-launch nicety.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reflection-grid" style="margin-top:56px;">
     <div class="reflection-col">
       <p class="label">What worked</p>
-      <p>Taking the scope conversation to each Tech Platform Lead individually before committing to a design. Four platforms with different capabilities on a single launch date usually produces either a lowest-common-denominator product or a slipped date; talking feasibility through platform by platform meant each surface shipped at the level it could actually support. Choosing picture-in-picture was the other decision that held — it resolved the live-versus-discovery tension structurally rather than through navigation, which is why the experience stayed simple enough to address the overload problem.</p>
+      <p>Taking the scope conversation to each Tech Platform Lead individually before committing to a design. Four platforms with different capabilities on a single launch date usually produces either a lowest-common-denominator product or a slipped date; talking feasibility through platform by platform meant each surface shipped at the level it could actually support. Choosing picture-in-picture was the other decision that held — it resolved the live-versus-discovery tension structurally rather than through navigation.</p>
     </div>
     <div class="reflection-col">
-      <p class="label">What I'd refine</p>
-      <p>We validated against platform leads and stakeholders, not users, before launch — and the change that mattered most, collapsing the home page video, came from early adopters after shipping. That was the right correction, but it was a correction. Even a short round of testing on the full-screen concept would have surfaced the control problem before it reached customers. I'd also want the drop-off baseline instrumented from the start: the brief named a measurable problem, and I'd insist the same measure be read after launch.</p>
+      <p class="label">What I'd do differently</p>
+      <p>I'd run even a short round of user testing on the full-screen home-page concept before launch. The change that mattered most came from early adopters after shipping — that was the right correction, but it was a correction, and it was avoidable. I'd also insist the drop-off baseline be instrumented and re-read after launch as a condition of the engagement, since the brief named that measure and nobody closed the loop on it.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I learned</p>
@@ -298,11 +415,9 @@
   </div>
 </section>
 
-<!-- 06 STRENGTHS -->
 <section class="chapter" style="padding-bottom:96px;">
   <div class="chapter-head">
-    <span class="chapter-num">06</span>
-    <h2 class="chapter-title">Strengths</h2>
+    <h2 class="chapter-title">Strengths this project drew on</h2>
   </div>
   <div class="strengths-list">
     <span>Multi-platform design leadership</span>
@@ -318,11 +433,11 @@
   <div class="cta-row">
     <div class="cta-next">
       <div class="lbl">Next project</div>
-      <a href="/honda-parkopedia-case-study.html" class="proj">Honda × Parkopedia →</a>
+      <a href="honda-parkopedia-case-study.html" class="proj">Honda × Parkopedia →</a>
     </div>
     <div class="cta-contact">
-      <a href="#">View resume</a>
-      <a href="#">acb.graphics@gmail.com</a>
+      <a href="resume.html">View resume</a>
+      <a href="mailto:acb.graphics@gmail.com">acb.graphics@gmail.com</a>
     </div>
   </div>
   <div class="foot-bottom">

@@ -37,6 +37,31 @@
 /* editorial placeholder flags — remove once real figures are confirmed */
 .editor-note{ font-size:12.5px; font-style:italic; color:var(--ink-faint); border-left:1px solid var(--line); padding-left:14px; margin:14px 0 0; line-height:1.6; max-width:520px; }
 </style>
+<style>
+/* ---------------------------------------------------------------
+   Blank slots awaiting a confirmed figure.
+   Search any page for "tbd" to find every unfilled value.
+   Delete this rule once every slot is filled.
+   --------------------------------------------------------------- */
+.tbd{
+  display:inline-block; min-width:6.5rem; height:1em;
+  border-bottom:1px dashed var(--ink-faint);
+  vertical-align:-0.12em;
+}
+.tbd::after{
+  content:"to add"; padding-left:6px;
+  font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-faint); font-style:normal; font-weight:400;
+}
+.outcome .tbd{ border-bottom-color:rgba(255,255,255,0.35); }
+.outcome .tbd::after{ color:rgba(255,255,255,0.45); }
+/* A stated limitation, shown deliberately to the reader. */
+.caveat{
+  border-left:2px solid var(--ink); padding-left:16px;
+  margin:26px 0 0; max-width:560px;
+  font-size:14.5px; line-height:1.65; color:var(--ink-soft);
+}
+</style>
 </head>
 <body>
 
@@ -54,11 +79,12 @@
 <div class="crumb"><a href="work.html">Work</a> / Carnival Cruise Line</div>
 
 <header class="hero">
-  <div class="eyebrow">Case Study — Accessibility Audit &amp; Remediation</div>
+  <div class="eyebrow">Case Study — Accessibility Audit &amp; Remediation Plan</div>
   <h1 class="title">Carnival<br>Cruise Line</h1>
-  <p class="subtitle">Taking a legacy app from failing its accessibility conformance requirements to passing its assessment.</p>
+  <p class="subtitle">An accessibility audit of someone else's codebase, delivered as a backlog the client's team could actually run.</p>
 
   <div class="hero-art">
+    <!-- NOTE: this page currently reuses cbs_hero. Replace with a project-specific image. -->
     <picture>
       <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.avif">
       <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.webp">
@@ -73,9 +99,10 @@
     <dl>
       <dt>Client</dt><dd>Carnival Cruise Line</dd>
       <dt>Agency</dt><dd>TribalScale</dd>
-      <dt>Role</dt><dd>Lead Product Designer</dd>
-      <dt>Duration</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
-      <dt>Year</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
+      <dt>Role</dt><dd><span class="tbd"></span></dd>
+      <dt>Deliverable</dt><dd>Audit &amp; recommendations document, handed to Carnival for their sprints</dd>
+      <dt>Duration</dt><dd><span class="tbd"></span></dd>
+      <dt>Year</dt><dd><span class="tbd"></span></dd>
     </dl>
   </div>
   <div class="intro">
@@ -83,83 +110,98 @@
   </div>
 </div>
 
-<!-- 01 SITUATION -->
+<!-- ============================================================
+     01 — PROJECT OVERVIEW
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
-    <h2 class="chapter-title">Situation</h2>
+    <h2 class="chapter-title">Project overview</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Design lead on an accessibility audit of an app built by another agency, working with a developer on the technical track and with Carnival's product manager on sprint sequencing.</p>
+      <p>The output was a documented audit and remediation plan — a PDF of prioritised recommendations handed to Carnival to fold into their own sprints. Implementation sat with their team, which shaped the whole approach: a recommendation that couldn't be scoped, sequenced and costed by someone else was a recommendation that wouldn't get done.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Team, tools &amp; scope</p>
+      <ul>
+        <li><strong>Team.</strong> One developer on the technical track, Carnival's product manager on sequencing. <span class="tbd"></span>
+          <!-- FILL: anyone else on the TribalScale side. --></li>
+        <li><strong>Tools.</strong> Shared remediation spreadsheet as the working backlog; <span class="tbd"></span>
+          <!-- FILL: contrast-checking and screen-reader tooling used for the audit. --></li>
+        <li><strong>Methods.</strong> Heuristic audit against AA conformance criteria, component-level blast-radius documentation, split development/visual remediation tracks, sequencing by usage frequency.</li>
+        <li><strong>Scope.</strong> 3 component categories audited — buttons, menu navigation, image and text contrast · 5 user scenarios covered — new user, returning user, pre-board, onboard, connectivity errors · <span class="tbd"></span> individual issues logged
+          <!-- FILL: issue count, if you have it. It would make the scope legible. --></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — PROBLEM STATEMENT
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Problem statement</h2>
   </div>
   <div class="chapter-body">
     <div>
       <p class="lead">The app did not meet accessibility conformance requirements, and it had been designed and built by a different agency.</p>
-      <p>The remediation had to happen inside someone else's architecture, against a standard that doesn't accept partial credit.</p>
+      <p><strong style="font-weight:500;">Business context.</strong> This app is the guest experience — reservations, chat, shore excursions, purchases, and the pre-sailing countdown. An accessibility failure here isn't a marketing-site inconvenience; it's a guest unable to book a table or find their excursion while on a ship.</p>
+      <p><strong style="font-weight:500;">Why it mattered.</strong> AA conformance doesn't accept partial credit, and remediation had to happen inside an architecture nobody on our side had authored. The real constraint was implementability: every recommendation had to be something Carnival's own engineers could schedule against an existing roadmap.</p>
     </div>
     <div class="takeaways">
       <p class="label">Why it was hard</p>
       <ul>
         <li><strong>Inherited system, no authorship.</strong> The app came from another agency, so every recommendation had to work around existing architecture and component decisions rather than replace them.</li>
-        <li><strong>A compliance bar, not a design opinion.</strong> Recommendations had to meet the AA conformance level and pass assessment — "improved" wasn't a passing grade.</li>
-        <li><strong>The real use environment couldn't be simulated at a desk.</strong> Guests use this app onboard a ship with unreliable connectivity, so the testing environment had to be engineered to reproduce onboard conditions before any recommendation could be trusted.</li>
+        <li><strong>A compliance bar, not a design opinion.</strong> Recommendations had to meet the AA conformance level — "improved" wasn't a passing grade.</li>
+        <li><strong>The real use environment couldn't be simulated at a desk.</strong> Guests use this app onboard a ship with unreliable connectivity, so error and offline states had to be treated as accessibility surfaces rather than technical footnotes.</li>
       </ul>
     </div>
   </div>
-</section>
 
-<!-- 02 OBJECTIVE -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">02</span>
-    <h2 class="chapter-title">Objective</h2>
-  </div>
-  <div class="chapter-body">
+  <div class="chapter-body" style="margin-top:36px;">
     <div>
-      <p class="lead">Audit the full app against AA conformance, and produce remediation the client's engineering team could actually implement inside a legacy codebase — ending in a passed assessment.</p>
-      <p><strong style="font-weight:500;">My role:</strong> Led. Lead Product Designer on the audit and remediation, working directly with a developer on the technical track and with Carnival's product manager on sprint sequencing.</p>
-      <p class="editor-note">Editor's note — confirm which WCAG version (2.0, 2.1, or 2.2) was in force for this engagement if you want to cite it specifically; "AA conformance" is used generically throughout until confirmed. Also confirm the mechanism behind "did not meet accessibility conformance requirements" — if this originated from a formal complaint or demand letter rather than an internal audit finding, that detail should stay out of a public case study.</p>
-      <p><strong style="font-weight:500;">Timeframe:</strong> <span style="color:var(--ink-faint); font-style:italic;">To be confirmed.</span></p>
-    </div>
-    <div class="takeaways">
-      <p class="label">What success looked like</p>
-      <ul>
-        <li>A complete audit across buttons, navigation, and image/text contrast, with every failing state documented.</li>
-        <li>Recommendations split into development and visual tracks so each could be routed to the right team.</li>
-        <li>Coverage of five real scenarios — new user, returning user, pre-board, onboard, and connectivity errors — not just the default state.</li>
-        <li>A documented, AA-conformant design system Carnival could build on after the engagement.</li>
-        <li>A passing assessment.</li>
-      </ul>
+      <p class="label">User pain points</p>
+      <p>Failing contrast on primary actions — cancel, continue — meant the controls carrying every booking and purchase were the hardest to see. Menu navigation used five different brand colours for icons, adding visual noise to the app's main wayfinding surface. And text sitting over photography in the countdown, home and shore-excursion screens failed contrast at exactly the moments the app was doing its most emotional work.</p>
     </div>
   </div>
 </section>
 
-<!-- 03 ACTIONS -->
+<!-- ============================================================
+     03 — RESEARCH AND DISCOVERY
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">03</span>
-    <h2 class="chapter-title">Actions</h2>
+    <h2 class="chapter-title">Research and discovery</h2>
   </div>
-
-  <ol class="actions-list">
-    <li>
-      <span class="a-num">01</span>
-      <p><strong>Split the audit into development and visual tracks from the start.</strong> Separated screen-reader hierarchy and semantic structure from contrast and sizing, so each set of fixes went to the team equipped to make them instead of arriving as one undifferentiated list.</p>
-    </li>
-    <li>
-      <span class="a-num">02</span>
-      <p><strong>Documented every failing element with its full blast radius across the app.</strong> For each component — button default, active, inactive — recorded not just the fix but every flow it appeared in (reservations, chat, purchase, shore excursion filters, modals), so engineering could scope the true cost of each change rather than discovering it mid-sprint.</p>
-    </li>
-    <li>
-      <span class="a-num">03</span>
-      <p><strong>Built a shared remediation spreadsheet with the development team.</strong> Logged every recommendation in one artifact the dev team worked from directly, turning an audit document into a working backlog.</p>
-    </li>
-    <li>
-      <span class="a-num">04</span>
-      <p><strong>Engineered a testing environment that reproduced onboard conditions.</strong> Insisted the app be tested under real ship connectivity rather than office wifi, which is what surfaced the error and offline states as accessibility problems rather than just technical ones.</p>
-    </li>
-    <li>
-      <span class="a-num">05</span>
-      <p><strong>Sequenced remediation by usage frequency and real onboard feedback.</strong> Worked with the product manager to run fixes in sprints ordered by how often guests actually hit each surface — so the highest-traffic failures were resolved first rather than working through the audit top to bottom.</p>
-    </li>
-  </ol>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">This was a heuristic audit — run against the standard rather than with the people the standard exists for.</p>
+      <p><strong style="font-weight:500;">Method.</strong> Every component was evaluated against AA conformance criteria across its full set of states — button default, active and inactive; menu profile, copyright and icon text; image and text contrast — and each failure was documented alongside every flow in which that component appeared.</p>
+      <p><strong style="font-weight:500;">Blast-radius documentation.</strong> The audit recorded not just the fix but its reach: a single button style implicated reservation flows, chat, purchase flows, shore excursion filters and pop-up modals. That mapping is what let engineering scope the true cost of each change rather than discovering it mid-sprint.</p>
+      <p><strong style="font-weight:500;">Environmental conditions.</strong> Onboard connectivity is unreliable, so error and offline states were audited as first-class surfaces rather than skipped — those are the moments a guest most needs the interface to work, and they're the states most audits omit.</p>
+      <p><strong style="font-weight:500;">Testing with guests: none.</strong> No guests with disabilities took part. Conformance and usability are not the same thing, and this audit establishes the first, not the second.</p>
+      <p><strong style="font-weight:500;">Standard version:</strong> <span class="tbd"></span>
+        <!-- FILL: which WCAG version was in force (2.0, 2.1, 2.2). "AA conformance" is
+             used generically throughout until confirmed. -->
+      </p>
+      <!-- NOTE: also confirm the mechanism behind "did not meet conformance requirements".
+           If it originated from a formal complaint or demand letter rather than an internal
+           finding, keep that detail out of a public case study entirely. -->
+    </div>
+    <div class="takeaways">
+      <p class="label">Key findings</p>
+      <ul>
+        <li><strong>The failures were concentrated in shared components.</strong> A handful of button and menu styles accounted for failures across nearly every flow — which meant a small number of fixes carried disproportionate value.</li>
+        <li><strong>Brand colour was the root cause of most contrast failures.</strong> The palette that made the app recognisable was the same palette failing the ratio, so remediation was a brand negotiation as much as a technical one.</li>
+        <li><strong>Error and offline states had never been audited.</strong> The states most specific to using an app at sea were the least examined.</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="artifact">
     <div style="padding:44px 32px 8px;">
@@ -228,7 +270,55 @@
     </div>
     <div class="artifact-caption">
       <span class="tag">Fig. 01</span>
-      <span>Recreation of the button audit — every state (default, active, inactive) needed both a contrast fix and a documented list of every flow it appeared in, so engineering could track the full blast radius of each change.</span>
+      <span>Reconstruction of the button audit — every state (default, active, inactive) needed both a contrast fix and a documented list of every flow it appeared in, so engineering could track the full blast radius of each change.</span>
+    </div>
+  </div>
+
+  <div class="caveat">
+    The audit was heuristic. It establishes that the recommended states meet the conformance criteria; it does not establish that the app is good to use with a screen reader in a corridor at sea. Those are different claims and only the first is supported here.
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — DESIGN PROCESS
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Design process</h2>
+  </div>
+
+  <ol class="actions-list">
+    <li>
+      <span class="a-num">01</span>
+      <p><strong>Split the audit into development and visual tracks from the start.</strong> Separated screen-reader hierarchy and semantic structure from contrast and sizing, so each set of fixes went to the team equipped to make them instead of arriving as one undifferentiated list.</p>
+    </li>
+    <li>
+      <span class="a-num">02</span>
+      <p><strong>Documented every failing element with its full blast radius across the app.</strong> For each component, recorded not just the fix but every flow it appeared in — so engineering could scope the true cost of each change rather than discovering it mid-sprint.</p>
+    </li>
+    <li>
+      <span class="a-num">03</span>
+      <p><strong>Built a shared remediation spreadsheet with the development team.</strong> Logged every recommendation in one artifact the dev team worked from directly, turning an audit document into a working backlog.</p>
+    </li>
+    <li>
+      <span class="a-num">04</span>
+      <p><strong>Iterated recommendations until they passed, not until they looked better.</strong> The menu profile card went through three passes before landing on sufficient contrast — a compliance bar means iterating against a number, not against taste.</p>
+    </li>
+    <li>
+      <span class="a-num">05</span>
+      <p><strong>Sequenced remediation by usage frequency rather than audit order.</strong> Worked with the product manager to order fixes by how often guests actually hit each surface, so the highest-traffic failures were scheduled first instead of working through the document top to bottom.</p>
+    </li>
+  </ol>
+
+  <div class="chapter-body" style="margin-top:44px;">
+    <div>
+      <p class="label">Decisions and rationale</p>
+      <p>Documenting blast radius alongside each fix was the decision that determined whether this work mattered. An accessibility audit that lists failures is easy to produce and easy to shelve; listing every flow a failing component touched made the cost of each change visible, which is what let a client engineering team schedule it against competing priorities rather than defer it indefinitely.</p>
+    </div>
+    <div>
+      <p class="label">What got in the way</p>
+      <p>No authorship of the system being fixed, and no control over whether the fixes shipped. Both pushed the work toward sequencing and scoping: the value I could add wasn't in identifying failures — a tool can do that — but in ordering them so someone else could act.</p>
     </div>
   </div>
 
@@ -294,7 +384,34 @@
     </div>
     <div class="artifact-caption">
       <span class="tag">Fig. 02</span>
-      <span>Recreation of the menu navigation audit — profile cards went through three passes before landing on sufficient contrast, and menu icons were unified to a single tone rather than five different brand colors.</span>
+      <span>Reconstruction of the menu navigation audit — profile cards went through three passes before landing on sufficient contrast, and menu icons were unified to a single tone rather than five different brand colours.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 — SOLUTION
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Solution</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">A documented, AA-conformant component set and a sequenced remediation backlog, delivered as a single audit-and-recommendations document Carnival could fold into their sprints.</p>
+      <p><strong style="font-weight:500;">Design system elements.</strong> The substantive output was a conformant component vocabulary: button styles for default, active and inactive states, with contrast-checked replacements for each; a unified menu icon treatment replacing five competing brand colours with a single tone; and a specified overlay treatment for text on photography (black at 30% alpha) that made the countdown, home and shore-excursion screens legible without re-shooting the imagery.</p>
+      <p><strong style="font-weight:500;">Visual design choices.</strong> Almost every fix traded brand vividness for legibility — teal to deep green on cancel, bright green to a darker green on continue, five icon colours to one. The rationale was consistent: on a compliance project the palette serves the ratio, not the other way round, and a documented replacement is easier to defend to a brand team than a request to "darken it a bit."</p>
+      <p><strong style="font-weight:500;">Format.</strong> A shared remediation spreadsheet the development team worked from directly, plus the audit document itself — a backlog rather than a report requiring translation.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">What was delivered</p>
+      <ul>
+        <li>A complete audit across buttons, navigation, and image/text contrast, with every failing state documented.</li>
+        <li>Recommendations split into development and visual tracks so each could be routed to the right team.</li>
+        <li>Coverage of five real scenarios — new user, returning user, pre-board, onboard, and connectivity errors.</li>
+        <li>A documented, AA-conformant component set Carnival could build on after the engagement.</li>
+      </ul>
     </div>
   </div>
 
@@ -346,34 +463,8 @@
     </div>
     <div class="artifact-caption">
       <span class="tag">Fig. 03</span>
-      <span>Recreated crop of the image-contrast audit and three of the final compliant screens it produced — the countdown, home, and shore-excursion pages.</span>
+      <span>Reconstruction of the image-contrast audit and three of the recommended compliant screens — the countdown, home, and shore-excursion pages.</span>
     </div>
-  </div>
-</section>
-
-<!-- 04 IMPACT -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">04</span>
-    <h2 class="chapter-title">Impact</h2>
-  </div>
-  <div class="chapter-body">
-    <div>
-      <p class="lead">The app passed its accessibility assessment, having previously not met conformance requirements — a clear before and after.</p>
-      <p>Delivered an AA-conformant design system Carnival's team could build against, turning a one-off remediation into a durable standard.</p>
-    </div>
-    <div class="takeaways">
-      <p class="label">What it delivered</p>
-      <ul>
-        <li>Full audit coverage across three component categories and five user scenarios, including the connectivity-error states most audits skip.</li>
-        <li>A remediation backlog engineering worked from directly, rather than a report requiring translation.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div style="margin-top:32px;">
-    <p class="editor-note">Editor's note — optionally add how many individual issues were identified and resolved; a count would make the scope more legible, though it isn't required.</p>
-    <p class="editor-note" style="margin-top:14px;">Editor's note — add any Carnival leadership quote, or follow-on accessibility work won.</p>
   </div>
 </section>
 
@@ -381,49 +472,68 @@
   <div class="outcome-inner">
     <div class="outcome-grid">
       <div class="outcome-stat">
-        <div class="num">Pass</div>
-        <div class="lbl">the redesigned app passed its accessibility assessment, having previously not met conformance requirements</div>
+        <div class="num">AA</div>
+        <div class="lbl">the conformance level every recommendation in the audit was specified to meet</div>
       </div>
       <div class="outcome-stat">
         <div class="num">5</div>
-        <div class="lbl">real user scenarios audited — new user, returning user, pre-board, onboard, and connectivity errors</div>
+        <div class="lbl">user scenarios audited — new user, returning user, pre-board, onboard, and connectivity errors</div>
       </div>
       <div class="outcome-stat">
-        <div class="num">AA</div>
-        <div class="lbl">the accessibility conformance level the redesigned app was assessed and passed against</div>
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">recommendations Carnival implemented, and any subsequent conformance result
+          <!-- FILL, only if you can confirm it with Carnival. Implementation sat with
+               their team, so this may simply be unknowable — in which case leave it
+               blank and let the paragraph below carry the honest version. --></div>
       </div>
     </div>
-    <p class="body-text">This audit became the <i class="serif" style="color:#fff;">AA-conformant design system</i> Carnival's team continued building against — turning a one-off remediation into a durable standard.</p>
+    <p class="body-text">The audit became a <i class="serif" style="color:#fff;">working backlog</i> rather than a report — recommendations scoped, sequenced and costed so someone else's engineering team could actually run them.</p>
   </div>
 </div>
 
-<!-- 05 REFLECTION -->
+<!-- ============================================================
+     06 — IMPACT AND RESULTS
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">05</span>
-    <h2 class="chapter-title">Reflection</h2>
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Impact and results</h2>
   </div>
-  <div class="reflection-grid">
+  <div class="chapter-body">
+    <div>
+      <p class="lead">The engagement delivered a full audit and a prioritised remediation plan, handed to Carnival to fold into their sprints. Implementation and any subsequent conformance assessment sat with their team.</p>
+      <p><strong style="font-weight:500;">Business outcome.</strong> What Carnival received was a conformant component set they could build against and a backlog ordered by guest impact rather than by document order — turning a one-off audit into a durable standard, provided their team ran it. I'd rather state the deliverable precisely than claim an outcome I wasn't in a position to verify.</p>
+      <p><strong style="font-weight:500;">User feedback.</strong> <span class="tbd"></span>
+        <!-- FILL: any Carnival leadership comment, or follow-on accessibility work won
+             off this engagement. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Being precise about this one</p>
+      <ul>
+        <li>An earlier version of this page said the app "passed its accessibility assessment." That overstated my part: the deliverable was an audit and a set of recommendations, and whether the app was subsequently assessed and passed isn't something I implemented or can evidence. The accurate claim is the audit and the plan — which is still the substantive contribution.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reflection-grid" style="margin-top:56px;">
     <div class="reflection-col">
       <p class="label">What worked</p>
-      <p>Documenting the blast radius alongside each fix. An accessibility audit that lists failures is easy to produce and easy to ignore; listing every flow a failing component appeared in made the cost of each change visible, which is why the recommendations got scheduled instead of shelved. Insisting on real onboard testing conditions was the other decision that mattered — the connectivity-error states would never have been audited from a desk, and those are exactly the moments when a guest most needs the interface to work.</p>
+      <p>Documenting the blast radius alongside each fix. An accessibility audit that lists failures is easy to produce and easy to ignore; listing every flow a failing component appeared in made the cost of each change visible, which is what gives recommendations a chance of being scheduled rather than shelved. Treating error and offline states as accessibility surfaces was the other decision that mattered — those are exactly the moments when a guest at sea most needs the interface to work, and they're routinely skipped.</p>
     </div>
     <div class="reflection-col">
-      <p class="label">What I'd refine</p>
-      <p>The audit was heuristic, run against the standard rather than with the people the standard exists for. Compliance and usability aren't the same thing, and I'd have pushed to include guests with disabilities in the onboard testing — passing an assessment tells you the app is conformant, not that it's good to use with a screen reader in a corridor at sea. I'd also want a governance step built in at handoff, so the design system doesn't quietly drift back out of conformance with the next feature release.</p>
+      <p class="label">What I'd do differently</p>
+      <p>I'd include guests with disabilities in the work rather than auditing on their behalf. Conformance and usability aren't the same thing, and a heuristic pass tells you the app meets a ratio, not that it's navigable with a screen reader in a corridor at sea. I'd also build a governance step into the handoff — and, knowing what I know now, I'd negotiate a follow-up checkpoint into the engagement so the recommendations don't simply disappear into someone else's backlog with no readout.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I learned</p>
-      <p>Inheriting another team's system is a constraint that changes the work fundamentally. The design question stopped being "what's the best solution" and became "what's the best solution that can be implemented here, at this cost, in this order" — and the value I added was as much in sequencing and scoping as in the fixes themselves. That's also the skill that transfers most directly to leading teams rather than projects.</p>
+      <p>Inheriting another team's system changes the work fundamentally. The design question stopped being "what's the best solution" and became "what's the best solution that can be implemented here, at this cost, in this order" — and the value I added was as much in sequencing and scoping as in the fixes themselves. That's also the skill that transfers most directly to leading teams rather than projects.</p>
     </div>
   </div>
 </section>
 
-<!-- 06 STRENGTHS -->
 <section class="chapter" style="padding-bottom:96px;">
   <div class="chapter-head">
-    <span class="chapter-num">06</span>
-    <h2 class="chapter-title">Strengths</h2>
+    <h2 class="chapter-title">Strengths this project drew on</h2>
   </div>
   <div class="strengths-list">
     <span>Accessibility expertise</span>

@@ -264,6 +264,31 @@ picture { display:contents; }
 .sb-video-controls .bar{flex:1; height:2px; background:rgba(255,255,255,0.2); position:relative;}
 .sb-video-controls .bar::before{content:''; position:absolute; left:0; top:0; width:8%; height:100%; background:#B23B2E;}
 </style>
+<style>
+/* ---------------------------------------------------------------
+   Blank slots awaiting a confirmed figure.
+   Search any page for "tbd" to find every unfilled value.
+   Delete this rule once every slot is filled.
+   --------------------------------------------------------------- */
+.tbd{
+  display:inline-block; min-width:6.5rem; height:1em;
+  border-bottom:1px dashed var(--ink-faint);
+  vertical-align:-0.12em;
+}
+.tbd::after{
+  content:"to add"; padding-left:6px;
+  font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-faint); font-style:normal; font-weight:400;
+}
+.outcome .tbd{ border-bottom-color:rgba(255,255,255,0.35); }
+.outcome .tbd::after{ color:rgba(255,255,255,0.45); }
+/* A stated limitation, shown deliberately to the reader. */
+.caveat{
+  border-left:2px solid var(--ink); padding-left:16px;
+  margin:26px 0 0; max-width:560px;
+  font-size:14.5px; line-height:1.65; color:var(--ink-soft);
+}
+</style>
 </head>
 <body>
 
@@ -283,9 +308,10 @@ picture { display:contents; }
 <header class="hero">
   <div class="eyebrow">Case Study — OTT / Console Launch</div>
   <h1 class="title">Screambox</h1>
-  <p class="subtitle">A cinematic, horror-first streaming app built for a console that didn't exist yet — designed in lockstep with PS4's own launch.</p>
+  <p class="subtitle">Designing a streaming app for a console nobody had used yet, with no documentation to design against.</p>
 
   <div class="hero-art">
+    <!-- NOTE: this page currently reuses cbs_hero. Replace with a project-specific image. -->
     <picture>
       <source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.avif">
       <source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.webp">
@@ -298,36 +324,102 @@ picture { display:contents; }
 <div class="meta-row">
   <div class="meta-block">
     <dl>
-      <dt>Role</dt><dd>Senior Interactive Designer</dd>
-      <dt>Team</dt><dd>Accedo</dd>
       <dt>Client</dt><dd>Screambox</dd>
-      <dt>Type</dt><dd>PS4 App</dd>
-      <dt>Deliverables</dt>
-      <dd class="deliverables">UX Design, Wireframes, Prototyping, Design QA</dd>
+      <dt>Agency</dt><dd>Accedo</dd>
+      <dt>Role</dt><dd><span class="tbd"></span></dd>
+      <dt>Platform</dt><dd>PlayStation 4</dd>
+      <dt>Duration</dt><dd><span class="tbd"></span></dd>
+      <dt>Launched</dt><dd><span class="tbd"></span></dd>
     </dl>
   </div>
   <div class="intro">
-    <p>Screambox is the ultimate destination for horror movie fans — <i class="serif">un-cut, commercial-free</i> horror movies and TV programs, launched exclusively alongside PS4.</p>
+    <p>Screambox is a destination for horror fans — <i class="serif">un-cut, commercial-free</i> horror movies and TV, launched alongside the PS4 to reach the console's earliest adopters.</p>
   </div>
 </div>
 
-<!-- 01 CHALLENGE -->
+<!-- ============================================================
+     01 — PROJECT OVERVIEW
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
-    <h2 class="chapter-title">Challenge</h2>
+    <h2 class="chapter-title">Project overview</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Before the launch of PS4, the client wanted to launch an app alongside the release of the new gaming platform.</p>
-      <p>Working with no guidelines — PS4 was a brand-new system — I worked closely with the engineering team to determine the feasibility of designs for an unreleased system. Without native standards for navigation and controls, we built an experience that felt familiar to other OTT apps: cinematic, immersive, and easy to navigate. That let our client piggyback on the momentum of a console launch and reach new customers among the earliest adopters.</p>
+      <p class="lead">Designer on an OTT app built for an unreleased console, working closely with engineering to establish what was even buildable.</p>
+      <p>Deliverables were UX design, wireframes, prototyping and design QA. The defining condition was the absence of a specification: with no native standards to follow, every proposal was a hypothesis that engineering had to confirm before it could become a design.</p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Team, tools &amp; scope</p>
+      <ul>
+        <li><strong>Team.</strong> Accedo design and engineering, with the Screambox client team. <span class="tbd"></span>
+          <!-- FILL: team size and your specific remit within it. --></li>
+        <li><strong>Tools.</strong> <span class="tbd"></span>
+          <!-- FILL: design, prototyping and QA tooling. --></li>
+        <li><strong>Methods.</strong> Blue-sky wireframing under zero documentation, engineering feasibility review, pattern language development from scratch, controller-navigation prototyping, walkthrough video for client demo, design QA.</li>
+        <li><strong>Scope.</strong> 0 existing design guidelines to start from · 1 console launch to ship against · full browse, detail and playback experience for controller input.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — PROBLEM STATEMENT
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Problem statement</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">Launch a horror streaming app alongside a console that didn't exist yet, with no written development or design constraints to build against.</p>
+      <p><strong style="font-weight:500;">Business context.</strong> A console launch is a rare acquisition window: early adopters arrive looking for things to put on a new device, and the apps present on day one get disproportionate attention. Missing the window meant competing for the same audience later, without the momentum.</p>
+      <p><strong style="font-weight:500;">Why it mattered.</strong> For a niche service, being one of the few apps available at launch is worth more than being a better app six months in. The deadline wasn't negotiable and the specification didn't exist — which made feasibility, not craft, the binding constraint.</p>
     </div>
     <div class="takeaways">
       <p class="label">Why it was hard</p>
       <ul>
-        <li>No written development or design constraints existed yet — PS4 was still unreleased.</li>
-        <li>Native navigation and controller standards weren't documented, so feasibility had to be worked out directly with engineering.</li>
-        <li>The app had to feel instantly familiar while still fitting a brand-new console's controls.</li>
+        <li><strong>No documentation existed.</strong> PS4 was unreleased, so there were no written development or design constraints to work from.</li>
+        <li><strong>No native navigation or controller standards.</strong> Feasibility had to be established directly with engineering, proposal by proposal.</li>
+        <li><strong>Familiar and new at once.</strong> The app had to feel instantly recognisable to anyone who had used an OTT service, while fitting a control scheme nobody had used yet.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chapter-body" style="margin-top:36px;">
+    <div>
+      <p class="label">User pain points</p>
+      <p>Horror is a browsing-led genre: viewers arrive to see what's there rather than to find a specific title, which puts unusual weight on a large library being scannable. The console context adds a second problem — a controller is a poor instrument for text entry, so any design that leaned on search rather than browse would have failed regardless of how good the search was.</p>
+      <p class="caveat">These were reasoned from the genre and the platform rather than established with viewers. No user research or usability testing was run on this engagement — see below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 — RESEARCH AND DISCOVERY
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2 class="chapter-title">Research and discovery</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">No user research was run. Discovery was entirely technical and referential — establishing feasibility with engineering, and borrowing conventions from platforms viewers already knew.</p>
+      <p><strong style="font-weight:500;">Feasibility discovery.</strong> With no PS4 documentation, engineering was the only source of truth about what the hardware and its input model would support. Wireframes functioned as questions: each one was reviewed for buildability before it advanced, which is a slower loop than designing to a spec but the only one available.</p>
+      <p><strong style="font-weight:500;">Referential discovery.</strong> Navigation was modelled on the PS4 home experience itself, on the reasoning that whatever conventions Sony established would be the ones users learned first. Content organisation borrowed the row-based structure common to OTT services, so a large library stayed scannable without inventing a new browsing paradigm at the same time as everything else.</p>
+      <p><strong style="font-weight:500;">Competitive analysis.</strong> <span class="tbd"></span>
+        <!-- FILL, or delete: whether other OTT apps were formally reviewed, and which
+             ones informed the row structure and detail-overlay pattern. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">What discovery established</p>
+      <ul>
+        <li><strong>The console's own interface was the safest reference.</strong> Modelling navigation on the PS4 home experience meant the app inherited whatever mental model users formed from the device itself.</li>
+        <li><strong>Rows solve library scale.</strong> Organised rows let an extensive catalogue stay browsable on a controller, where a grid or a search-first model would not.</li>
+        <li><strong>Focus state is the whole interaction.</strong> With controller input there's no cursor and no touch — the only thing telling a user where they are is the focus treatment, which made it the highest-priority visual decision rather than a detail.</li>
       </ul>
     </div>
   </div>
@@ -365,23 +457,73 @@ picture { display:contents; }
   </div>
 </section>
 
-<!-- 02 STRATEGY -->
+<!-- ============================================================
+     04 — DESIGN PROCESS
+     ============================================================ -->
 <section class="chapter">
   <div class="chapter-head">
-    <span class="chapter-num">02</span>
-    <h2 class="chapter-title">Strategy</h2>
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Design process</h2>
+  </div>
+
+  <ol class="actions-list">
+    <li>
+      <span class="a-num">01</span>
+      <p><strong>Wireframed blue-sky, then let engineering set the boundary.</strong> With no written constraints, the only way to find the edges of the platform was to propose past them and iterate back — treating each wireframe as a feasibility question rather than a specification.</p>
+    </li>
+    <li>
+      <span class="a-num">02</span>
+      <p><strong>Modelled navigation on the PS4 home experience itself.</strong> Chose the console's own interface as the reference point, on the reasoning that it would be the pattern every user learned first — inheriting familiarity in a context where none could be assumed.</p>
+    </li>
+    <li>
+      <span class="a-num">03</span>
+      <p><strong>Built a pattern language from scratch for controller navigation.</strong> Defined focus states, row behaviour, and the detail-overlay pattern from nothing, since no native component set existed to extend.</p>
+    </li>
+    <li>
+      <span class="a-num">04</span>
+      <p><strong>Reduced the content detail view to two actions.</strong> Add to Queue and Trailer as the only primary actions, on the reasoning that a controller makes every additional choice expensive — one press to save, one press to sample.</p>
+    </li>
+    <li>
+      <span class="a-num">05</span>
+      <p><strong>Produced a walkthrough video to demonstrate navigation and transitions.</strong> Motion and focus behaviour can't be reviewed in static screens, so the walkthrough became the artifact the client actually signed off on, and the reference for design QA during build.</p>
+    </li>
+  </ol>
+
+  <div class="chapter-body" style="margin-top:44px;">
+    <div>
+      <p class="label">Decisions and rationale</p>
+      <p>The decision that shaped the visual work most was reserving red for focus and calls to action only. A horror brand invites red everywhere, and on a controller-driven interface that would have been actively harmful — if everything is red, nothing indicates where you are. Constraining the accent to a functional role let the brand stay atmospheric through backgrounds and texture while the one saturated colour did navigational work.</p>
+    </div>
+    <div>
+      <p class="label">Testing and iteration</p>
+      <p>Iteration ran against engineering feasibility and client review rather than user testing. Design QA during build was the final loop — checking that focus behaviour and transitions survived implementation on hardware that had only just become available.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 — SOLUTION
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Solution</h2>
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Wireframes were built with blue-sky ideas, since PS4 provided no written development or design constraints.</p>
-      <p>Development worked in tandem with our design team to create a structure and navigation that felt like the new PS4 home experience itself. With that structure in place, the app focused on a cinematic landing experience and enhanced exploration — pulling organized rows of content to enrich browsing across an extensive library.</p>
+      <p class="lead">A cinematic, browse-led horror app with a pattern language built from scratch for controller navigation.</p>
+      <p><strong style="font-weight:500;">Key features and interactions.</strong> A cinematic landing experience sets tone immediately, with organised content rows beneath it that make an extensive library scannable without text entry. The content detail overlay carries exactly two primary actions — Add to Queue and Trailer — so the most common decisions cost one press each. Transitions and controls are native to the PlayStation experience rather than ported from mobile or web patterns.</p>
+      <p><strong style="font-weight:500;">Design system elements.</strong> With no native component set to extend, the pattern language was built from nothing: row and card behaviour, the focus state that indicates position under controller input, the detail-overlay structure, and the transition model between browse and playback. That system is the durable output of the project — it's what made an app of this scale designable and buildable in the time available.</p>
+      <p><strong style="font-weight:500;">Visual design choices.</strong> Cinematic backgrounds and haunting textures carry the brand without competing with content thumbnails, which have to stay legible for browsing to work. Red is the single accent, reserved for focus states and calls to action so it reads as navigation rather than decoration. The overall treatment is dark and low-contrast by design, with the accent and the focus ring doing the wayfinding.</p>
+      <p><strong style="font-weight:500;">Demo.</strong> A walkthrough video demonstrating controller navigation and transitions, used for client sign-off and as the reference during design QA.</p>
     </div>
     <div class="takeaways">
-      <p class="label">How structure was set</p>
+      <p class="label">What was delivered</p>
       <ul>
-        <li>Navigation modeled after the PS4 home experience itself, since no native app guidelines existed.</li>
-        <li>Content organized into rows to make a large library easy to browse visually.</li>
-        <li>Landing experience built to feel cinematic first, functional second — without sacrificing navigability.</li>
+        <li>A complete browse, detail and playback experience designed for controller input.</li>
+        <li>A pattern language built from scratch, with no native standards to extend.</li>
+        <li>A walkthrough demonstrating navigation and motion, used for sign-off and QA.</li>
+        <li>An app shipped in conjunction with the console launch.</li>
       </ul>
     </div>
   </div>
@@ -400,28 +542,6 @@ picture { display:contents; }
     <div class="artifact-caption">
       <span class="tag">Fig. 02</span>
       <span>Reconstruction of the content-detail overlay — Add to Queue and Trailer as the two primary actions, with a highlighted poster card indicating focus state for controller navigation.</span>
-    </div>
-  </div>
-</section>
-
-<!-- 03 APPROACH -->
-<section class="chapter">
-  <div class="chapter-head">
-    <span class="chapter-num">03</span>
-    <h2 class="chapter-title">Approach</h2>
-  </div>
-  <div class="chapter-body">
-    <div>
-      <p class="lead">The Screambox brand comes through in cinematic backgrounds, red-themed color, and haunting textures — without distracting from the content and browsing experience.</p>
-      <p>Smooth transitions and app controls native to the PlayStation experience help bring each piece of content forward intuitively.</p>
-    </div>
-    <div class="takeaways">
-      <p class="label">Brand principles applied</p>
-      <ul>
-        <li>Cinematic backgrounds and haunting textures set the tone without competing with content thumbnails.</li>
-        <li>Red used as the single accent color — reserved for focus states and calls to action.</li>
-        <li>Controls and transitions built native to the PlayStation experience, not ported from mobile or web patterns.</li>
-      </ul>
     </div>
   </div>
 
@@ -446,33 +566,79 @@ picture { display:contents; }
   </div>
 </section>
 
-<!-- 04 OUTCOME -->
-<section class="chapter outcome">
+<div class="outcome">
   <div class="outcome-inner">
-    <div class="chapter-head">
-      <span class="chapter-num">04</span>
-      <h2 class="chapter-title">Outcome</h2>
-    </div>
-    <p class="body-text">The result was a cinematic PS4 app that launched alongside the console — giving Screambox a foothold with PS4's earliest adopters.</p>
-
     <div class="outcome-grid">
       <div class="outcome-stat">
-        <div class="num">0</div>
-        <div class="lbl">existing design guidelines to start from — the pattern language was built from scratch</div>
-      </div>
-      <div class="outcome-stat">
-        <div class="num">[ ]</div>
-        <div class="lbl">early-adopter downloads or engagement — replace with a real figure before publishing</div>
-      </div>
-      <div class="outcome-stat">
         <div class="num">PS4</div>
-        <div class="lbl">the console launch this app shipped in conjunction with</div>
+        <div class="lbl">the console launch this app shipped in conjunction with, reaching the platform's earliest adopters</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">downloads or active users in the launch window
+          <!-- FILL: the metric this case study needs. If Screambox never shared it,
+               say so in the section below rather than leaving the tile ambiguous. --></div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num"><span class="tbd"></span></div>
+        <div class="lbl">launch date
+          <!-- FILL: confirm the app's launch date relative to the console's. --></div>
       </div>
     </div>
+    <p class="body-text">Screambox used the console launch's momentum to reach horror fans among PS4's <i class="serif" style="color:#fff;">earliest adopters</i>, ahead of competing OTT apps on the platform.</p>
+  </div>
+</div>
 
-    <div class="outcome-note">Still to source — one hard metric for this project. A conservative estimate or a directional statement is stronger than an empty tile; unverifiable numbers are a credibility risk.</div>
+<!-- ============================================================
+     06 — IMPACT AND RESULTS
+     ============================================================ -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Impact and results</h2>
+  </div>
+  <div class="chapter-body">
+    <div>
+      <p class="lead">The app shipped in conjunction with the PS4 launch, giving a niche service a foothold with the console's earliest adopters ahead of competing OTT apps on the platform.</p>
+      <p><strong style="font-weight:500;">Business outcome.</strong> The strategic value was timing. Presence in the launch window is an acquisition advantage a small service can't buy later, and hitting it with a complete, controller-native experience rather than a compromised port is what the engagement delivered.</p>
+      <p><strong style="font-weight:500;">User feedback.</strong> <span class="tbd"></span>
+        <!-- FILL: any client comment, store rating, press coverage, or follow-on work. --></p>
+    </div>
+    <div class="takeaways">
+      <p class="label">Measurement gap</p>
+      <ul>
+        <li>No download, engagement or retention figure was shared or instrumented in a form I can point to. The launch-window argument is sound but unproven, and this is the case study on the site with the least outcome evidence behind it.</li>
+      </ul>
+    </div>
+  </div>
 
-    <p class="body-text" style="margin-top:28px; font-size:15px; color:rgba(255,255,255,0.65); line-height:1.6;">Screambox used the console launch's momentum to reach horror fans among PS4's <i class="serif" style="color:#fff;">earliest adopters</i>, ahead of competing OTT apps on the platform.</p>
+  <div class="reflection-grid" style="margin-top:56px;">
+    <div class="reflection-col">
+      <p class="label">What worked</p>
+      <p>Treating the console's own interface as the design reference. With no documentation and no precedent, borrowing the mental model users would form from the hardware itself was the lowest-risk way to make an unfamiliar control scheme feel familiar. Reserving red for focus and calls to action was the other decision that held — it let a horror brand stay atmospheric without compromising the one signal a controller-driven interface depends on.</p>
+    </div>
+    <div class="reflection-col">
+      <p class="label">What I'd do differently</p>
+      <p>I'd get the app in front of horror viewers, even briefly. Nothing in this process tested whether the browse-led structure actually helped people find something to watch — the design reasoning is sound but it's reasoning, not evidence. I'd also negotiate access to launch-window numbers as part of the engagement. Shipping into a console launch is a claim about timing, and without a download figure it stays a claim.</p>
+    </div>
+    <div class="reflection-col">
+      <p class="label">What I learned</p>
+      <p>When there's no specification, engineering isn't a constraint on design — it's the research method. The wireframes on this project were questions rather than answers, and getting comfortable proposing things that might be impossible, then iterating back to what was buildable, is a working mode I've used on every emerging-platform project since.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" style="padding-bottom:96px;">
+  <div class="chapter-head">
+    <h2 class="chapter-title">Strengths this project drew on</h2>
+  </div>
+  <div class="strengths-list">
+    <span>Designing without precedent</span>
+    <span>Design–engineering collaboration</span>
+    <span>Pattern language from scratch</span>
+    <span>Brand expression under constraint</span>
+    <span>Console &amp; 10-foot interaction</span>
+    <span>Shipping to a fixed launch window</span>
   </div>
 </section>
 
