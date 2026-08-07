@@ -3,7 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Andrea Barros Design Leadership</title>
+
+<title>Andrea Barros — Design Leadership &amp; DesignOps in Denver</title>
+<meta name="description" content="Andrea Barros is a Senior Product Design Manager at EchoStar in Denver, leading Dish and Sling TV growth design. 16 years in DesignOps and design systems.">
+<link rel="canonical" href="https://andreabarros.design/">
+<meta name="author" content="Andrea Barros">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#FFFFFF">
+
+<!-- TODO: replace REPLACE_ME with the token from Google Search Console, then submit sitemap.xml -->
+<meta name="google-site-verification" content="REPLACE_ME">
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Andrea Barros">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://andreabarros.design/">
+<meta property="og:title" content="Andrea Barros — Design Leadership &amp; DesignOps in Denver">
+<meta property="og:description" content="Senior Product Design Manager at EchoStar, leading the Dish and Sling TV growth design teams. 16 years in DesignOps, design systems and strategic foresight.">
+<meta property="og:image" content="https://andreabarros.design/img/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Andrea Barros — Design Leadership and DesignOps, Denver, Colorado.">
+<meta property="profile:first_name" content="Andrea">
+<meta property="profile:last_name" content="Barros">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Andrea Barros — Design Leadership &amp; DesignOps in Denver">
+<meta name="twitter:description" content="Senior Product Design Manager at EchoStar, leading the Dish and Sling TV growth design teams. 16 years in DesignOps, design systems and strategic foresight.">
+<meta name="twitter:image" content="https://andreabarros.design/img/og-card.jpg">
+<meta name="twitter:image:alt" content="Andrea Barros — Design Leadership and DesignOps, Denver, Colorado.">
+
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Fonts: loaded here rather than via CSS @import to avoid a render-blocking request chain -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="rainbow-links.css">
 <style>
@@ -13,11 +55,27 @@
 .statement p.small{font-size:16.5px; color:var(--ink-soft); line-height:1.6;}
 
 .thesis{max-width:1180px; margin:0 auto;}
-.thesis h1{
+/* Visually identical to the former .thesis h1 — demoted to a <p> so the page's
+   real <h1> can carry the name and role. */
+.thesis .thesis-lede{
   font-family:'Archivo',sans-serif; font-weight:400; font-size:clamp(32px,4.4vw,58px);
   line-height:1.12; letter-spacing:-0.02em; margin:0; max-width:16em;
 }
-.thesis h1 i.serif{font-size:1.04em;}
+.thesis .thesis-lede i.serif{font-size:1.04em;}
+
+/* the <h1> sits at eyebrow scale; zero out the UA heading margin */
+h1.eyebrow{margin-top:0;}
+
+/* Elements promoted from <p>/<div> to real headings for document structure.
+   These rules neutralise the inherited h3 defaults so rendering is unchanged. */
+h3.eyebrow,
+h3.label,
+h3.role{font-family:'Inter',sans-serif; line-height:1.65; margin-top:0;}
+h3.role{letter-spacing:0; margin-bottom:3px;}
+
+/* keyboard skip link */
+.skip-link{position:absolute; left:-9999px; top:0; background:var(--ink); color:var(--paper); padding:10px 16px; z-index:100;}
+.skip-link:focus{left:0;}
 .thesis .sub{font-size:18px; color:var(--ink-soft); max-width:620px; margin-top:28px; line-height:1.6;}
 
 .principles{margin-top:8px;}
@@ -68,8 +126,119 @@
   .arc-step + .arc-step{padding-left:0; border-left:none;}
 }
 </style>
+
+<!--
+  Structured data. TODO: add a "sameAs" array to the Person node with your real
+  profile URLs (LinkedIn, Medium, etc.) — that is what links this page to your
+  identity in Google's Knowledge Graph. Left out rather than guessed.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://andreabarros.design/#website",
+      "url": "https://andreabarros.design/",
+      "name": "Andrea Barros",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://andreabarros.design/#andrea" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://andreabarros.design/#profilepage",
+      "url": "https://andreabarros.design/",
+      "name": "Andrea Barros — Design Leadership & DesignOps in Denver",
+      "isPartOf": { "@id": "https://andreabarros.design/#website" },
+      "inLanguage": "en",
+      "mainEntity": { "@id": "https://andreabarros.design/#andrea" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://andreabarros.design/#andrea",
+      "name": "Andrea Barros",
+      "givenName": "Andrea",
+      "familyName": "Barros",
+      "url": "https://andreabarros.design/",
+      "email": "acb.graphics@gmail.com",
+      "jobTitle": "Senior Product Design Manager, Growth",
+      "description": "Design leader specialising in DesignOps, team building, design systems and foresight research strategy. Leads the Dish and Sling TV growth design teams at EchoStar.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "EchoStar",
+        "url": "https://www.echostar.com/"
+      },
+      "homeLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Denver",
+          "addressRegion": "CO",
+          "addressCountry": "US"
+        }
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Product Design Manager",
+        "occupationalCategory": "11-2011.00",
+        "skills": "DesignOps, design systems, design research, growth design, strategic foresight"
+      },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "OCAD University", "url": "https://www.ocadu.ca/" },
+        { "@type": "CollegeOrUniversity", "name": "York University" },
+        { "@type": "CollegeOrUniversity", "name": "Sheridan College" }
+      ],
+      "knowsAbout": [
+        "DesignOps",
+        "Design systems",
+        "Design leadership",
+        "Team building and hiring",
+        "Design research and validation",
+        "Growth design, acquisition and retention funnels",
+        "10-foot experience design for TV and connected devices",
+        "Accessibility",
+        "Strategic foresight and futures methods",
+        "Co-creation facilitation"
+      ],
+      "subjectOf": [
+        {
+          "@type": "Article",
+          "name": "Modern Leaders: Becoming a manager",
+          "url": "https://medium.com/@womenandcolor/modern-leaders-becoming-a-manager-a7ad16136a32",
+          "datePublished": "2018"
+        },
+        {
+          "@type": "Article",
+          "name": "Ask a Developer: How do dev and design work together?",
+          "url": "https://betakit.com/ask-a-developer-how-do-dev-and-design-work-together/",
+          "datePublished": "2018"
+        },
+        {
+          "@type": "PodcastEpisode",
+          "name": "First Name Basis Podcast: State of OTT Technology in Media",
+          "url": "https://www.youtube.com/watch?v=SCcuIL3VjHI",
+          "datePublished": "2019"
+        },
+        {
+          "@type": "Article",
+          "name": "Supporting local farms during COVID-19",
+          "url": "https://www.linkedin.com/pulse/supporting-local-farms-during-covid-19-andrea-barros/",
+          "datePublished": "2020"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "The Systems of Information Dissemination",
+          "url": "https://rsdsymposium.org/systems-of-information-dissemination-how-the-control-and-manipulation-of-information-helps-to-maintain-control-influence-and-money/"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -82,16 +251,17 @@
   </div>
 </nav>
 
+<main id="main">
+
 <header class="hero">
 <!-- INTRO -->
 <div class="thesis">
-    <h1>Everyone at the table deserves to feel valued and heard. The best work comes from diverse perspectives, strong advocacy, and elevating the people around me to drive <i class="serif">meaningful change.</i></h1>
+    <p class="thesis-lede">Everyone at the table deserves to feel valued and heard. The best work comes from diverse perspectives, strong advocacy, and elevating the people around me to drive <i class="serif">meaningful change.</i></p>
 </div>
 </header>
- 
+
 <header class="hero">
-  <div class="eyebrow">About</div>
-<!--  <h1 class="title" style="font-size:clamp(44px,6.4vw,80px);">Andrea Barros</h1>-->
+  <h1 class="eyebrow">Andrea Barros — Design Leadership</h1>
   <p class="subtitle" style="font-size:21px; color:var(--ink); max-width:620px;">Senior Product Design Manager at EchoStar — leading the Dish and Sling TV growth design teams across acquisition, retention and interactive experiences. Shaping the future of video services at EchoStar.</p>
 </header>
 
@@ -112,7 +282,7 @@
 </div>
 
 <!-- CAREER TIMELINE -->
-<section class="chapter" style="padding-top:88px;">
+<section id="how-i-got-here" class="chapter" style="padding-top:88px;">
   <div class="chapter-head">
     <span class="chapter-num">01</span>
     <h2 class="chapter-title">How I got here</h2>
@@ -144,7 +314,7 @@
 </section>
 
 <!-- 01 HOW I LEAD -->
-<section class="chapter">
+<section id="how-i-lead" class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">02</span>
     <h2 class="chapter-title">How I lead</h2>
@@ -181,7 +351,7 @@
 </section>
 
 <!-- 02 WHAT I DO -->
-<section class="chapter">
+<section id="what-i-specialize-in" class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">03</span>
     <h2 class="chapter-title">What I specialize in</h2>
@@ -195,7 +365,7 @@
     
 <!-- INFO ON THE RIGHT -->
     <div class="takeaways">
-      <p class="label">Areas of practice</p>
+      <h3 class="label">Areas of practice</h3>
       <ul>
         <li>DesignOps and team structure — hiring, onboarding, scaling process as the org grows.</li>
         <li>Research validation — facilitator and observer across qualitative and quantitative studies.</li>
@@ -208,7 +378,7 @@
 </section>
 
 <!-- BY THE NUMBERS -->
-<section class="chapter">
+<section id="by-the-numbers" class="chapter">
 <div class="chapter-head">
   <h2 class="chapter-title">By the numbers</h2>
 </div>
@@ -216,13 +386,13 @@
   <div class="n"><div class="v">16</div><div class="k">years in practice, across four countries and two continents</div></div>
   <div class="n"><div class="v">30+</div><div class="k">product launches shipped</div></div>
   <div class="n"><div class="v">14+</div><div class="k">platforms — web, mobile, TV, voice, wearable, console, automotive</div></div>
-  <div class="n"><div class="v">1&nbsp;→&nbsp;9</div><div class="k">grew <a href="https://renga.co" target="_blank" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Renga's</a> design practice from one designer to six designers and three strategists, as VP of Design</div></div>
+  <div class="n"><div class="v">1&nbsp;→&nbsp;9</div><div class="k">grew <a href="https://renga.co" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Renga's</a> design practice from one designer to six designers and three strategists, as VP of Design</div></div>
 </div>
 </section>
 
 
 <!-- 03 EXPERIENCE -->
-<section class="chapter">
+<section id="experience" class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">04</span>
     <h2 class="chapter-title">Experience</h2>
@@ -231,12 +401,12 @@
   <div class="cv-row">
     <div class="cv-when">2024—Present</div>
     <div class="cv-what">
-      <div class="role">Senior Product Design Manager, Growth</div>
+      <h3 class="role">Senior Product Design Manager, Growth</h3>
       <div class="org">EchoStar, Denver</div>
       <div class="note">Managing the Dish and Sling TV growth design teams. Designing and building product features and design systems for acquisition and retention funnels.</div>
 <!--      <div class="cv-thumbs">-->
-<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
-<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
+<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="img/deciem-hero.avif"><source type="image/webp" srcset="img/deciem-hero.webp"><img src="img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
+<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="img/deciem-hero.avif"><source type="image/webp" srcset="img/deciem-hero.webp"><img src="img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
 <!--      </div>-->
     </div>
   </div>
@@ -244,12 +414,12 @@
   <div class="cv-row">
     <div class="cv-when">2022—2024</div>
     <div class="cv-what">
-      <div class="role">Senior Product Design Manager, Interactive experiences</div>
+      <h3 class="role">Senior Product Design Manager, Interactive experiences</h3>
       <div class="org">Sling TV, Denver</div>
       <div class="note">Managing the Sling TV interactive design teams. Designing and building product features, design systems for the Sling TV app ranging from 10ft to 3ft devices.</div>
 <!--      <div class="cv-thumbs">-->
-<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
-<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
+<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="img/deciem-hero.avif"><source type="image/webp" srcset="img/deciem-hero.webp"><img src="img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
+<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="img/deciem-hero.avif"><source type="image/webp" srcset="img/deciem-hero.webp"><img src="img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
 <!--      </div>-->
     </div>
   </div>
@@ -257,15 +427,15 @@
   <div class="cv-row">
     <div class="cv-when">2020—2022</div>
     <div class="cv-what">
-      <div class="role">VP of Design</div>
+      <h3 class="role">VP of Design</h3>
       <div class="org">Renga, Toronto</div>
       <div class="note">Grew the design practice and built a team from one designer to six designers and three strategists, building brands that scale for impact. DesignOps at a leadership level, bridging execution of branding and digital experiences, and sourcing partnerships in design and innovation.</div>
       <div class="cv-thumbs">
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/home-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/equinox-ds.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/equinox-ds.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/equinox-ds.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/peloton-yoga.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/peloton-yoga.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/peloton-yoga.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
-<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
-<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/home-hero.avif"><source type="image/webp" srcset="img/home-hero.webp"><img src="img/home-hero.jpeg" alt="Home — brand and digital product work led as VP of Design at Renga" width="2400" height="1140" loading="lazy"></picture></div>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/equinox-ds.avif"><source type="image/webp" srcset="img/equinox-ds.webp"><img src="img/equinox-ds.jpg" alt="Equinox+ television design system" width="2400" height="1140" loading="lazy"></picture></div>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/peloton-yoga.avif"><source type="image/webp" srcset="img/peloton-yoga.webp"><img src="img/peloton-yoga.jpg" alt="Peloton yoga class experience design" width="2400" height="1140" loading="lazy"></picture></div>
+<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="img/deciem-hero.avif"><source type="image/webp" srcset="img/deciem-hero.webp"><img src="img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
+<!--        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="img/deciem-hero.avif"><source type="image/webp" srcset="img/deciem-hero.webp"><img src="img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>-->
       </div>
     </div>
   </div>
@@ -273,11 +443,11 @@
   <div class="cv-row">
     <div class="cv-when">2019—2020</div>
     <div class="cv-what">
-      <div class="role">Senior UX Consultant</div>
+      <h3 class="role">Senior UX Consultant</h3>
       <div class="org">Deciem, Toronto</div>
       <div class="note">Consulted on product roadmapping for omnichannel customer experiences across The Ordinary and sister brands for The Abnormal Beauty Company, providing the leadership team with forecast and insights drawn from customer data analytics.</div>
       <div class="cv-thumbs">
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/deciem-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/deciem-hero.avif"><source type="image/webp" srcset="img/deciem-hero.webp"><img src="img/deciem-hero.jpg" alt="Deciem and The Ordinary omnichannel customer experience work" width="2400" height="1140" loading="lazy"></picture></div>
       </div>
     </div>
   </div>
@@ -285,15 +455,15 @@
   <div class="cv-row">
     <div class="cv-when">2017—2019</div>
     <div class="cv-what">
-      <div class="role">Design Manager</div>
+      <h3 class="role">Design Manager</h3>
       <div class="org">TribalScale, Toronto</div>
       <div class="note">Mentored and grew a design team of twelve in line with the organization's vision and growth strategy. Evangelized human-centered design to external clients and internal teams across web, mobile, TV, voice and car-connected devices.</div>
       <div class="cv-thumbs">
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/1800flowers-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/1800flowers-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/1800flowers-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/carnival-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/carnival-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/carnival-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/cbs_hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/nbc-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/nbc-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/nbc-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/honda_hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/honda_hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/honda_herox.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/1800flowers-hero.avif"><source type="image/webp" srcset="img/1800flowers-hero.webp"><img src="img/1800flowers-hero.jpg" alt="1-800-Flowers Alexa voice skill design" width="2400" height="1140" loading="lazy"></picture></div>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/carnival-hero.avif"><source type="image/webp" srcset="img/carnival-hero.webp"><img src="img/carnival-hero.jpg" alt="Carnival Cruise Line accessible interface design" width="2400" height="1140" loading="lazy"></picture></div>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/cbs_hero.avif"><source type="image/webp" srcset="img/cbs_hero.webp"><img src="img/cbs_hero.jpg" alt="CBS Sports HQ streaming app design" width="2400" height="1140" loading="lazy"></picture></div>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/nbc-hero.avif"><source type="image/webp" srcset="img/nbc-hero.webp"><img src="img/nbc-hero.jpg" alt="NBC streaming experience design" width="2400" height="1140" loading="lazy"></picture></div>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/honda_hero.avif"><source type="image/webp" srcset="img/honda_hero.webp"><img src="img/honda_hero.jpg" alt="Honda and Parkopedia connected-car parking experience" width="2400" height="1140" loading="lazy"></picture></div>
       </div>
     </div>
   </div>
@@ -301,12 +471,12 @@
   <div class="cv-row">
     <div class="cv-when">2014—2017</div>
     <div class="cv-what">
-      <div class="role">Senior Interactive Designer</div>
+      <h3 class="role">Senior Interactive Designer</h3>
       <div class="org">Accedo, Toronto</div>
       <div class="note">IA and UI design for web, mobile and connected devices across iOS, Android, Windows, Amazon Fire TV, Samsung Smart TV, Roku, PlayStation and Xbox.</div>
       <div class="cv-thumbs">
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/screambox-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/screambox-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/screambox-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
-        <a class="cv-thumb" href="javascript:void(0);"><picture><source type="image/avif" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/directv-hero.avif"><source type="image/webp" srcset="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/directv-hero.webp"><img src="https://raw.githubusercontent.com/acb-graphics/leadership/refs/heads/main/img/directv-hero.jpg" alt="" width="2400" height="1140" loading="lazy"></picture></a>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/screambox-hero.avif"><source type="image/webp" srcset="img/screambox-hero.webp"><img src="img/screambox-hero.jpg" alt="Screambox streaming service interface design" width="2400" height="1140" loading="lazy"></picture></div>
+        <div class="cv-thumb"><picture><source type="image/avif" srcset="img/directv-hero.avif"><source type="image/webp" srcset="img/directv-hero.webp"><img src="img/directv-hero.jpg" alt="DirecTV Wear OS companion app design" width="2400" height="1140" loading="lazy"></picture></div>
       </div>
     </div>
   </div>
@@ -318,12 +488,12 @@
 
 <!-- TEACHING -->
   <div style="margin-top:56px;">
-    <p class="eyebrow" style="margin-bottom:20px;">Teaching</p>
+    <h3 class="eyebrow" style="margin-bottom:20px;">Teaching</h3>
 
     <div class="cv-row">
       <div class="cv-when">2017—2018</div>
       <div class="cv-what">
-        <div class="role">iSchool Industry Partner</div>
+        <h3 class="role">iSchool Industry Partner</h3>
         <div class="org">University of Toronto</div>
         <div class="note">Guest lecturer for the Masters of UXD program, running workshops on Figma, Balsamiq, graphic design fundamentals, the UX design process, automotive UX/UI, and building design portfolios.</div>
       </div>
@@ -332,7 +502,7 @@
     <div class="cv-row">
       <div class="cv-when">2016</div>
       <div class="cv-what">
-        <div class="role">UX Instructor</div>
+        <h3 class="role">UX Instructor</h3>
         <div class="org">Red Academy, Toronto</div>
         <div class="note">Part-time instructor across multiple cohorts of the UX foundations bootcamp.</div>
       </div>
@@ -344,7 +514,7 @@
 </section>
 
 <!-- 04 EDUCATION -->
-<section class="chapter">
+<section id="education" class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">05</span>
     <h2 class="chapter-title">Education</h2>
@@ -353,10 +523,10 @@
     <div>
       <p class="lead">Currently pursuing a MDes in Strategic Foresight and Innovation at OCAD University</p>
       <p>Why am I pursuing a Masters? I kept hitting the limits of what user research can tell us. Research captures the present well, but it doesn’t always reveal where behavior is heading next based on trends and macro factors. I use foresight methods like causal layered analysis and Three Horizons to look beyond litany, understand deeper worldviews, and frame a path from the current system to a preferred future.</p>
-      <p style="font-size:15px;">Sample research study: The Systems of Information Dissemination, a systems study of the causes of disinformation that was presented at <a href="https://rsdsymposium.org/systems-of-information-dissemination-how-the-control-and-manipulation-of-information-helps-to-maintain-control-influence-and-money/" target="_blank" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Systems Thinking Ontario.</a></p>
+      <p style="font-size:15px;">Sample research study: The Systems of Information Dissemination, a systems study of the causes of disinformation that was presented at <a href="https://rsdsymposium.org/systems-of-information-dissemination-how-the-control-and-manipulation-of-information-helps-to-maintain-control-influence-and-money/" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Systems Thinking Ontario.</a></p>
     </div>
     <div class="takeaways">
-      <p class="label">Also</p>
+      <h3 class="label">Also</h3>
       <ul>
         <li>MDes, 2023-Ongoing, OCAD University (SFI), Toronto</li>
         <li>BDes (Hons), York University / Sheridan College (YSDN), Toronto</li>
@@ -368,7 +538,7 @@
 </section>
 
 <!-- 05 COMMUNITY -->
-<section class="chapter">
+<section id="community" class="chapter">
   <div class="chapter-head">
     <span class="chapter-num">06</span>
     <h2 class="chapter-title">Community & Volunteering</h2>
@@ -379,7 +549,7 @@
       <p>Past panelist and workshop facilitator for The Design Clinic, CIBC, Women and Color, Women Who Code, and Canada Learning Code, where I served on the UX Advisory Board consulting on curriculum for teen workshops and full-time classes. I've also volunteered as a teaching assistant with Bridge School's Product Design cohort, and led design for TEDxYouth@Toronto across four years of brand identity, digital and print collateral.</p>
     </div>
     <div class="takeaways">
-      <p class="label">Roles</p>
+      <h3 class="label">Roles</h3>
       <ul>
         <li>UX Advisory Board Member — Canada Learning Code, Toronto.</li>
         <li>Teaching Assistant — Bridge School, Product Design Cohort 3.</li>
@@ -390,28 +560,30 @@
   </div>
 
   <div style="margin-top:56px;">
-    <p class="eyebrow" style="margin-bottom:8px;">Writing &amp; speaking</p>
-    <div class="pub-item"><span class="t"><a href="https://medium.com/@womenandcolor/modern-leaders-becoming-a-manager-a7ad16136a32" target="_blank" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Modern Leaders: Becoming a manager</a></span> — Women and Color, Medium, 2018.</div>
-    <div class="pub-item"><span class="t"><a href="https://betakit.com/ask-a-developer-how-do-dev-and-design-work-together/" target="_blank" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Ask a Developer: How do dev and design work together?</a></span> — with A. Ameen, BetaKit, 2018.</div>
-    <div class="pub-item"><span class="t"><a href="https://www.youtube.com/watch?v=SCcuIL3VjHI" target="_blank" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">First Name Basis Podcast: State of OTT Technology in Media</a></span> — TribalScale, 2019.</div>
-    <div class="pub-item"><span class="t"><a href="https://www.linkedin.com/pulse/supporting-local-farms-during-covid-19-andrea-barros/" target="_blank" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Supporting local farms during COVID-19</a></span> — Renga News, Medium, 2020.</div>
-    <div class="pub-item"><span class="t"><a href="https://coloradoproduct.com/" target="_blank" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Buidling Product Alignment at Scale</a></span> — Colorado Product Foundation, 2024.</div>
+    <h3 class="eyebrow" style="margin-bottom:8px;">Writing &amp; speaking</h3>
+    <div class="pub-item"><span class="t"><a href="https://medium.com/@womenandcolor/modern-leaders-becoming-a-manager-a7ad16136a32" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Modern Leaders: Becoming a manager</a></span> — Women and Color, Medium, 2018.</div>
+    <div class="pub-item"><span class="t"><a href="https://betakit.com/ask-a-developer-how-do-dev-and-design-work-together/" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Ask a Developer: How do dev and design work together?</a></span> — with A. Ameen, BetaKit, 2018.</div>
+    <div class="pub-item"><span class="t"><a href="https://www.youtube.com/watch?v=SCcuIL3VjHI" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">First Name Basis Podcast: State of OTT Technology in Media</a></span> — TribalScale, 2019.</div>
+    <div class="pub-item"><span class="t"><a href="https://www.linkedin.com/pulse/supporting-local-farms-during-covid-19-andrea-barros/" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Supporting local farms during COVID-19</a></span> — Renga News, Medium, 2020.</div>
+    <div class="pub-item"><span class="t"><a href="https://coloradoproduct.com/" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--ink-faint); text-transform:none; letter-spacing:0;">Building Product Alignment at Scale</a></span> — Colorado Product Foundation, 2024.</div>
   </div>
 
   <div style="margin-top:48px;">
-    <p class="eyebrow" style="margin-bottom:14px;">Tools</p>
+    <h3 class="eyebrow" style="margin-bottom:14px;">Tools</h3>
     <div class="tag-list">
       <span>Figma</span><span>Adobe Creative Suite</span><span>Adobe Experience Manager</span><span>Claude</span><span>Gemini</span><span>Midjourney</span><span>Higgsfield</span><span>Sketch</span><span>Abstract</span><span>InVision</span><span>Marvel</span><span>Webflow</span><span>Zeplin</span><span>Keynote</span><span>Google Suite</span><span>Airtable</span><span>Lookback</span><span>Flinto</span><span>Principle</span><span>HTML5</span><span>CSS3</span><span>Google Analytics</span><span>Tableau</span>
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer class="cta">
   <div class="cta-row">
     <div class="cta-next">
       <div class="lbl">Like what you see?</div>
-      <a href="javascript:void(0);" class="proj">Contact me →</a>
+      <a href="mailto:acb.graphics@gmail.com" class="proj">Contact me →</a>
     </div>
     <div class="cta-contact">
         <a href="mailto:acb.graphics@gmail.com">acb.graphics@gmail.com</a>
