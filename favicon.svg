@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Andrea Barros">
+  <defs>
+    <!-- the site's rainbow rule: oklch(0.67 0.23 H), sampled to sRGB -->
+    <linearGradient id="rb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"    stop-color="#ff3d9a"/>
+      <stop offset="0.17" stop-color="#e06f00"/>
+      <stop offset="0.33" stop-color="#7f9500"/>
+      <stop offset="0.5"  stop-color="#00a878"/>
+      <stop offset="0.67" stop-color="#00a3d7"/>
+      <stop offset="0.83" stop-color="#7d7dff"/>
+      <stop offset="1"    stop-color="#ff3d9a"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="5.1" fill="#141414"/>
+  <path d="M16 6.2 L25.6 23 H21.7 L16 12.9 L10.3 23 H6.4 Z" fill="#FFFFFF"/>
+  <rect x="10.1" y="18" width="11.8" height="2.4" fill="#FFFFFF"/>
+  <rect x="6.4" y="25.6" width="19.2" height="1.9" fill="url(#rb)"/>
+</svg>

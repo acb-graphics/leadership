@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+/* Fonts are loaded via <link rel="preconnect"> + <link rel="stylesheet"> in the
+   document head. An @import here would serialise the requests behind this
+   stylesheet and delay first paint. */
 
 :root{
   --paper:#FFFFFF;
@@ -103,7 +105,7 @@ h3{font-family:'Archivo',sans-serif; font-weight:400; font-size:20px; margin:0 0
 .chapter-body p.lead{font-size:18px; line-height:1.5; font-weight:400;}
 
 .takeaways{ border-top:1px solid var(--ink); padding-top:22px; }
-.takeaways p.label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; }
+.takeaways .label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; font-family:'Inter',sans-serif; font-weight:500; line-height:1.65; }
 .takeaways ul{margin:0; padding:0; list-style:none;}
 .takeaways li{ position:relative; padding-left:18px; margin-bottom:14px; font-size:14.5px; line-height:1.5; color:var(--ink-soft);}
 .takeaways li:last-child{margin-bottom:0;}
