@@ -52,7 +52,7 @@
   </div>
   <div class="intro">
     <p>In 2017, 35% of Alexa users had activated at least one Alexa Skill. Voice shopping in the US and UK accounted for $2 billion in sales, with forecasts predicting growth to $40 billion by 2022. Recognizing this opportunity, 1800Flowers aimed to create a skill to capture this emerging market.</p>
-    <p>The goal was to enable customers to easily find and send a floral arrangement for any occasion using Amazon Pay's voice-purchase feature. Although the purchase path wasn't documented, and completing an end-to-end transaction in-skill was largely untested territory.</p>
+    <p>The goal was to enable customers to easily find and send a floral arrangement for any occasion using Amazon Pay's voice-purchase feature. Although the purchase path wasn't documented, completing an end-to-end transaction in-skill was largely untested territory.</p>
   </div>
 </div>
 
@@ -122,7 +122,7 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">I built the test rig before the product existed. Eight participants tested the utterance set via Zoom; I voiced Alexa live while they spoke naturally. Phrases like "send the same as last time" only surface in actual conversation with a device.</p>
+      <p class="lead">Eight participants evaluated the utterance set remotely over Zoom, with me acting as Alexa in real time while they responded naturally. Expressions such as "send the same as last time" emerged organically during live device interaction.</p>
     </div>
     <div class="takeaways">
       <p class="label">What the research showed</p>
@@ -196,8 +196,8 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">A skill that carries a gift purchase from intent to paid order without a screen, specified precisely enough that engineers built from the flows alone.</p>
-      <p>Occasion-based recommendation opens the conversation. Reorder is offered rather than requested, because testing showed people didn't know to ask. Arrangement and size are confirmed in sequence with price stated first. The Amazon Pay handoff completes the transaction in-skill, with address and payment fallbacks handled entirely in language.</p>
+      <p class="lead">The skill guides users from initial intent to completed purchase entirely by voice, with no visual interface.</p>
+      <p>The conversation begins with an occasion-based recommendation. Reordering is proactively offered, as user testing showed most people didn’t think to request it. Arrangement type and size are confirmed in order, with price presented upfront. The Amazon Pay integration completes the transaction within the skill, while all address and payment exceptions are managed through dialogue alone.</p>
     </div>
     <div class="takeaways">
       <p class="label">What was delivered</p>
@@ -242,6 +242,10 @@
 <!--  </div>-->
 
   <div class="reflection-grid" style="margin-top:56px;">
+    <div class="reflection-col">
+      <p class="label">What worked</p>
+      <p>Direct design and engineering collaboration made development efficient. User testing led to more natural utterances and proactive prompts. Occasion-based flows matched real intent.</p>
+    </div>
     <div class="reflection-col">
       <p class="label">What I'd do differently</p>
       <p>I'd run a second, larger utterance testing round before launch. In voice, the failures live in the long tail. I'd also fix measurement at the start of the engagement — the work shipped, but I can't point to commercial outcomes.</p>
