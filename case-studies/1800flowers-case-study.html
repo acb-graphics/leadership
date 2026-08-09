@@ -28,21 +28,21 @@
 
 <header class="hero">
   <div class="eyebrow">Case Study — Voice &amp; Conversational Design</div>
-  <h1 class="title">1-800-Flowers<br>Alexa Skill</h1>
-  <p class="subtitle">A complete purchase experience with no screen, built on a payments flow that wasn't documented anywhere.</p>
+  <h1 class="title">1800Flowers<br>Alexa Skill</h1>
+  <p class="subtitle">A complete purchase experience with the Alexa voice skill, built on a new payments flow that has no supporting developer documentation.</p>
 </header>
 
 <div class="meta-row">
   <div class="meta-block">
     <dl>
-      <dt>Client</dt><dd>1-800-Flowers</dd>
-      <dt>Role</dt><dd>Design Lead, Conversational Design</dd>
-      <dt>Duration</dt><dd><span style="color:var(--ink-faint); font-style:italic; font-weight:400;">To be confirmed</span></dd>
+      <dt>Client</dt><dd>1800Flowers</dd>
+      <dt>Role</dt><dd>Design manager and lead for conversational design</dd>
       <dt>Launched</dt><dd>Early 2018</dd>
     </dl>
   </div>
   <div class="intro">
-    <p>1-800-Flowers wanted customers to be able to find and send a gift by talking — <i class="serif">no app, no screen, no browsing.</i> At the time, Amazon Pay's voice-purchase path wasn't documented, and completing an end-to-end transaction in-skill was largely untested territory.</p>
+    <p>In 2017, 35% of Alexa users had activated at least one Alexa Skill. Voice shopping in the US and UK accounted for $2 billion in sales, with forecasts predicting growth to $40 billion by 2022. Recognizing this opportunity, 1800Flowers aimed to create a skill to capture this emerging market.</p>
+    <p>The goal was to enable customers to easily find and send a floral arrangement for any occasion using Amazon Pay's voice-purchase feature. Although the purchase path wasn't documented, and completing an end-to-end transaction in-skill was largely untested territory.</p>
   </div>
 </div>
 
@@ -54,7 +54,7 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">I owned conversational design, flow architecture, and the research protocol. Because there was nothing visual to hand off, my output <em>was</em> the engineering specification — which meant the responsibility ran further down the build than it normally would.</p>
+      <p class="lead">I managed conversational design, flow architecture, and the research protocol. Because there was nothing visual to hand off, my output was the engineering specification — which meant the responsibility ran further down the build than it normally would.</p>
       <p>Every branch that wasn't resolved in the flow was a branch nobody would resolve at all. That forced a different kind of rigor: a layout can hold ambiguity; a sentence cannot.</p>
     </div>
     <div class="takeaways">
@@ -76,15 +76,14 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Take someone from "order flowers for my mom's birthday" to a completed, paid order — using only speech.</p>
-      <p>Voice commerce was an open category at the time. Completing a purchase inside a skill, rather than handing off to a phone or browser, was the strategic differentiator. The constraint — no visual interface — could become an advantage if the conversation carried the entire transaction, because gifting is time-pressured and often done badly under that pressure.</p>
+      <p class="lead">Voice commerce was an open category at the time. Completing a purchase inside a skill, rather than handing off to a phone or browser, was the strategic differentiator. The constraint was no visual interface. The product will be the first in the market for Amazon Pay ordering through an Alexa skill. It will transition someone from simply ordering flowers for their mother’s birthday to completing and paying for an entire order entirely through verbal communication. This could become an advantage if the conversation carried the entire transaction, as gifting is often done under time pressure.</p>
     </div>
     <div class="takeaways">
-      <p class="label">Why it had stalled</p>
+      <p class="label">Challenges</p>
       <ul>
-        <li><strong>Amazon Pay's voice path wasn't documented.</strong> The payment flow didn't appear in the public Alexa developer guide, so the constraints governing the entire checkout were unknown before the project started.</li>
-        <li><strong>No screen meant no fallback.</strong> Every edge case — a mishearing, a wrong address, an abandoned order — had to be resolved in language. There was no layout to absorb ambiguity.</li>
-        <li><strong>Design had to serve as engineering spec.</strong> With nothing visual to hand off, the flows themselves became the build documentation. That raised the bar on precision far past normal design fidelity.</li>
+        <li><strong>No documentation for Amazon Pay's voice path. </strong> The payment flow didn't appear in the public Alexa developer guide, so the constraints governing the entire checkout were unknown before the project started.</li>
+        <li><strong>No screen meant no fallback.</strong> Every edge case, from a misheard word to an incorrect address or an abandoned order, required a linguistic resolution. There was no visual UI to accommodate ambiguity.</li>
+        <li><strong>Design had to serve as engineering spec.</strong> With nothing visual to hand off, the flows themselves became the build documentation.</li>
       </ul>
     </div>
   </div>
@@ -104,7 +103,7 @@
       <p class="label">What the research showed</p>
       <ul>
         <li><strong>Reorder had to be offered, not requested.</strong> Testing showed people didn't spontaneously ask for it — it became a core interaction pattern.</li>
-        <li><strong>Floristry knowledge isn't a given.</strong> Participants couldn't picture species and colors from description alone, a structural constraint voice cannot solve.</li>
+        <li><strong>Floristry knowledge isn't a given.</strong> Participants couldn't picture species and colors from description alone, a structural constraint voice cannot solve. In hindsight, Amazon launched Echo with a screen that would have been an ideal technology to pair with this skill. It was just not available at the time of this project. </li>
         <li><strong>Occasion-based recommendation anchors the flow.</strong> Leading with "Who and what's the occasion?" set up the rest of the conversation.</li>
       </ul>
     </div>
@@ -121,15 +120,15 @@
   <ol class="actions-list">
     <li>
       <span class="a-num">01</span>
-      <p><strong>Mapped Amazon Pay's undocumented voice-purchase constraints.</strong> Direct working sessions with Amazon's team revealed the payment flow's branch points and fallback paths — knowledge that didn't exist in public documentation at the time.</p>
+      <p><strong>Direct working sessions with Amazon's team.</strong> Revealed the payment flow's branch points and fallback paths and undocumented voice-purchase constraints. </p>
     </li>
     <li>
       <span class="a-num">02</span>
-      <p><strong>Built the Wizard-of-Oz test rig.</strong> Structured the utterance testing so I could voice Alexa live while participants spoke naturally, capturing real language patterns in a transcript that became the flow architecture.</p>
+      <p><strong>Role-playing user testing.</strong> Structured the utterance testing so I could role-play as Alexa live. At the same time, participants spoke naturally, capturing real language patterns in a transcript that became the flow architecture.</p>
     </li>
     <li>
       <span class="a-num">03</span>
-      <p><strong>Converted test transcripts into flows.</strong> Affinity mapped the testing notes into conversation branches, then specified each branch to the level an engineer could build from. Coded sessions by emotional tone to identify where flows felt natural versus forced.</p>
+      <p><strong>Converted test transcripts into flows.</strong> Affinity mapped the testing notes into conversation branches, then specified each branch to the level an engineer could build from—coded sessions by emotional tone to identify where flows felt natural versus forced.</p>
     </li>
   </ol>
 </section>
@@ -149,8 +148,8 @@
       <p class="label">What was delivered</p>
       <ul>
         <li><strong>Conversational flows.</strong> Four core scenarios (new user, returning user, browsing, purchase) architected to individual spoken commands.</li>
-        <li><strong>Amazon Pay constraints mapped.</strong> A working understanding of the voice-purchase flow's branch points and fallbacks, established through direct partnership rather than documentation.</li>
-        <li><strong>Utterance library.</strong> A structured reference grounded in how real people speak, built to extend. This became the artifact the client continued to use.</li>
+        <li><strong>Amazon Pay constraints mapped.</strong> A working understanding of the voice-purchase flow's branch points and fallbacks, established through direct partnership with Amazon.</li>
+        <li><strong>Utterance library.</strong> A structured reference library of words grounded in how real people speak, built to extend. This became the artifact the client continued to use and expand on.</li>
       </ul>
     </div>
   </div>
@@ -164,7 +163,8 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">The skill shipped as one of the earliest Alexa skills to complete a purchase end to end through Amazon Pay. The client used the flows and utterance library as the foundation for the production system.</p>
+    <p class="lead">“Initial consumer response has been good and provided many valuable insights, with an increasing number of new and repeated shoppers making purchases.”<br>– Amit Shah, CMO, 1800Flowers.com<sup><a href="https://developer.amazon.com/en-US/blogs/alexa/post/64090337-7957-419a-a8fd-b3fb15d30760/amazon-pay-for-alexa-skill" target="_blank" rel="noopener noreferrer">[1]</a></sup></p>
+      <p>The skill shipped as one of the earliest Alexa skills to complete a purchase end-to-end through Amazon Pay. The client used the flows and utterance library as the foundation for the production system.</p>
       <p>Subsequent reporting indicated positive user response with increasing repeat purchases. No completion rates or order volumes were instrumented, but the utterance library became a durable asset the client continued to extend independently.</p>
     </div>
     <div class="takeaways">
@@ -176,24 +176,15 @@
     </div>
   </div>
 
-  <div class="outcome">
-    <div class="outcome-inner">
-      <div class="outcome-grid">
-        <div class="outcome-stat">
-          <div class="num">Early 2018</div>
-          <div class="lbl">Launched as one of the first Alexa skills to complete an end-to-end purchase via Amazon Pay</div>
-        </div>
-        <div class="outcome-stat">
-          <div class="num">8</div>
-          <div class="lbl">test participants whose utterances became the reference library</div>
-        </div>
-        <div class="outcome-stat">
-          <div class="num">Durable asset</div>
-          <div class="lbl">The utterance library and conversation patterns became a resource the client continued to extend</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--  <div class="outcome">-->
+<!--    <div class="outcome-inner">-->
+<!--      <div class="outcome-grid">-->
+<!--        <div class="outcome-stat">-->
+<!--          <div class="num">“Initial consumer response has been good and provided many valuable insights, with an increasing number of new and repeated shoppers making purchases.” – Amit Shah, CMO, 1-800-Flowers.com</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <div class="reflection-grid" style="margin-top:56px;">
     <div class="reflection-col">
@@ -202,7 +193,7 @@
     </div>
     <div class="reflection-col">
       <p class="label">What I learned</p>
-      <p>Designing without a screen exposed how much visual interfaces let you defer decisions. A layout can hold ambiguity; a sentence cannot. That permanently changed how I think about edge cases in any medium.</p>
+      <p>Designing without a screen exposed how much visual interfaces let you defer decisions. A layout can hold ambiguity; a sentence cannot. It was a fine balance of crafting detailed responses without losing the audience. We introduced pauses between long sentences to ask the user if they wanted to hear more, as everyone has various levels of knowledge about floristry.</p>
     </div>
   </div>
 </section>
