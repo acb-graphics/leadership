@@ -30,7 +30,7 @@
 <div class="crumb"><a href="../index.html">Home</a> / Honda × Parkopedia</div>
 
 <header class="hero">
-  <div class="eyebrow">Case Study — In-Vehicle Product Design &amp; Prototyping</div>
+  <div class="eyebrow">Case Study — In-Vehicle UX · Proof of Concept</div>
   <h1 class="title">Honda × Parkopedia</h1>
   <p class="subtitle">Reserving a parking space is three different products depending on whether the car is approaching, moving, or stopped.</p>
 
@@ -48,13 +48,13 @@
   <div class="meta-block">
     <dl>
       <dt>Client</dt><dd>Honda R&amp;D Innovations</dd>
+      <dt>Product</dt><dd>Parkopedia</dd>
       <dt>Role</dt><dd>Lead Product Designer</dd>
       <dt>Duration</dt><dd>2017</dd>
-      <dt>Product</dt><dd>CarPlay &amp; Android Auto — concept</dd>
     </dl>
   </div>
   <div class="intro">
-    <p>Honda R&amp;D Innovations wanted a proof of concept for finding and paying for parking from inside the vehicle, built on their auto platforms in partnership with Parkopedia.</p>
+    <p>Honda R&amp;D Innovations wanted to build a proof of concept for finding and paying for parking inside the vehicle, built on their auto platforms with Parkopedia.</p>
   </div>
 </div>
 
@@ -68,15 +68,16 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">I led flow architecture, in-vehicle interface design, and the interactive prototype for a concept evaluating both a product direction and a partnership.</p>
-      <p>The contribution I would point to is the reframing. Scoped as execution against existing designs, the work turned a partial happy-path concept into a complete definition of the problem.</p>
+      <p class="lead">A proof-of-concept engagement: flow architecture, in-vehicle interface design, and an interactive prototype.</p>
+      <p>Nothing here shipped. The outcome I'd defend is the reframing. The work turned a partial happy-path concept into a complete definition of the problem.</p>
     </div>
     <div class="takeaways">
       <p class="label">Team, tools &amp; scope</p>
       <ul>
-        <li><strong>Scope.</strong> 3 driving states modeled · 2 platforms' payment-security models resolved · error states across both interaction lanes.</li>
-        <li><strong>Tools.</strong> Sketch for flows and mockups; InVision for the interactive prototype.</li>
+        <li><strong>Team.</strong> I was the sole designer from my side, paired with one Honda in-house designer, working with Parkopedia's development team.</li>
+        <li><strong>Tools.</strong> Sketch for flows and mockups; InVision for the prototype.</li>
         <li><strong>Methods.</strong> Design audit, driving-state modeling, technical discovery, competitive review, prototyping.</li>
+        <li><strong>Scope.</strong> 3 driving states · 2 platforms' payment-security models resolved · error states across both lanes.</li>
       </ul>
     </div>
   </div>
@@ -92,15 +93,16 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">The existing designs covered the version of the task where everything goes right. In a vehicle, very little of the real experience looks like that.</p>
-      <p>Honda R&amp;D Innovations was evaluating whether in-vehicle parking payment was a viable direction and whether Parkopedia was the right partner. A payment transaction inside a moving vehicle is a safety question before it is a UX question.</p>
+      <p class="lead">Honda's in-house team had already produced designs — but they covered the version where everything goes right, and only for the approaching-the-destination state. In a car, almost nothing is that simple.</p>
+      <p>Honda R&amp;D Innovations was evaluating whether in-vehicle parking payment was a viable direction and whether Parkopedia was the right partner. A payment transaction inside a moving vehicle is a safety question before it's a UX question, and parking decisions arrive under time pressure when attention is least available.</p>
+      <p>These pain points were reasoned from the driving context, not confirmed with drivers. No driver research was run on this engagement.</p>
     </div>
     <div class="takeaways">
-      <p class="label">Challenges</p>
+      <p class="label">Why it had stalled</p>
       <ul>
-        <li>Error states had not yet been designed, leaving no response at the moments carrying the most risk.</li>
-        <li>The in-motion state sat outside the original scope, though it is a substantially different design problem.</li>
-        <li>Payment security behavior across CarPlay and Android Auto was still an open question at the start.</li>
+        <li><strong>Only the happy path existed.</strong> Error states weren't designed, which in a vehicle means no response when it matters.</li>
+        <li><strong>The in-motion state hadn't been considered.</strong> A fundamentally different problem, and it was absent.</li>
+        <li><strong>Payment security was an unknown across two platforms.</strong> Nobody had established what CarPlay or Android Auto would permit.</li>
       </ul>
     </div>
   </div>
@@ -116,15 +118,15 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Discovery was a design audit, a competitive review, and a technical investigation. No driver research was run.</p>
-      <p>I analyzed Honda's existing work against the full set of user states, which is how the two gaps surfaced. A competitive review of automotive systems and parking apps showed how much of the category assumed a stationary user with a phone in hand.</p>
+      <p class="lead">No user research was run. Discovery was a design audit, a competitive review, and a technical investigation.</p>
+      <p>I analyzed Honda's existing work against the full set of user states, which is how the two gaps surfaced. A competitive review of automotive systems and standalone parking apps showed how much of the category assumed a stationary user with a phone in hand.</p>
+      <p>The concept was reviewed with stakeholders and the development team — design review, not user validation. For an interface intended for use at speed, that's the gap I'd close first.</p>
     </div>
     <div class="takeaways">
-      <p class="label">What the research revealed</p>
+      <p class="label">Key findings</p>
       <ul>
-        <li><strong>Driving state is the organizing variable.</strong> The same task splits into three products depending on whether the driver is approaching, moving, or stopped.</li>
-        <li><strong>Platform constraints define what is designable.</strong> Stored payment behavior differed across the two platforms, so the flow was built to the stricter.</li>
-        <li><strong>The happy path was the smallest part of the problem.</strong> Most of the experience lives in states the original designs had not yet reached.</li>
+        <li><strong>Driving state, not user type, is the organizing variable.</strong> The same task splits into three products depending on whether the driver is approaching, moving, or stopped.</li>
+        <li><strong>The happy path was the smallest part of the problem.</strong> Most of the real experience lives in the states the original designs didn't cover.</li>
       </ul>
     </div>
   </div>
@@ -138,7 +140,7 @@
     </picture>
     <div class="artifact-caption">
       <span class="tag">Fig. 01</span>
-      <span>The existing registered-user flow, mapped against approaching, in-motion, and parked states — the audit that surfaced the two missing pieces: error handling and the in-motion lane.</span>
+      <span>Reconstruction of the two lanes added to the original happy path — one for the in-motion, voice-driven flow, one for the parked, touch-driven flow.</span>
     </div>
   </div>
 
@@ -156,23 +158,21 @@
   <ol class="actions-list">
     <li>
       <span class="a-num">01</span>
-      <p><strong>Audit before execution.</strong> Mapped the existing designs against the full set of user states, which reframed the engagement from execution into problem definition.</p>
+      <p><strong>Audited the existing designs and named what wasn't there.</strong> Mapping the full set of user states turned this from execution into definition.</p>
     </li>
     <li>
       <span class="a-num">02</span>
-      <p><strong>Separate the driving states.</strong> Split the experience into approaching, in motion, and parked — voice-driven confirmation while moving, touch-driven search and payment when stopped.</p>
+      <p><strong>Split the experience into three driving states: moving, approaching the parking spot, and stopped.</strong> Honda's happy path covered approaching; filling in moving and stopped was the work. Voice-driven confirmation while moving, touch-driven search and payment when stopped.</p>
     </li>
     <li>
       <span class="a-num">03</span>
-      <p><strong>Resolve platform constraints early.</strong> Established how each platform handles stored payment methods, with the development team, before design was committed.</p>
+      <p><strong>Drove the payment-security discovery.</strong> Established that payment had to be handled by Parkopedia's system before it could break the design.</p>
     </li>
     <li>
       <span class="a-num">04</span>
-      <p><strong>Prototype for prioritization.</strong> Built an interactive prototype the team used to sequence features, turning a concept review into a build plan.</p>
+      <p><strong>Built an interactive prototype showing what was possible.</strong> TribalScale engineers then used it to build a proof of concept for Honda.</p>
     </li>
   </ol>
-
-  <p style="max-width:860px; margin:32px 0 0; font-size:15.5px; line-height:1.6; color:var(--ink-soft);"><strong style="color:var(--ink); font-weight:600;">Decisions and rationale.</strong> The load-bearing decision was designing for the most constrained context first. Building the in-motion lane ahead of the parked one — voice confirmation, minimal visual load, no free-text entry — allowed the parked experience to be richer without the two diverging into separate products.</p>
 
 </section>
 
@@ -186,17 +186,10 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">A complete in-vehicle parking concept covering three driving states, with a payment flow designed against what CarPlay and Android Auto actually permit.</p>
-      <p>In motion, the interface surfaces nearby lots and accepts voice confirmation, with no map manipulation or payment entry. Parked, it opens up to map search, price and ETA comparison, and touch-confirmed payment. The handoff between the two is the product.</p>
-      <p><strong style="font-weight:500;">Interface decisions.</strong> The screen was reduced to what makes the decision — price, ETA, and a garage or street toggle — with reserve and navigate as the only primary actions.</p>
-    </div>
-
-    <div class="takeaways">
-      <p class="label">What was delivered</p>
-      <ul>
-        <li>A state model covering approaching, in-motion, and parked contexts, each with its own interaction pattern.</li>
-        <li>A payment flow designed against both platforms' security constraints, with error states specified rather than deferred.</li>
-      </ul>
+      <p class="lead">A complete in-vehicle parking concept covering three driving states, with a payment flow that runs through Parkopedia's system.</p>
+      <p>In motion, the interface keeps major actions prominent, uses short sentences, and narrates aloud what it is asking, while offering nearby lots and taking voice confirmation — no map manipulation, no payment entry. Parked, it opens up to map search, price and ETA comparison, and touch-confirmed payment. Approaching the parking spot, the third state, started from Honda's original happy-path design. The transition between the two is the product.</p>
+      <p>The screen was reduced to what makes the decision — price, ETA, and a garage/street toggle. Everything else was cut: a driver reading it is a driver not watching the road. Error states were designed rather than deferred.</p>
+      <p>TribalScale engineers used the prototype to build a proof of concept for Honda — a proof of concept whose value was definition, not shipment.</p>
     </div>
   </div>
 
@@ -209,7 +202,7 @@
     </picture>
     <div class="artifact-caption">
       <span class="tag">Fig. 02</span>
-      <span>The parked-state interface, reduced to price, ETA, and a garage-or-street toggle, with reserve and navigate as the only primary actions.</span>
+      <span>In-vehicle infotainment mockup — price, ETA to destination, and a garage/street toggle, with reserve and navigate as the two primary actions.</span>
     </div>
   </div>
 
@@ -225,16 +218,14 @@
   </div>
   <div class="chapter-body">
     <div>
-      <p class="lead">Honda stakeholders approved both the concept and the Parkopedia partnership.</p>
-      <p><strong style="font-weight:500;">Business outcome.</strong> The engagement resolved the payment-security question the concept depended on and defined the in-motion and error states, giving Honda a buildable definition of the problem and an evidence-backed partnership decision.</p>
-      <p>The work concluded at proof-of-concept stage and makes no claim on any Honda parking feature released since. Parkopedia later launched in-vehicle parking payment with Honda in mainland China, through a different integration partner and on a different head unit, several years after this engagement.</p>
+      <p class="lead">Honda leadership engaged TribalScale to explore the art of the possible for in-vehicle parking payment, and TribalScale engineers used the prototype to build a proof of concept for Honda.</p>
+      <p>The engagement resolved the payment-security question the proof of concept depended on, and established the in-motion and error-state design that hadn't existed. Concept work has no usage metrics — the evidence this project lacks isn't a KPI, it's a session with a driver.</p>
     </div>
 
     <div class="takeaways">
-      <p class="label">What shipped, what didn't</p>
+      <p class="label">What this did not do</p>
       <ul>
-        <li>The flows, interface design, and prototype were approved as the basis for sprint prioritization.</li>
-        <li>Nothing reached drivers under this engagement.</li>
+        <li>This concept did not ship, and makes no claim on any Honda parking feature released since. Parkopedia announced in-vehicle parking payment for Honda in mainland China in October 2021, through a different partner (MXNavi); that work is separate from this engagement.</li>
       </ul>
     </div>
   </div><br>
@@ -243,16 +234,16 @@
     <div class="outcome-inner">
       <div class="outcome-grid">
         <div class="outcome-stat">
-          <div class="num">Approved</div>
-          <div class="lbl">concept and Parkopedia partnership approved by Honda stakeholders</div>
+          <div class="num">Commissioned</div>
+          <div class="lbl">Honda leadership engaged TribalScale to explore the art of the possible for in-vehicle parking payment</div>
         </div>
         <div class="outcome-stat">
           <div class="num">2</div>
           <div class="lbl">platforms' payment-security models resolved before design was committed</div>
         </div>
         <div class="outcome-stat">
-          <div class="num">Roadmap</div>
-          <div class="lbl">the prototype became the instrument used to sequence upcoming sprints</div>
+          <div class="num">0</div>
+          <div class="lbl">drivers involved in validating the concept — the gap this project is most honest about</div>
         </div>
       </div>
     </div>
@@ -261,15 +252,15 @@
   <div class="reflection-grid" style="margin-top:56px;">
     <div class="reflection-col">
       <p class="label">What worked</p>
-      <p>Declining to design forward from an incomplete map. Auditing the existing work and naming what was missing reframed the engagement from execution to definition.</p>
+      <p>Refusing to design forward from an incomplete map. Auditing the in-house designs and naming what was missing reframed the engagement from execution to definition. Pulling the payment-security discovery forward mattered too — finding out late would have invalidated the flows.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I'd do differently</p>
-      <p>Put the in-motion flow in front of drivers, even roughly. A static rig or simulator would have tested whether voice confirmation is genuinely glanceable or only appears that way at a desk — the gap I would close first.</p>
+      <p>Get the in-motion flow in front of drivers, even crudely — a static rig or simulator would have tested whether voice confirmation and short narrated prompts are genuinely glanceable or just look that way on a desk.</p>
     </div>
     <div class="reflection-col">
       <p class="label">What I learned</p>
-      <p>Context is a design constraint with more force than any brand or platform requirement. Designing for the most constrained situation first is what let this concept survive contact with engineering.</p>
+      <p>Context is a design constraint with more force than any brand or platform requirement. Designing for the worst context is what made this concept survive contact with engineering.</p>
     </div>
   </div>
 </section>
@@ -285,6 +276,7 @@
     <span>Design–engineering collaboration</span>
     <span>Emerging-platform fluency</span>
     <span>Prototyping for prioritization</span>
+    <span>Partner ecosystem navigation</span>
   </div>
 </section>
 
