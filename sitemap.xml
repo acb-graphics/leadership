@@ -11,4 +11,29 @@
       <image:title>Andrea Barros — Design Leadership and DesignOps</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://andreabarros.design/case-studies/home-case-study.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreabarros.design/case-studies/deciem-case-study.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreabarros.design/case-studies/1800flowers-case-study.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreabarros.design/case-studies/cbs-case-study.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreabarros.design/case-studies/honda-parkopedia-case-study.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
